@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <Import Project="..\..\common.props" />
 
@@ -30,7 +30,7 @@
 
   <ItemGroup>
     <PackageReference Include="Volo.Abp.Autofac" Version="6.0.3" />
-    <ProjectReference Include="..\HCN.Application.Contracts\HCN.Application.Contracts.csproj" />
+    <ProjectReference Include="..\HCN.Admin.Application.Contracts\HCN.Admin.Application.Contracts.csproj" />
     <ProjectReference Include="..\HCN.EntityFrameworkCore\HCN.EntityFrameworkCore.csproj" />
   </ItemGroup>
 

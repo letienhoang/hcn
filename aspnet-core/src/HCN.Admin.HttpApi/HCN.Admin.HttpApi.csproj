@@ -4,8 +4,12 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <RootNamespace>HCN</RootNamespace>
+    <RootNamespace>HCN.Admin</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HCN.Admin.Application.Contracts\HCN.Admin.Application.Contracts.csproj" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Volo.Abp.Account.HttpApi" Version="6.0.3" />
