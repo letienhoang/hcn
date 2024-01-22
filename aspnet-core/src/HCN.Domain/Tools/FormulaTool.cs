@@ -3,9 +3,9 @@ using Volo.Abp.Domain.Entities;
 
 namespace HCN.Tools
 {
-    public class ToolFormula : Entity
+    public class FormulaTool : Entity
     {
-        public ToolFormula()
+        public FormulaTool()
         { }
 
         public Guid FormulaId { get; set; }

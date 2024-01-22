@@ -3,9 +3,9 @@ using Volo.Abp.Domain.Entities;
 
 namespace HCN.Materials
 {
-    public class MaterialFormula : Entity
+    public class FormulaMaterial : Entity
     {
-        public MaterialFormula()
+        public FormulaMaterial()
         { }
 
         public Guid FormulaId { get; set; }
