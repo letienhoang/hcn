@@ -1,22 +1,22 @@
 ﻿using System;
 using Volo.Abp.Domain.Entities;
 
-namespace HCN.Tools
+namespace HCN.Formulas
 {
-    public class FormulaTool : Entity
+    public class FormulaMaterial : Entity
     {
-        public FormulaTool()
+        public FormulaMaterial()
         { }
 
         public Guid FormulaId { get; set; }
-        public Guid ToolId { get; set; }
+        public Guid MaterialId { get; set; }
         public decimal Value { get; set; }
         public Guid UnitId { get; set; }
         public string Description { get; set; }
 
         public override object[] GetKeys()
         {
-            return new object[] { FormulaId, ToolId };
+            return new object[] { FormulaId, MaterialId };
         }
     }
 }
