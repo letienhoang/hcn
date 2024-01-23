@@ -19,6 +19,8 @@ namespace HCN.Stories
         public int SortOrder { get; set; }
         public bool Visibility { get; set; }
         public string ReferenceSource { get; set; }
+        public string KeywordSEO { get; set; }
+        public string DescriptionSEO { get; set; }
         public Guid? ParentId { get; set; }
     }
 }
