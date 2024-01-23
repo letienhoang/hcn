@@ -14,7 +14,7 @@ namespace HCN.Stories
         public string Content { get; set; }
         public string ThumbnailPicture { get; set; }
         public string Pictures { get; set; }
-        public int? SortOrder { get; set; }
+        public int SortOrder { get; set; }
         public bool Visibility { get; set; }
         public string ReferenceSource { get; set; }
         public Guid? ParentId { get; set; }
