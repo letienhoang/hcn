@@ -15,6 +15,7 @@ namespace HCN.Formulas
         public Level Level { get; set; }
         public int ExecutionTime { get; set; }
         public string ThumbnailPicture { get; set; }
+        public string BriefContent { get; set; }
         public string Description { get; set; }
         public int Liked { get; set; }
         public int ViewCount { get; set; }
