@@ -13,6 +13,7 @@ export const environment = {
     issuer: 'https://localhost:60000/',
     redirectUri: baseUrl,
     clientId: 'HCN_Admin',
+    dummyClientSecret: '1q2w3e*',
     responseType: 'code',
     scope: 'offline_access HCN.Admin',
     requireHttps: true,
@@ -20,7 +21,7 @@ export const environment = {
   apis: {
     default: {
       url: 'https://localhost:50001',
-      rootNamespace: 'HCN',
+      rootNamespace: 'HCN.Admin',
     },
   },
 } as Environment;
