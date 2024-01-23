@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using HCN.Data;
 using Serilog;
 using Volo.Abp;
+using HCN.Seeding;
 
 namespace HCN.DbMigrator;
 
@@ -35,6 +36,11 @@ public class DbMigratorHostedService : IHostedService
                 .ServiceProvider
                 .GetRequiredService<HCNDbMigrationService>()
                 .MigrateAsync();
+
+            await application
+                .ServiceProvider
+                .GetRequiredService<IdentityDataSeeder>()
+                .SeedAsync("ltienhoang2@gmail.com","Abcd@1234$");
 
             await application.ShutdownAsync();
 
