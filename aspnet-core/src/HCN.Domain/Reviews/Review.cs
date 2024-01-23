@@ -14,8 +14,8 @@ namespace HCN.Reviews
         public Guid? ParentId { get; set; }
         public string Content { get; set; }
         public decimal? Expense { get; set; }
-        public int LikeCount { get; set; }
-        public int ReadCount { get; set; }
+        public int Liked { get; set; }
+        public int ViewCount { get; set; }
         public string Pictures { get; set; }
         public int SortOrder { get; set; }
         public bool Visibility { get; set; }
