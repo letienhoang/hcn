@@ -9,6 +9,10 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
     component: AppLayoutComponent
   },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
+  },
 
   // {
   //   path: 'account',
