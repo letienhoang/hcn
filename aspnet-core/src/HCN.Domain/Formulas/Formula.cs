@@ -12,7 +12,6 @@ namespace HCN.Formulas
         public string Slug { get; set; }
         public string Code { get; set; }
         public Guid CategoryId { get; set; }
-        public string CategoryName { get; set; }
         public Level Level { get; set; }
         public int? ExecutionTime { get; set; }
         public string ThumbnailPicture { get; set; }
