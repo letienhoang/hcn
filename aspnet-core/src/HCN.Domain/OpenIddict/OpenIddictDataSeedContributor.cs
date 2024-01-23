@@ -85,9 +85,16 @@ public class OpenIddictDataSeedContributor : IDataSeedContributor, ITransientDep
             OpenIddictConstants.Permissions.Scopes.Email,
             OpenIddictConstants.Permissions.Scopes.Phone,
             OpenIddictConstants.Permissions.Scopes.Profile,
-            OpenIddictConstants.Permissions.Scopes.Roles,
-            "HCN"
+            OpenIddictConstants.Permissions.Scopes.Roles
         };
+
+        var adminScopes = new List<string>();
+        adminScopes.AddRange(commonScopes);
+        adminScopes.Add("HCN.Admin");
+
+        var clientScopes = new List<string>();
+        clientScopes.AddRange(commonScopes);
+        clientScopes.Add("HCN");
 
         var configurationSection = _configuration.GetSection("OpenIddict:Applications");
 
@@ -95,7 +102,7 @@ public class OpenIddictDataSeedContributor : IDataSeedContributor, ITransientDep
         var adminWebClientId = configurationSection["HCN_Admin:ClientId"];
         if (!adminWebClientId.IsNullOrWhiteSpace())
         {
-            var adminWebClientRootUrl = configurationSection["HCN_Admin:RootUrl"].EnsureEndsWith('/');
+            var adminWebClientRootUrl = configurationSection["HCN_Admin:RootUrl"].TrimEnd('/');
             await CreateApplicationAsync(
                 name: adminWebClientId,
                 type: OpenIddictConstants.ClientTypes.Confidential,
@@ -108,10 +115,31 @@ public class OpenIddictDataSeedContributor : IDataSeedContributor, ITransientDep
                     OpenIddictConstants.GrantTypes.RefreshToken,
                     OpenIddictConstants.GrantTypes.Implicit
                 },
-                scopes: commonScopes,
-                redirectUri: $"{adminWebClientRootUrl}signin-oidc",
+                scopes: adminScopes,
+                redirectUri: adminWebClientRootUrl,
                 clientUri: adminWebClientRootUrl,
-                postLogoutRedirectUri: $"{adminWebClientRootUrl}signout-callback-oidc"
+                postLogoutRedirectUri: adminWebClientRootUrl
+            );
+        }
+
+        //Swagger Client
+        var swaggerClientId = configurationSection["HCN_Admin_Swagger:ClientId"];
+        if (!swaggerClientId.IsNullOrWhiteSpace())
+        {
+            var swaggerRootUrl = configurationSection["HCN_Admin_Swagger:RootUrl"].TrimEnd('/');
+            await CreateApplicationAsync(
+                name: swaggerClientId,
+                type: OpenIddictConstants.ClientTypes.Public,
+                consentType: OpenIddictConstants.ConsentTypes.Implicit,
+                displayName: "Swagger Admin Application",
+                secret: null,
+                grantTypes: new List<string>
+                {
+                    OpenIddictConstants.GrantTypes.AuthorizationCode
+                },
+                scopes: adminScopes,
+                redirectUri: $"{swaggerRootUrl}/swagger/oauth2-redirect.html",
+                clientUri: swaggerRootUrl
             );
         }
 
@@ -134,7 +162,7 @@ public class OpenIddictDataSeedContributor : IDataSeedContributor, ITransientDep
                     OpenIddictConstants.GrantTypes.AuthorizationCode,
                     OpenIddictConstants.GrantTypes.Implicit
                 },
-                scopes: commonScopes,
+                scopes: clientScopes,
                 redirectUri: $"{webClientRootUrl}signin-oidc",
                 clientUri: webClientRootUrl,
                 postLogoutRedirectUri: $"{webClientRootUrl}signout-callback-oidc"

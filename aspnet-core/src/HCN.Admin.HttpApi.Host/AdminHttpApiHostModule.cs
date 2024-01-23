@@ -62,7 +62,7 @@ public class AdminHttpApiHostModule : AbpModule
 
     private void ConfigureCache(IConfiguration configuration)
     {
-        Configure<AbpDistributedCacheOptions>(options => { options.KeyPrefix = "Admin:"; });
+        Configure<AbpDistributedCacheOptions>(options => { options.KeyPrefix = "HCN:"; });
     }
 
     private void ConfigureVirtualFileSystem(ServiceConfigurationContext context)
@@ -104,7 +104,7 @@ public class AdminHttpApiHostModule : AbpModule
             {
                 options.Authority = configuration["AuthServer:Authority"];
                 options.RequireHttpsMetadata = Convert.ToBoolean(configuration["AuthServer:RequireHttpsMetadata"]);
-                options.Audience = "Admin";
+                options.Audience = "HCN.Admin";
             });
     }
 
@@ -114,7 +114,7 @@ public class AdminHttpApiHostModule : AbpModule
             configuration["AuthServer:Authority"],
             new Dictionary<string, string>
             {
-                    {"Admin", "Admin API"}
+                    {"HCN.Admin", "HCN Admin API"}
             },
             options =>
             {
@@ -156,11 +156,11 @@ public class AdminHttpApiHostModule : AbpModule
         IConfiguration configuration,
         IWebHostEnvironment hostingEnvironment)
     {
-        var dataProtectionBuilder = context.Services.AddDataProtection().SetApplicationName("Admin");
+        var dataProtectionBuilder = context.Services.AddDataProtection().SetApplicationName("HCN.Admin");
         if (!hostingEnvironment.IsDevelopment())
         {
             var redis = ConnectionMultiplexer.Connect(configuration["Redis:Configuration"]);
-            dataProtectionBuilder.PersistKeysToStackExchangeRedis(redis, "Admin-Protection-Keys");
+            dataProtectionBuilder.PersistKeysToStackExchangeRedis(redis, "HCNAdmin-Protection-Keys");
         }
     }
 
@@ -229,7 +229,7 @@ public class AdminHttpApiHostModule : AbpModule
 
             var configuration = context.GetConfiguration();
             options.OAuthClientId(configuration["AuthServer:SwaggerClientId"]);
-            options.OAuthScopes("Admin");
+            options.OAuthScopes("HCN.Admin");
         });
 
         app.UseAuditing();

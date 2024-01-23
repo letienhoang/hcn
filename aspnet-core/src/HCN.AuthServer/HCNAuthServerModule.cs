@@ -56,7 +56,7 @@ public class HCNAuthServerModule : AbpModule
         {
             builder.AddValidation(options =>
             {
-                options.AddAudiences("HCN");
+                options.AddAudiences("HCN","HCN.Admin");
                 options.UseLocalServer();
                 options.UseAspNetCore();
             });
