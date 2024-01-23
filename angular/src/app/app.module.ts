@@ -14,12 +14,14 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { APP_ROUTE_PROVIDER } from './route.provider';
+import { AppLayoutModule } from './layout/app.layout.module';
 
 @NgModule({
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    AppLayoutModule,
     CoreModule.forRoot({
       environment,
       registerLocaleFn: registerLocale(),
