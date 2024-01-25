@@ -2,8 +2,23 @@
 
 public static class AdminPermissions
 {
-    public const string GroupName = "Admin";
+    public const string SystemGroupName = "HCNAdminSystem";
+    public const string CatalogGroupName = "HCNAdminCatalog";
 
     //Add your own permission names. Example:
-    //public const string MyPermission1 = GroupName + ".MyPermission1";
+    public static class Formula
+    {
+        public const string Default = CatalogGroupName + ".Formula";
+        public const string Create = Default + ".Create";
+        public const string Update = Default + ".Update";
+        public const string Delete = Default + ".Delete";
+    }
+
+    public static class FormulaCategory
+    {
+        public const string Default = CatalogGroupName + ".FormulaCategory";
+        public const string Create = Default + ".Create";
+        public const string Update = Default + ".Update";
+        public const string Delete = Default + ".Delete";
+    }
 }
