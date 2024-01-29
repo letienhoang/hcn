@@ -1,8 +1,14 @@
 {
   "culture": "vi",
   "texts": {
-    "Menu:Home": "Trang chủ",
-    "Welcome": "Chào mừng bạn",
-    "LongWelcomeMessage": "Chào mừng bạn đến ứng dụng. Đây là một dự án khởi nghiệp dựa trên khung ABP. Để biết thêm thông tin, hãy truy cập abp.io."
+    "Permission:HCNAdminCatalog": "Danh mục",
+    "Permission:HCNAdminCatalog.Formula": "công thức",
+    "Permission:HCNAdminCatalog.Formula.Create": "Tạo mới công thức",
+    "Permission:HCNAdminCatalog.Formula.Update": "Cập nhật công thức",
+    "Permission:HCNAdminCatalog.Formula.Delete": "Xóa công thức",
+    "Permission:HCNAdminCatalog.FormulaCategory": "Loại công thức",
+    "Permission:HCNAdminCatalog.FormulaCategory.Create": "Tạo mới loại công thức",
+    "Permission:HCNAdminCatalog.FormulaCategory.Update": "Cập nhật loại công thức",
+    "Permission:HCNAdminCatalog.FormulaCategory.Delete": "Xóa loại công thức"
   }
 }

@@ -1,8 +1,14 @@
 {
   "culture": "en",
   "texts": {
-    "Menu:Home": "Home",
-    "Welcome": "Welcome",
-    "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io."
+    "Permission:HCNAdminCatalog": "HolwnEcomAdmin Catalog",
+    "Permission:HCNAdminCatalog.Formula": "Formula",
+    "Permission:HCNAdminCatalog.Formula.Create": "Create Formula",
+    "Permission:HCNAdminCatalog.Formula.Update": "Update Formula",
+    "Permission:HCNAdminCatalog.Formula.Delete": "Delete Formula",
+    "Permission:HCNAdminCatalog.FormulaCategory": "Formula Category",
+    "Permission:HCNAdminCatalog.FormulaCategory.Create": "Create Formula Category",
+    "Permission:HCNAdminCatalog.FormulaCategory.Update": "Update Formula Category",
+    "Permission:HCNAdminCatalog.FormulaCategory.Delete": "Delete Formula Category"
   }
 }
