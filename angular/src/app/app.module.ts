@@ -19,6 +19,17 @@ import { DialogService } from 'primeng/dynamicdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { NotificationService } from './shared/services/notification.service';
 import { UtilityService } from './shared/services/utility.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './shared/interceptors/token.interceptor';
+import { GlobalHttpInterceptorService } from './shared/interceptors/error-handler.interceptor';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ToastModule } from 'primeng/toast';
+import { storeLocaleData } from '@abp/ng.core/locale';
+import(
+  /* webpackChunkName: "_locale-your-locale-js"*/
+  /* webpackMode: "eager" */
+  '@angular/common/locales/vi'
+).then((m) => storeLocaleData(m.default, 'vi'));
 
 @NgModule({
   imports: [
@@ -37,9 +48,21 @@ import { UtilityService } from './shared/services/utility.service';
     SettingManagementConfigModule.forRoot(),
     ThemeLeptonXModule.forRoot(),
     SideMenuLayoutModule.forRoot(),
+    ConfirmDialogModule,
+    ToastModule
   ],
   declarations: [AppComponent],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: GlobalHttpInterceptorService,
+      multi: true
+    },
     APP_ROUTE_PROVIDER,
     DialogService,
     MessageService,
