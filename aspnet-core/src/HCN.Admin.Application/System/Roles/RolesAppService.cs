@@ -127,7 +127,7 @@ namespace HCN.Admin.System.Roles
                 Groups = new List<PermissionGroupDto>()
             };
 
-            foreach (var group in PermissionDefinitionManager.GetGroups().Where(x => x.Name.StartsWith("AbpIdentity") || x.Name.StartsWith("HolwnEcomAdmin")))
+            foreach (var group in PermissionDefinitionManager.GetGroups().Where(x => x.Name.StartsWith("AbpIdentity") || x.Name.StartsWith("HCNAdmin")))
             {
                 var groupDto = CreatePermissionGroupDto(group);
 
