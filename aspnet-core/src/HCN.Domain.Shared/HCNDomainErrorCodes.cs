@@ -3,14 +3,14 @@
 public static class HCNDomainErrorCodes
 {
     /* You can add your business exception error codes here, as constants */
-    public const string ProductNameAlreadyExists = "HCN:ProductNameAlreadyExists";
-    public const string ProductCodeAlreadyExists = "HCN:ProductCodeAlreadyExists";
+    public const string FormulaNameAlreadyExists = "HCN:FormulaNameAlreadyExists";
+    public const string FormulaCodeAlreadyExists = "HCN:FormulaCodeAlreadyExists";
+    public const string FormulaSKUAlreadyExists = "HCN:FormulaSKUAlreadyExists";
+    public const string FormulaIsNotExists = "HCN:FormulaIsNotExists";
 
-    public const string ProductSKUAlreadyExists = "HCN:ProductSKUAlreadyExists";
-    public const string ProductIsNotExists = "HCN:ProductIsNotExists";
-    public const string ProductAttributeIdIsNotExists = "HCN:ProductAttributeIdIsNotExists";
-
-    public const string ProductAttributeValueIsNotValid = "HCN:ProductAttributeValueIsNotValid";
+    //Formula Category
+    public const string FormulaCategoryNameAlreadyExists = "HCN:FormulaCategoryNameAlreadyExists";
+    public const string FormulaCategoryIsNotExists = "HCN:FormulaCategoryIsNotExists";
 
     public const string RoleNameAlreadyExists = "HCN:RoleNameAlreadyExists";
 }
