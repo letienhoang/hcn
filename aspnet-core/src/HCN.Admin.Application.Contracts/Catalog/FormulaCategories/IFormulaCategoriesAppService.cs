@@ -16,5 +16,6 @@ namespace HCN.Admin.Catalog.FormulaCategories
         Task<PagedResultDto<FormulaCategoryInListDto>> GetListFilterAsync(BaseListFilterDto input);
         Task<List<FormulaCategoryInListDto>> GetListAllAsync();
         Task DeleteMultipleAsync(IEnumerable<Guid> ids);
+        Task<string> GetThumbnailImageAsync(string fileName);
     }
 }
