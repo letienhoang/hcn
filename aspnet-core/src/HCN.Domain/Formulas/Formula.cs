@@ -13,6 +13,7 @@ namespace HCN.Formulas
         public string Code { get; set; }
         public Guid CategoryId { get; set; }
         public Level Level { get; set; }
+        public FormulaType FormulaType { get; set; }
         public int ExecutionTime { get; set; }
         public string ThumbnailPicture { get; set; }
         public string BriefContent { get; set; }
