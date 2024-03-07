@@ -21,6 +21,6 @@ namespace HCN.Stories
         public string ReferenceSource { get; set; }
         public string KeywordSEO { get; set; }
         public string DescriptionSEO { get; set; }
-        public Guid? ParentId { get; set; }
+        public Guid? TopicId { get; set; }
     }
 }

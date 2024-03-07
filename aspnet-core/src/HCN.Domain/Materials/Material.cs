@@ -16,5 +16,7 @@ namespace HCN.Materials
         public string Pictures { get; set; }
         public string KeywordSEO { get; set; }
         public string DescriptionSEO { get; set; }
+        public Guid? ParentId { get; set; }
+        public bool Visibility { get; set; }
     }
 }

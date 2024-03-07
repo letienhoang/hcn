@@ -21,6 +21,11 @@ namespace HCN.Configurations.Stories
                 .IsUnicode(false)
                 .IsRequired();
 
+            builder.Property(x => x.Code)
+                 .HasMaxLength(128)
+                 .IsUnicode(false)
+                 .IsRequired();
+
             builder.Property(x => x.CoverPicture)
                .HasMaxLength(512);
 

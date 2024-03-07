@@ -10,5 +10,6 @@ namespace HCN.Units
         public string Name { get; set; }
         public UnitType UnitType { get; set; }
         public string BriefContent { get; set; }
+        public bool Visibility { get; set; }
     }
 }

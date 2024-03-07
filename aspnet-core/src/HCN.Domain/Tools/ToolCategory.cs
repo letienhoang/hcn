@@ -14,5 +14,6 @@ namespace HCN.Tools
         public string KeywordSEO { get; set; }
         public string DescriptionSEO { get; set; }
         public Guid? ParentId { get; set; }
+        public bool Visibility { get; set; }
     }
 }

@@ -81,7 +81,6 @@ public class HCNDbContext :
     public DbSet<Tag> Tags { get; set; }
     public DbSet<TagFormula> TagFormulas { get; set; }
     public DbSet<TagMaterial> TagMaterials { get; set; }
-    public DbSet<TagStep> TagSteps { get; set; }
     public DbSet<TagStory> TagStorys { get; set; }
     public DbSet<TagTool> TagTools { get; set; }
     public DbSet<Tool> Tools { get; set; }
@@ -126,7 +125,6 @@ public class HCNDbContext :
         builder.ApplyConfiguration(new TagConfiguration());
         builder.ApplyConfiguration(new TagFormulaConfiguration());
         builder.ApplyConfiguration(new TagMaterialConfiguration());
-        builder.ApplyConfiguration(new TagStepConfiguration());
         builder.ApplyConfiguration(new TagStoryConfiguration());
         builder.ApplyConfiguration(new TagToolConfiguration());
         builder.ApplyConfiguration(new ToolCategoryConfiguration());
