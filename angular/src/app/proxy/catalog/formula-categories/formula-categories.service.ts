@@ -71,6 +71,16 @@ export class FormulaCategoriesService {
     { apiName: this.apiName });
   
 
+  getThumbnailImage = (fileName: string) =>
+    this.restService.request<any, string>({
+      method: 'GET',
+      responseType: 'text',
+      url: '/api/app/formula-categories/thumbnail-image',
+      params: { fileName },
+    },
+    { apiName: this.apiName });
+  
+
   update = (id: string, input: CreateUpdateFormulaCategoryDto) =>
     this.restService.request<any, FormulaCategoryDto>({
       method: 'PUT',
