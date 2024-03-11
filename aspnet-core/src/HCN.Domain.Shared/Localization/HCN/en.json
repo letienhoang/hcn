@@ -9,6 +9,10 @@
     "Permission:HCNAdminCatalog.FormulaCategory": "Formula Category",
     "Permission:HCNAdminCatalog.FormulaCategory.Create": "Create Formula Category",
     "Permission:HCNAdminCatalog.FormulaCategory.Update": "Update Formula Category",
-    "Permission:HCNAdminCatalog.FormulaCategory.Delete": "Delete Formula Category"
+    "Permission:HCNAdminCatalog.FormulaCategory.Delete": "Delete Formula Category",    
+    "Permission:HCNAdminCatalog.MaterialCategory": "Material Category",
+    "Permission:HCNAdminCatalog.MaterialCategory.Create": "Create Material Category",
+    "Permission:HCNAdminCatalog.MaterialCategory.Update": "Update Material Category",
+    "Permission:HCNAdminCatalog.MaterialCategory.Delete": "Delete Material Category"
   }
 }

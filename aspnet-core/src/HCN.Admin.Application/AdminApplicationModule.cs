@@ -37,7 +37,7 @@ public class AdminApplicationModule : AbpModule
             {
                 container.UseFileSystem(fileSystem =>
                 {
-                    fileSystem.BasePath = "C:\\hcn";
+                    fileSystem.BasePath = "D:\\Test\\learnMore\\doc\\Solution\\Resource\\hcn";
                 });
             });
         });

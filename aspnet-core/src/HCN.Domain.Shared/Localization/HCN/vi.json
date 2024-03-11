@@ -9,6 +9,10 @@
     "Permission:HCNAdminCatalog.FormulaCategory": "Loại công thức",
     "Permission:HCNAdminCatalog.FormulaCategory.Create": "Tạo mới loại công thức",
     "Permission:HCNAdminCatalog.FormulaCategory.Update": "Cập nhật loại công thức",
-    "Permission:HCNAdminCatalog.FormulaCategory.Delete": "Xóa loại công thức"
+    "Permission:HCNAdminCatalog.FormulaCategory.Delete": "Xóa loại công thức",
+    "Permission:HCNAdminCatalog.MaterialCategory": "Loại nguyên liệu",
+    "Permission:HCNAdminCatalog.MaterialCategory.Create": "Tạo mới loại nguyên liệu",
+    "Permission:HCNAdminCatalog.MaterialCategory.Update": "Cập nhật loại nguyên liệu",
+    "Permission:HCNAdminCatalog.MaterialCategory.Delete": "Xóa loại nguyên liệu"
   }
 }

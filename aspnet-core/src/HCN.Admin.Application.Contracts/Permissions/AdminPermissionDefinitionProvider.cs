@@ -11,17 +11,23 @@ public class AdminPermissionDefinitionProvider : PermissionDefinitionProvider
         //Catalog
         var catalogGroup = context.AddGroup(AdminPermissions.CatalogGroupName, L("Permission:HCNAdminCatalog"));
 
-        //Add Formula
+        //Formula
         var formulaPermission = catalogGroup.AddPermission(AdminPermissions.Formula.Default, L("Permission:HCNAdminCatalog.Formula"));
         formulaPermission.AddChild(AdminPermissions.Formula.Create, L("Permission:HCNAdminCatalog.Formula.Create"));
         formulaPermission.AddChild(AdminPermissions.Formula.Update, L("Permission:HCNAdminCatalog.Formula.Update"));
         formulaPermission.AddChild(AdminPermissions.Formula.Delete, L("Permission:HCNAdminCatalog.Formula.Delete"));
 
-        //Add Formula category
+        //Formula category
         var formulaCategoryPermission = catalogGroup.AddPermission(AdminPermissions.FormulaCategory.Default, L("Permission:HCNAdminCatalog.FormulaCategory"));
         formulaCategoryPermission.AddChild(AdminPermissions.FormulaCategory.Create, L("Permission:HCNAdminCatalog.FormulaCategory.Create"));
         formulaCategoryPermission.AddChild(AdminPermissions.FormulaCategory.Update, L("Permission:HCNAdminCatalog.FormulaCategory.Update"));
         formulaCategoryPermission.AddChild(AdminPermissions.FormulaCategory.Delete, L("Permission:HCNAdminCatalog.FormulaCategory.Delete"));
+
+        //Material category
+        var materialCategoryPermission = catalogGroup.AddPermission(AdminPermissions.MaterialCategory.Default, L("Permission:HCNAdminCatalog.MaterialCategory"));
+        materialCategoryPermission.AddChild(AdminPermissions.MaterialCategory.Create, L("Permission:HCNAdminCatalog.MaterialCategory.Create"));
+        materialCategoryPermission.AddChild(AdminPermissions.MaterialCategory.Update, L("Permission:HCNAdminCatalog.MaterialCategory.Update"));
+        materialCategoryPermission.AddChild(AdminPermissions.MaterialCategory.Delete, L("Permission:HCNAdminCatalog.MaterialCategory.Delete"));
     }
 
     private static LocalizableString L(string name)

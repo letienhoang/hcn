@@ -1,4 +1,5 @@
 ﻿using HCN.Admin.Permissions;
+using HCN.BlobContainers;
 using HCN.Formulas;
 using Microsoft.AspNetCore.Authorization;
 using System;
@@ -11,7 +12,6 @@ using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.BlobStoring;
 using Volo.Abp.Domain.Repositories;
-using Volo.Abp.ObjectMapping;
 
 namespace HCN.Admin.Catalog.FormulaCategories
 {
@@ -26,6 +26,7 @@ namespace HCN.Admin.Catalog.FormulaCategories
     {
         private readonly IBlobContainer<FormulaCategoryCoverPictureContainer> _blobContainer;
         private readonly FormulaCategoryManager _formulaCategoryManager;
+
         public FormulaCategoriesAppService(IRepository<FormulaCategory, Guid> repository,
             IBlobContainer<FormulaCategoryCoverPictureContainer> blobContainer,
             FormulaCategoryManager formulaCategoryManager
@@ -45,6 +46,14 @@ namespace HCN.Admin.Catalog.FormulaCategories
         [Authorize(AdminPermissions.FormulaCategory.Delete)]
         public async Task DeleteMultipleAsync(IEnumerable<Guid> ids)
         {
+            foreach (var id in ids)
+            {
+                var formulaCategory = await Repository.GetAsync(id);
+                if(!formulaCategory.CoverPicture.IsNullOrEmpty())
+                {
+                    await _blobContainer.DeleteAsync(formulaCategory.CoverPicture);
+                }
+            }
             await Repository.DeleteManyAsync(ids);
             await UnitOfWorkManager.Current.SaveChangesAsync();
         }
@@ -83,7 +92,7 @@ namespace HCN.Admin.Catalog.FormulaCategories
         [Authorize(AdminPermissions.FormulaCategory.Create)]
         public override async Task<FormulaCategoryDto> CreateAsync(CreateUpdateFormulaCategoryDto input)
         {
-            var formulaCategory = await _formulaCategoryManager.CreateAsync(input.Name,input.Slug, input.Description, input.Visibility,
+            var formulaCategory = await _formulaCategoryManager.CreateAsync(input.Name, input.Slug, input.Description, input.Visibility,
             input.KeywordSEO, input.DescriptionSEO, input.ParentId);
             if (input.CoverPictureContent != null && input.CoverPictureContent.Length > 0)
             {
@@ -93,7 +102,7 @@ namespace HCN.Admin.Catalog.FormulaCategories
                 formulaCategory.CoverPicture = coverPictureName;
             }
             var result = await Repository.InsertAsync(formulaCategory);
-            return ObjectMapper.Map<FormulaCategory,FormulaCategoryDto>(result);
+            return ObjectMapper.Map<FormulaCategory, FormulaCategoryDto>(result);
         }
 
         [Authorize(AdminPermissions.FormulaCategory.Update)]

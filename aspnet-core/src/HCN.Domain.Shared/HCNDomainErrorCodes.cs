@@ -11,6 +11,10 @@ public static class HCNDomainErrorCodes
     //Formula Category
     public const string FormulaCategoryNameAlreadyExists = "HCN:FormulaCategoryNameAlreadyExists";
     public const string FormulaCategoryIsNotExists = "HCN:FormulaCategoryIsNotExists";
+    
+    //Material Category
+    public const string MaterialCategoryNameAlreadyExists = "HCN:MaterialCategoryNameAlreadyExists";
+    public const string MaterialCategoryIsNotExists = "HCN:MaterialCategoryIsNotExists";
 
     public const string RoleNameAlreadyExists = "HCN:RoleNameAlreadyExists";
 }

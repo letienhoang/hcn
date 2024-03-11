@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using HCN.Admin.Catalog.FormulaCategories;
+using HCN.Admin.Catalog.MaterialCategories;
 using HCN.Admin.System.Roles;
 using HCN.Admin.System.Users;
 using HCN.Formulas;
+using HCN.Materials;
 using HCN.Roles;
 using Volo.Abp.Identity;
 
@@ -16,6 +18,11 @@ public class AdminApplicationAutoMapperProfile : Profile
         CreateMap<FormulaCategory, FormulaCategoryDto>();
         CreateMap<FormulaCategory, FormulaCategoryInListDto>();
         CreateMap<CreateUpdateFormulaCategoryDto, FormulaCategory>();
+
+        //Material Category
+        CreateMap<MaterialCategory, MaterialCategoryDto>();
+        CreateMap<MaterialCategory, MaterialCategoryInListDto>();
+        CreateMap<CreateUpdateMaterialCategoryDto, MaterialCategory>();
 
         ////Formula
         //CreateMap<Formula, FormulaDto>();

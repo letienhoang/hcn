@@ -1,6 +1,6 @@
 ﻿using Volo.Abp.BlobStoring;
 
-namespace HCN.Formulas
+namespace HCN.BlobContainers
 {
     [BlobContainerName("formula-category-cover-pictures")]
     public class FormulaCategoryCoverPictureContainer
