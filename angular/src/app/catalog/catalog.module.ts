@@ -21,10 +21,14 @@ import { CalendarModule } from 'primeng/calendar';
 import { CatalogRoutingModule } from './catalog-routing.module';
 import { FormulaCategoryComponent } from './formulaCategory/formula-categorycomponent';
 import { FormulaCategoryDetailComponent } from './formulaCategory/formula-category-detail.component';
+import { MaterialCategoryComponent } from './materialCategory/material-categorycomponent';
+import { MaterialCategoryDetailComponent } from './materialCategory/material-category-detail.component';
 @NgModule({
   declarations: [
     FormulaCategoryComponent,
-    FormulaCategoryDetailComponent
+    FormulaCategoryDetailComponent,
+    MaterialCategoryComponent,
+    MaterialCategoryDetailComponent
   ],
   imports: [
     SharedModule,
@@ -49,7 +53,8 @@ import { FormulaCategoryDetailComponent } from './formulaCategory/formula-catego
     CalendarModule,
   ],
   entryComponents: [
-    FormulaCategoryDetailComponent
+    FormulaCategoryDetailComponent,
+    MaterialCategoryDetailComponent
   ],
 })
 export class CatalogModule {}

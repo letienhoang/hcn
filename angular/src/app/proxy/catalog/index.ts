@@ -1,2 +1,3 @@
 import * as FormulaCategories from './formula-categories';
-export { FormulaCategories };
+import * as MaterialCategories from './material-categories';
+export { FormulaCategories, MaterialCategories };

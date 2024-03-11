@@ -35,6 +35,23 @@ export class AppMenuComponent implements OnInit {
         ],
       },
       {
+        label: 'Nguyên liệu',
+        items: [
+          {
+            label: 'Danh sách nguyên liệu',
+            icon: 'pi pi-fw pi-clone',
+            routerLink: ['/catalog/material'],
+            permission: 'HCNAdminCatalog.Material',
+          },
+          {
+            label: 'Danh mục nguyên liệu',
+            icon: 'pi pi-fw pi-clone',
+            routerLink: ['/catalog/material-category'],
+            permission: 'HCNAdminCatalog.MaterialCategory',
+          },
+        ],
+      },
+      {
         label: 'Cài đặt',
         icon: 'pi pi-fw pi-briefcase',
         items: [

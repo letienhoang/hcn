@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PermissionGuard } from '@abp/ng.core';
 import { FormulaCategoryComponent } from './formulaCategory/formula-categorycomponent';
+import { MaterialCategoryComponent } from './materialCategory/material-categorycomponent';
 
 const routes: Routes = [
   {
@@ -10,6 +11,14 @@ const routes: Routes = [
     canActivate: [PermissionGuard],
     data: {
       requiredPolicy: 'HCNAdminCatalog.FormulaCategory',
+    },
+  },
+  {
+    path: 'material-category',
+    component: MaterialCategoryComponent,
+    canActivate: [PermissionGuard],
+    data: {
+      requiredPolicy: 'HCNAdminCatalog.MaterialCategory',
     },
   },
 ];

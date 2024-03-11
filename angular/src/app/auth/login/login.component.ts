@@ -1,6 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { LayoutService } from 'src/app/layout/service/app.layout.service';
 import { LoginReqestDto } from 'src/app/shared/models/login-request.dto';
@@ -35,7 +34,6 @@ export class LoginComponent implements OnDestroy {
       public layoutService: LayoutService,
       private fb: FormBuilder,
       private authService: AuthService,
-      private router: Router,
       private tokenService: TokenStorageService,
       private notificationService: NotificationService
     ) {
@@ -59,7 +57,7 @@ export class LoginComponent implements OnDestroy {
             this.tokenService.saveToken(res.access_token);
             this.tokenService.saveRefreshToken(res.refresh_token);
             this.toggleBlockUI(false);
-            this.router.navigate(['']);
+            location.replace('');
           },
           error: () => {
               this.notificationService.showError("Đăng nhập không đúng.");
