@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PermissionGuard } from '@abp/ng.core';
 import { FormulaCategoryComponent } from './formulaCategory/formula-categorycomponent';
 import { MaterialCategoryComponent } from './materialCategory/material-categorycomponent';
+import { ToolCategoryComponent } from './toolCategory/tool-categorycomponent';
 
 const routes: Routes = [
   {
@@ -19,6 +20,14 @@ const routes: Routes = [
     canActivate: [PermissionGuard],
     data: {
       requiredPolicy: 'HCNAdminCatalog.MaterialCategory',
+    },
+  },
+  {
+    path: 'tool-category',
+    component: ToolCategoryComponent,
+    canActivate: [PermissionGuard],
+    data: {
+      requiredPolicy: 'HCNAdminCatalog.ToolCategory',
     },
   },
 ];

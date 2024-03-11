@@ -23,12 +23,16 @@ import { FormulaCategoryComponent } from './formulaCategory/formula-categorycomp
 import { FormulaCategoryDetailComponent } from './formulaCategory/formula-category-detail.component';
 import { MaterialCategoryComponent } from './materialCategory/material-categorycomponent';
 import { MaterialCategoryDetailComponent } from './materialCategory/material-category-detail.component';
+import { ToolCategoryComponent } from './toolCategory/tool-categorycomponent';
+import { ToolCategoryDetailComponent } from './toolCategory/tool-category-detail.component';
 @NgModule({
   declarations: [
     FormulaCategoryComponent,
     FormulaCategoryDetailComponent,
     MaterialCategoryComponent,
-    MaterialCategoryDetailComponent
+    MaterialCategoryDetailComponent,
+    ToolCategoryComponent,
+    ToolCategoryDetailComponent
   ],
   imports: [
     SharedModule,
@@ -54,7 +58,8 @@ import { MaterialCategoryDetailComponent } from './materialCategory/material-cat
   ],
   entryComponents: [
     FormulaCategoryDetailComponent,
-    MaterialCategoryDetailComponent
+    MaterialCategoryDetailComponent,
+    ToolCategoryDetailComponent
   ],
 })
 export class CatalogModule {}
