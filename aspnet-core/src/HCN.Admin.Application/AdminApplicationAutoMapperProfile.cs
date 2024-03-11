@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
 using HCN.Admin.Catalog.FormulaCategories;
 using HCN.Admin.Catalog.MaterialCategories;
+using HCN.Admin.Catalog.ToolCategories;
 using HCN.Admin.System.Roles;
 using HCN.Admin.System.Users;
 using HCN.Formulas;
 using HCN.Materials;
 using HCN.Roles;
+using HCN.Tools;
 using Volo.Abp.Identity;
 
 namespace HCN.Admin;
@@ -23,6 +25,11 @@ public class AdminApplicationAutoMapperProfile : Profile
         CreateMap<MaterialCategory, MaterialCategoryDto>();
         CreateMap<MaterialCategory, MaterialCategoryInListDto>();
         CreateMap<CreateUpdateMaterialCategoryDto, MaterialCategory>();
+
+        //Tool Category
+        CreateMap<ToolCategory, ToolCategoryDto>();
+        CreateMap<ToolCategory, ToolCategoryInListDto>();
+        CreateMap<CreateUpdateToolCategoryDto, ToolCategory>();
 
         ////Formula
         //CreateMap<Formula, FormulaDto>();

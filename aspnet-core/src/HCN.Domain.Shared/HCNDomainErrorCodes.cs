@@ -14,7 +14,11 @@ public static class HCNDomainErrorCodes
     
     //Material Category
     public const string MaterialCategoryNameAlreadyExists = "HCN:MaterialCategoryNameAlreadyExists";
-    public const string MaterialCategoryIsNotExists = "HCN:MaterialCategoryIsNotExists";
+    public const string MaterialCategoryIsNotExists = "HCN:MaterialCategoryIsNotExists"; 
+    
+    //Tool Category
+    public const string ToolCategoryNameAlreadyExists = "HCN:ToolCategoryNameAlreadyExists";
+    public const string ToolCategoryIsNotExists = "HCN:ToolCategoryIsNotExists";
 
     public const string RoleNameAlreadyExists = "HCN:RoleNameAlreadyExists";
 }

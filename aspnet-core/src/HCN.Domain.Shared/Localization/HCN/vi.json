@@ -13,6 +13,10 @@
     "Permission:HCNAdminCatalog.MaterialCategory": "Loại nguyên liệu",
     "Permission:HCNAdminCatalog.MaterialCategory.Create": "Tạo mới loại nguyên liệu",
     "Permission:HCNAdminCatalog.MaterialCategory.Update": "Cập nhật loại nguyên liệu",
-    "Permission:HCNAdminCatalog.MaterialCategory.Delete": "Xóa loại nguyên liệu"
+    "Permission:HCNAdminCatalog.MaterialCategory.Delete": "Xóa loại nguyên liệu",
+    "Permission:HCNAdminCatalog.ToolCategory": "Loại công cụ",
+    "Permission:HCNAdminCatalog.ToolCategory.Create": "Tạo mới loại công cụ",
+    "Permission:HCNAdminCatalog.ToolCategory.Update": "Cập nhật loại công cụ",
+    "Permission:HCNAdminCatalog.ToolCategory.Delete": "Xóa loại công cụ"
   }
 }

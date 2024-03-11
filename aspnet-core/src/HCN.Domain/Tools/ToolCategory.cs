@@ -7,6 +7,21 @@ namespace HCN.Tools
     {
         public ToolCategory()
         { }
+        public ToolCategory(Guid id, string name, string slug, string coverPicture,
+            string description, string keywordSEO, string descriptionSEO,
+            Guid? parentId, bool visibility)
+        {
+            Id = id;
+            Name = name;
+            Slug = slug;
+            CoverPicture = coverPicture;
+            Description = description;
+            KeywordSEO = keywordSEO;
+            DescriptionSEO = descriptionSEO;
+            ParentId = parentId;
+            Visibility = visibility;
+        }
+
         public string Name { get; set; }
         public string Slug { get; set; }
         public string CoverPicture { get; set; }

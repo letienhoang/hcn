@@ -13,6 +13,10 @@
     "Permission:HCNAdminCatalog.MaterialCategory": "Material Category",
     "Permission:HCNAdminCatalog.MaterialCategory.Create": "Create Material Category",
     "Permission:HCNAdminCatalog.MaterialCategory.Update": "Update Material Category",
-    "Permission:HCNAdminCatalog.MaterialCategory.Delete": "Delete Material Category"
+    "Permission:HCNAdminCatalog.MaterialCategory.Delete": "Delete Material Category",
+    "Permission:HCNAdminCatalog.ToolCategory": "Tool Category",
+    "Permission:HCNAdminCatalog.ToolCategory.Create": "Create Tool Category",
+    "Permission:HCNAdminCatalog.ToolCategory.Update": "Update Tool Category",
+    "Permission:HCNAdminCatalog.ToolCategory.Delete": "Delete Tool Category"
   }
 }
