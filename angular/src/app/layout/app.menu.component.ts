@@ -19,15 +19,16 @@ export class AppMenuComponent implements OnInit {
       },
       {
         label: 'Công thức',
+        icon: 'pi pi-fw pi-clone',
         items: [
           {
-            label: 'Danh sách công thức',
+            label: 'Công thức',
             icon: 'pi pi-fw pi-clone',
             routerLink: ['/catalog/formula'],
             permission: 'HCNAdminCatalog.Formula',
           },
           {
-            label: 'Danh mục công thức',
+            label: 'Danh mục',
             icon: 'pi pi-fw pi-clone',
             routerLink: ['/catalog/formula-category'],
             permission: 'HCNAdminCatalog.FormulaCategory',
@@ -38,13 +39,13 @@ export class AppMenuComponent implements OnInit {
         label: 'Nguyên liệu',
         items: [
           {
-            label: 'Danh sách nguyên liệu',
+            label: 'Nguyên liệu',
             icon: 'pi pi-fw pi-clone',
             routerLink: ['/catalog/material'],
             permission: 'HCNAdminCatalog.Material',
           },
           {
-            label: 'Danh mục nguyên liệu',
+            label: 'Danh mục',
             icon: 'pi pi-fw pi-clone',
             routerLink: ['/catalog/material-category'],
             permission: 'HCNAdminCatalog.MaterialCategory',
@@ -55,16 +56,33 @@ export class AppMenuComponent implements OnInit {
         label: 'Công cụ',
         items: [
           {
-            label: 'Danh sách công cụ',
+            label: 'Công cụ',
             icon: 'pi pi-fw pi-clone',
             routerLink: ['/catalog/tool'],
             permission: 'HCNAdminCatalog.Tool',
           },
           {
-            label: 'Danh mục công cụ',
+            label: 'Danh mục',
             icon: 'pi pi-fw pi-clone',
             routerLink: ['/catalog/tool-category'],
             permission: 'HCNAdminCatalog.ToolCategory',
+          },
+        ],
+      },
+      {
+        label: 'Câu chuyện',
+        items: [
+          {
+            label: 'Câu chuyện',
+            icon: 'pi pi-fw pi-clone',
+            routerLink: ['/catalog/story'],
+            permission: 'HCNAdminCatalog.Story',
+          },
+          {
+            label: 'Chủ đề',
+            icon: 'pi pi-fw pi-clone',
+            routerLink: ['/catalog/topic'],
+            permission: 'HCNAdminCatalog.Topic',
           },
         ],
       },

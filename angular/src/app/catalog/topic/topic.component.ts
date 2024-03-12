@@ -4,20 +4,20 @@ import { DialogService } from 'primeng/dynamicdialog';
 import { Subject, takeUntil } from 'rxjs';
 import { NotificationService } from '../../shared/services/notification.service';
 import { ConfirmationService } from 'primeng/api';
-import { FormulaCategoriesService, FormulaCategoryDto, FormulaCategoryInListDto } from '@proxy/catalog/formula-categories';
-import { FormulaCategoryDetailComponent } from './formula-category-detail.component';
+import { TopicsService, TopicDto, TopicInListDto } from '@proxy/catalog/topics';
+import { TopicDetailComponent } from './topic-detail.component';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-formula-category',
-  templateUrl: './formula-category.component.html',
-  styleUrls: ['./formula-category.component.scss'],
+  selector: 'app-topic',
+  templateUrl: './topic.component.html',
+  styleUrls: ['./topic.component.scss'],
 })
-export class FormulaCategoryComponent implements OnInit, OnDestroy {
+export class TopicComponent implements OnInit, OnDestroy {
   private ngUnsubscribe = new Subject<void>();
   blockedPanel: boolean = false;
-  items: FormulaCategoryInListDto[] = [];
-  public selectedItems: FormulaCategoryInListDto[] = [];
+  items: TopicInListDto[] = [];
+  public selectedItems: TopicInListDto[] = [];
 
   //Paging variables
   public skipCount: number = 0;
@@ -25,12 +25,11 @@ export class FormulaCategoryComponent implements OnInit, OnDestroy {
   public totalCount: number;
 
   //Filter
-  attributecategories: any[] = [];
   keyword: string = '';
   categoryId: string = '';
 
   constructor(
-    private formulaCategoryService: FormulaCategoriesService,
+    private topicService: TopicsService,
     private dialogService: DialogService,
     private notificationService: NotificationService,
     private confirmationService: ConfirmationService,
@@ -48,7 +47,7 @@ export class FormulaCategoryComponent implements OnInit, OnDestroy {
 
   loadData() {
     this.toggleBlockUI(true);
-    this.formulaCategoryService
+    this.topicService
       .getListFilter({
         keyword: this.keyword,
         maxResultCount: this.maxResultCount,
@@ -56,7 +55,7 @@ export class FormulaCategoryComponent implements OnInit, OnDestroy {
       })
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe({
-        next: (response: PagedResultDto<FormulaCategoryInListDto>) => {
+        next: (response: PagedResultDto<TopicInListDto>) => {
           this.items = response.items;
           this.totalCount = response.totalCount;
           this.toggleBlockUI(false);
@@ -74,15 +73,15 @@ export class FormulaCategoryComponent implements OnInit, OnDestroy {
   }
 
   showAddModal() {
-    const ref = this.dialogService.open(FormulaCategoryDetailComponent, {
-      header: 'Thêm mới thuộc tính',
+    const ref = this.dialogService.open(TopicDetailComponent, {
+      header: 'Thêm mới chủ đề',
       width: '70%',
     });
 
-    ref.onClose.subscribe((data: FormulaCategoryDto) => {
+    ref.onClose.subscribe((data: TopicDto) => {
       if (data) {
         this.loadData();
-        this.notificationService.showSuccess('Thêm thuộc tính thành công');
+        this.notificationService.showSuccess('Thêm chủ đề thành công');
         this.selectedItems = [];
       }
     });
@@ -94,18 +93,18 @@ export class FormulaCategoryComponent implements OnInit, OnDestroy {
       return;
     }
     const id = this.selectedItems[0].id;
-    const ref = this.dialogService.open(FormulaCategoryDetailComponent, {
+    const ref = this.dialogService.open(TopicDetailComponent, {
       data: {
         id: id,
       },
-      header: 'Cập nhật thuộc tính',
+      header: 'Cập nhật chủ đề',
       width: '70%',
     });
 
-    ref.onClose.subscribe((data: FormulaCategoryDto) => {
+    ref.onClose.subscribe((data: TopicDto) => {
       if (data) {
         this.loadData();
-        this.notificationService.showSuccess('Cập nhật thuộc tính thành công');
+        this.notificationService.showSuccess('Cập nhật chủ đề thành công');
         this.selectedItems = [];
       }
     });
@@ -130,7 +129,7 @@ export class FormulaCategoryComponent implements OnInit, OnDestroy {
 
   deleteItemsConfirmed(ids: string[]) {
     this.toggleBlockUI(true);
-    this.formulaCategoryService
+    this.topicService
       .deleteMultiple(ids)
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe({

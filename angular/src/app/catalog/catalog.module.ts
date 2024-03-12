@@ -19,12 +19,15 @@ import { ImageModule } from 'primeng/image';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { CalendarModule } from 'primeng/calendar';
 import { CatalogRoutingModule } from './catalog-routing.module';
-import { FormulaCategoryComponent } from './formulaCategory/formula-categorycomponent';
+import { FormulaCategoryComponent } from './formulaCategory/formula-category.component';
 import { FormulaCategoryDetailComponent } from './formulaCategory/formula-category-detail.component';
-import { MaterialCategoryComponent } from './materialCategory/material-categorycomponent';
+import { MaterialCategoryComponent } from './materialCategory/material-category.component';
 import { MaterialCategoryDetailComponent } from './materialCategory/material-category-detail.component';
-import { ToolCategoryComponent } from './toolCategory/tool-categorycomponent';
+import { ToolCategoryComponent } from './toolCategory/tool-category.component';
 import { ToolCategoryDetailComponent } from './toolCategory/tool-category-detail.component';
+import { TopicComponent } from './topic/topic.component';
+import { TopicDetailComponent } from './topic/topic-detail.component';
+
 @NgModule({
   declarations: [
     FormulaCategoryComponent,
@@ -32,7 +35,9 @@ import { ToolCategoryDetailComponent } from './toolCategory/tool-category-detail
     MaterialCategoryComponent,
     MaterialCategoryDetailComponent,
     ToolCategoryComponent,
-    ToolCategoryDetailComponent
+    ToolCategoryDetailComponent,
+    TopicComponent,
+    TopicDetailComponent
   ],
   imports: [
     SharedModule,
@@ -59,7 +64,8 @@ import { ToolCategoryDetailComponent } from './toolCategory/tool-category-detail
   entryComponents: [
     FormulaCategoryDetailComponent,
     MaterialCategoryDetailComponent,
-    ToolCategoryDetailComponent
+    ToolCategoryDetailComponent,
+    TopicDetailComponent
   ],
 })
 export class CatalogModule {}

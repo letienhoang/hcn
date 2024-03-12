@@ -4,20 +4,20 @@ import { DialogService } from 'primeng/dynamicdialog';
 import { Subject, takeUntil } from 'rxjs';
 import { NotificationService } from '../../shared/services/notification.service';
 import { ConfirmationService } from 'primeng/api';
-import { MaterialCategoriesService, MaterialCategoryDto, MaterialCategoryInListDto } from '@proxy/catalog/material-categories';
-import { MaterialCategoryDetailComponent } from './material-category-detail.component';
+import { ToolCategoriesService, ToolCategoryDto, ToolCategoryInListDto } from '@proxy/catalog/tool-categories';
+import { ToolCategoryDetailComponent } from './tool-category-detail.component';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-material-category',
-  templateUrl: './material-category.component.html',
-  styleUrls: ['./material-category.component.scss'],
+  selector: 'app-tool-category',
+  templateUrl: './tool-category.component.html',
+  styleUrls: ['./tool-category.component.scss'],
 })
-export class MaterialCategoryComponent implements OnInit, OnDestroy {
+export class ToolCategoryComponent implements OnInit, OnDestroy {
   private ngUnsubscribe = new Subject<void>();
   blockedPanel: boolean = false;
-  items: MaterialCategoryInListDto[] = [];
-  public selectedItems: MaterialCategoryInListDto[] = [];
+  items: ToolCategoryInListDto[] = [];
+  public selectedItems: ToolCategoryInListDto[] = [];
 
   //Paging variables
   public skipCount: number = 0;
@@ -30,7 +30,7 @@ export class MaterialCategoryComponent implements OnInit, OnDestroy {
   categoryId: string = '';
 
   constructor(
-    private materialCategoryService: MaterialCategoriesService,
+    private toolCategoryService: ToolCategoriesService,
     private dialogService: DialogService,
     private notificationService: NotificationService,
     private confirmationService: ConfirmationService,
@@ -48,7 +48,7 @@ export class MaterialCategoryComponent implements OnInit, OnDestroy {
 
   loadData() {
     this.toggleBlockUI(true);
-    this.materialCategoryService
+    this.toolCategoryService
       .getListFilter({
         keyword: this.keyword,
         maxResultCount: this.maxResultCount,
@@ -56,7 +56,7 @@ export class MaterialCategoryComponent implements OnInit, OnDestroy {
       })
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe({
-        next: (response: PagedResultDto<MaterialCategoryInListDto>) => {
+        next: (response: PagedResultDto<ToolCategoryInListDto>) => {
           this.items = response.items;
           this.totalCount = response.totalCount;
           this.toggleBlockUI(false);
@@ -74,15 +74,15 @@ export class MaterialCategoryComponent implements OnInit, OnDestroy {
   }
 
   showAddModal() {
-    const ref = this.dialogService.open(MaterialCategoryDetailComponent, {
-      header: 'Thêm mới thuộc tính',
+    const ref = this.dialogService.open(ToolCategoryDetailComponent, {
+      header: 'Thêm mới danh mục công cụ',
       width: '70%',
     });
 
-    ref.onClose.subscribe((data: MaterialCategoryDto) => {
+    ref.onClose.subscribe((data: ToolCategoryDto) => {
       if (data) {
         this.loadData();
-        this.notificationService.showSuccess('Thêm thuộc tính thành công');
+        this.notificationService.showSuccess('Thêm danh mục công cụ thành công');
         this.selectedItems = [];
       }
     });
@@ -94,18 +94,18 @@ export class MaterialCategoryComponent implements OnInit, OnDestroy {
       return;
     }
     const id = this.selectedItems[0].id;
-    const ref = this.dialogService.open(MaterialCategoryDetailComponent, {
+    const ref = this.dialogService.open(ToolCategoryDetailComponent, {
       data: {
         id: id,
       },
-      header: 'Cập nhật thuộc tính',
+      header: 'Cập nhật danh mục công cụ',
       width: '70%',
     });
 
-    ref.onClose.subscribe((data: MaterialCategoryDto) => {
+    ref.onClose.subscribe((data: ToolCategoryDto) => {
       if (data) {
         this.loadData();
-        this.notificationService.showSuccess('Cập nhật thuộc tính thành công');
+        this.notificationService.showSuccess('Cập nhật danh mục công cụ thành công');
         this.selectedItems = [];
       }
     });
@@ -130,7 +130,7 @@ export class MaterialCategoryComponent implements OnInit, OnDestroy {
 
   deleteItemsConfirmed(ids: string[]) {
     this.toggleBlockUI(true);
-    this.materialCategoryService
+    this.toolCategoryService
       .deleteMultiple(ids)
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe({

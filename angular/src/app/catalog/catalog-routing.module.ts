@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PermissionGuard } from '@abp/ng.core';
-import { FormulaCategoryComponent } from './formulaCategory/formula-categorycomponent';
-import { MaterialCategoryComponent } from './materialCategory/material-categorycomponent';
-import { ToolCategoryComponent } from './toolCategory/tool-categorycomponent';
+import { FormulaCategoryComponent } from './formulaCategory/formula-category.component';
+import { MaterialCategoryComponent } from './materialCategory/material-category.component';
+import { ToolCategoryComponent } from './toolCategory/tool-category.component';
+import { TopicComponent } from './topic/topic.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,14 @@ const routes: Routes = [
     canActivate: [PermissionGuard],
     data: {
       requiredPolicy: 'HCNAdminCatalog.ToolCategory',
+    },
+  },
+  {
+    path: 'topic',
+    component: TopicComponent,
+    canActivate: [PermissionGuard],
+    data: {
+      requiredPolicy: 'HCNAdminCatalog.Topic',
     },
   },
 ];
