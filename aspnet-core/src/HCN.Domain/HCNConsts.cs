@@ -16,5 +16,8 @@ public static class HCNConsts
     public const string ToolCategoryIdentitySettingPrefix = "TC";
 
     public const string TopicIdentitySettingId = "Topic";
-    public const string TopicIdentitySettingPrefix = "T";
+    public const string TopicIdentitySettingPrefix = "T";    
+    
+    public const string StoryIdentitySettingId = "Story";
+    public const string StoryIdentitySettingPrefix = "S";
 }

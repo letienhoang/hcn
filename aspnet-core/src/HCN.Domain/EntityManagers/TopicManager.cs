@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
+using HCN.Stories;
 using Volo.Abp;
 using Volo.Abp.Domain.Repositories;
 using Volo.Abp.Domain.Services;
 
-namespace HCN.Stories
+namespace HCN.EntityManagers
 {
     public class TopicManager : DomainService
     {

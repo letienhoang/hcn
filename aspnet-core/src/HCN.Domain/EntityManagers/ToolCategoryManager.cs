@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
+using HCN.Tools;
 using Volo.Abp;
 using Volo.Abp.Domain.Repositories;
 using Volo.Abp.Domain.Services;
 
-namespace HCN.Tools
+namespace HCN.EntityManagers
 {
     public class ToolCategoryManager : DomainService
     {

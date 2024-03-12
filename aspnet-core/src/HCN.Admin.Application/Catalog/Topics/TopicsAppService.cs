@@ -1,7 +1,7 @@
 ﻿using HCN.Admin.Permissions;
 using HCN.BlobContainers;
+using HCN.EntityManagers;
 using HCN.Stories;
-using HCN.Topics;
 using Microsoft.AspNetCore.Authorization;
 using System;
 using System.Collections.Generic;
@@ -27,18 +27,18 @@ namespace HCN.Admin.Catalog.Topics
     {
         private readonly IBlobContainer<TopicCoverPictureContainer> _blobContainer;
         private readonly TopicManager _topicManager;
-        private readonly TopicCodeGenerator _topicCodeGenerator;
+        private readonly CodeGenerators _codeGenerators;
 
         public TopicsAppService(IRepository<Topic, Guid> repository,
             IBlobContainer<TopicCoverPictureContainer> blobContainer,
             TopicManager topicManager,
-            TopicCodeGenerator topicCodeGenerator
+            CodeGenerators codeGenerators
             )
             : base(repository)
         {
             _blobContainer = blobContainer;
             _topicManager = topicManager;
-            _topicCodeGenerator = topicCodeGenerator;
+            _codeGenerators = codeGenerators;
 
             GetPolicyName = AdminPermissions.Topic.Default;
             GetListPolicyName = AdminPermissions.Topic.Default;
@@ -154,7 +154,7 @@ namespace HCN.Admin.Catalog.Topics
 
         public async Task<string> GetSuggestNewCodeAsync()
         {
-            return await _topicCodeGenerator.GenerateAsync();
+            return await _codeGenerators.TopicGenerateAsync();
         }
     }
 }

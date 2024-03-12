@@ -1,5 +1,6 @@
 ﻿using HCN.Admin.Permissions;
 using HCN.BlobContainers;
+using HCN.EntityManagers;
 using HCN.Materials;
 using Microsoft.AspNetCore.Authorization;
 using System;

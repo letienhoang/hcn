@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
+using HCN.Materials;
 using Volo.Abp;
 using Volo.Abp.Domain.Repositories;
 using Volo.Abp.Domain.Services;
 
-namespace HCN.Materials
+namespace HCN.EntityManagers
 {
     public class MaterialCategoryManager : DomainService
     {

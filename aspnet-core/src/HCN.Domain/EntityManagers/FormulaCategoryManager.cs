@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
+using HCN.Formulas;
 using Volo.Abp;
 using Volo.Abp.Domain.Repositories;
 using Volo.Abp.Domain.Services;
 
-namespace HCN.Formulas
+namespace HCN.EntityManagers
 {
     public class FormulaCategoryManager : DomainService
     {
