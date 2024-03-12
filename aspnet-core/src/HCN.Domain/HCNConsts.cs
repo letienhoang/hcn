@@ -14,4 +14,7 @@ public static class HCNConsts
 
     public const string ToolCategoryIdentitySettingId = "ToolCategory";
     public const string ToolCategoryIdentitySettingPrefix = "TC";
+
+    public const string TopicIdentitySettingId = "Topic";
+    public const string TopicIdentitySettingPrefix = "T";
 }

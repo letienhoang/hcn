@@ -1,7 +1,7 @@
 {
   "culture": "en",
   "texts": {
-    "Permission:HCNAdminCatalog": "HolwnEcomAdmin Catalog",
+    "Permission:HCNAdminCatalog": "Catalog",
     "Permission:HCNAdminCatalog.Formula": "Formula",
     "Permission:HCNAdminCatalog.Formula.Create": "Create Formula",
     "Permission:HCNAdminCatalog.Formula.Update": "Update Formula",
@@ -17,6 +17,10 @@
     "Permission:HCNAdminCatalog.ToolCategory": "Tool Category",
     "Permission:HCNAdminCatalog.ToolCategory.Create": "Create Tool Category",
     "Permission:HCNAdminCatalog.ToolCategory.Update": "Update Tool Category",
-    "Permission:HCNAdminCatalog.ToolCategory.Delete": "Delete Tool Category"
+    "Permission:HCNAdminCatalog.ToolCategory.Delete": "Delete Tool Category",
+    "Permission:HCNAdminCatalog.Topic": "Topic",
+    "Permission:HCNAdminCatalog.Topic.Create": "Create Topic",
+    "Permission:HCNAdminCatalog.Topic.Update": "Update Topic",
+    "Permission:HCNAdminCatalog.Topic.Delete": "Delete Topic"
   }
 }

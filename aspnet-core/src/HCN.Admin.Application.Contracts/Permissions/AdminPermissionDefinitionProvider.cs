@@ -34,6 +34,12 @@ public class AdminPermissionDefinitionProvider : PermissionDefinitionProvider
         toolCategoryPermission.AddChild(AdminPermissions.ToolCategory.Create, L("Permission:HCNAdminCatalog.ToolCategory.Create"));
         toolCategoryPermission.AddChild(AdminPermissions.ToolCategory.Update, L("Permission:HCNAdminCatalog.ToolCategory.Update"));
         toolCategoryPermission.AddChild(AdminPermissions.ToolCategory.Delete, L("Permission:HCNAdminCatalog.ToolCategory.Delete"));
+
+        //Topic
+        var topicPermission = catalogGroup.AddPermission(AdminPermissions.Topic.Default, L("Permission:HCNAdminCatalog.Topic"));
+        topicPermission.AddChild(AdminPermissions.Topic.Create, L("Permission:HCNAdminCatalog.Topic.Create"));
+        topicPermission.AddChild(AdminPermissions.Topic.Update, L("Permission:HCNAdminCatalog.Topic.Update"));
+        topicPermission.AddChild(AdminPermissions.Topic.Delete, L("Permission:HCNAdminCatalog.Topic.Delete"));
     }
 
     private static LocalizableString L(string name)

@@ -19,6 +19,11 @@ public static class HCNDomainErrorCodes
     //Tool Category
     public const string ToolCategoryNameAlreadyExists = "HCN:ToolCategoryNameAlreadyExists";
     public const string ToolCategoryIsNotExists = "HCN:ToolCategoryIsNotExists";
+    
+    //Topic
+    public const string TopicNameAlreadyExists = "HCN:TopicNameAlreadyExists";
+    public const string TopicCodeAlreadyExists = "HCN:TopicCodeAlreadyExists";
+    public const string TopicIsNotExists = "HCN:TopicIsNotExists";
 
     public const string RoleNameAlreadyExists = "HCN:RoleNameAlreadyExists";
 }
