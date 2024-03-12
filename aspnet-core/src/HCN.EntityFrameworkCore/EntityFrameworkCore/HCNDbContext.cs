@@ -1,4 +1,5 @@
 ﻿using HCN.Configurations.Formulas;
+using HCN.Configurations.IdentitySettings;
 using HCN.Configurations.Materials;
 using HCN.Configurations.Reviews;
 using HCN.Configurations.Stories;
@@ -6,6 +7,7 @@ using HCN.Configurations.Tags;
 using HCN.Configurations.Tools;
 using HCN.Configurations.Units;
 using HCN.Formulas;
+using HCN.IdentitySettings;
 using HCN.Materials;
 using HCN.Reviews;
 using HCN.Stories;
@@ -70,9 +72,10 @@ public class HCNDbContext :
     // HCN Entities
     public DbSet<Formula> Formulas { get; set; }
     public DbSet<FormulaCategory> FormulaCategories { get; set; }
-    public DbSet<FormulaMaterial> MaterialFormulas { get; set; }
+    public DbSet<FormulaMaterial> FormulaMaterials { get; set; }
     public DbSet<FormulaStep> FormulaSteps { get; set; }
-    public DbSet<FormulaTool> ToolFormulas { get; set; }
+    public DbSet<FormulaTool> FormulaTools { get; set; }
+    public DbSet<IdentitySetting> IdentitySettings { get; set; }
     public DbSet<Material> Materials { get; set; }
     public DbSet<MaterialCategory> MaterialCategories { get; set; }
     public DbSet<Review> Reviews { get; set; }
@@ -117,6 +120,7 @@ public class HCNDbContext :
         builder.ApplyConfiguration(new FormulaMaterialConfiguration());
         builder.ApplyConfiguration(new FormulaStepConfiguration());
         builder.ApplyConfiguration(new FormulaToolConfiguration());
+        builder.ApplyConfiguration(new IdentitySettingConfiguration());
         builder.ApplyConfiguration(new MaterialCategoryConfiguration());
         builder.ApplyConfiguration(new MaterialConfiguration());
         builder.ApplyConfiguration(new ReviewConfiguration());

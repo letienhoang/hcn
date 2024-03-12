@@ -4,6 +4,7 @@ using HCN.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Volo.Abp.EntityFrameworkCore;
 
@@ -12,9 +13,10 @@ using Volo.Abp.EntityFrameworkCore;
 namespace HCN.Migrations
 {
     [DbContext(typeof(HCNDbContext))]
-    partial class HCNDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240311105708_CreateTable_IdentitySetting_And_UpdateNameSomeTable")]
+    partial class CreateTable_IdentitySetting_And_UpdateNameSomeTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
