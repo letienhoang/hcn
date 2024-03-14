@@ -109,7 +109,7 @@ namespace HCN.Admin.Catalog.MaterialCategories
         [Authorize(AdminPermissions.MaterialCategory.Update)]
         public override async Task<MaterialCategoryDto> UpdateAsync(Guid id, CreateUpdateMaterialCategoryDto input)
         {
-            var MaterialCategory = await Repository.GetAsync(id);
+            var MaterialCategory = await _materialCategoryManager.GetUpdateAsync(id, input.Name);
             if (MaterialCategory == null)
                 throw new BusinessException(HCNDomainErrorCodes.MaterialCategoryIsNotExists);
             MaterialCategory.Name = input.Name;

@@ -31,5 +31,20 @@ namespace HCN.EntityManagers
 
             return new Topic(Guid.NewGuid(), name, slug, code, null, description, keywordSEO, descriptionSEO, parentId, visibility);
         }
+
+        public async Task<Topic> GetUpdateAsync(Guid id, string name, string code)
+        {
+            if (await _topicRepository.AnyAsync(x => x.Name == name))
+            {
+                throw new UserFriendlyException("Tên chủ đề đã tồn tại", HCNDomainErrorCodes.TopicNameAlreadyExists);
+            }
+
+            if (await _topicRepository.AnyAsync(x => x.Code == code))
+            {
+                throw new UserFriendlyException("Mã chủ đề đã tồn tại", HCNDomainErrorCodes.TopicCodeAlreadyExists);
+            }
+
+            return await _topicRepository.GetAsync(id);
+        }
     }
 }

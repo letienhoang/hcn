@@ -27,5 +27,15 @@ namespace HCN.EntityManagers
 
             return new FormulaCategory(Guid.NewGuid(), name, slug, null, description, visibility, keywordSEO, descriptionSEO, parentId);
         }
+
+        public async Task<FormulaCategory> GetUpdateAsync(Guid id, string name)
+        {
+            if (await _formulaCategoryRepository.AnyAsync(x => x.Name == name && x.Id != id))
+            {
+                throw new UserFriendlyException("Tên danh mục đã tồn tại", HCNDomainErrorCodes.FormulaCategoryNameAlreadyExists);
+            }
+
+            return await _formulaCategoryRepository.GetAsync(id);
+        }
     }
 }

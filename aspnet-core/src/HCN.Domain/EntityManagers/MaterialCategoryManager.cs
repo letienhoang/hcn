@@ -27,5 +27,15 @@ namespace HCN.EntityManagers
 
             return new MaterialCategory(Guid.NewGuid(), name, slug, null, description, keywordSEO, descriptionSEO, parentId, visibility);
         }
+
+        public async Task<MaterialCategory> GetUpdateAsync(Guid id, string name)
+        {
+            if (await _materialCategoryRepository.AnyAsync(x => x.Name == name && x.Id != id))
+            {
+                throw new UserFriendlyException("Tên danh mục đã tồn tại", HCNDomainErrorCodes.MaterialCategoryNameAlreadyExists);
+            }
+
+            return await _materialCategoryRepository.GetAsync(id);
+        }
     }
 }

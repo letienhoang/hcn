@@ -112,7 +112,7 @@ namespace HCN.Admin.Catalog.Topics
         [Authorize(AdminPermissions.Topic.Update)]
         public override async Task<TopicDto> UpdateAsync(Guid id, CreateUpdateTopicDto input)
         {
-            var topic = await Repository.GetAsync(id);
+            var topic = await _topicManager.GetUpdateAsync(id, input.Name, input.Code);
             if (topic == null)
                 throw new BusinessException(HCNDomainErrorCodes.TopicIsNotExists);
             topic.Name = input.Name;

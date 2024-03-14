@@ -27,5 +27,15 @@ namespace HCN.EntityManagers
 
             return new ToolCategory(Guid.NewGuid(), name, slug, null, description, keywordSEO, descriptionSEO, parentId, visibility);
         }
+
+        public async Task<ToolCategory> GetUpdateAsync(Guid id, string name)
+        {
+            if (await _toolCategoryRepository.AnyAsync(x => x.Name == name && x.Id != id))
+            {
+                throw new UserFriendlyException("Tên danh mục đã tồn tại", HCNDomainErrorCodes.ToolCategoryNameAlreadyExists);
+            }
+
+            return await _toolCategoryRepository.GetAsync(id);
+        }
     }
 }

@@ -109,7 +109,7 @@ namespace HCN.Admin.Catalog.FormulaCategories
         [Authorize(AdminPermissions.FormulaCategory.Update)]
         public override async Task<FormulaCategoryDto> UpdateAsync(Guid id, CreateUpdateFormulaCategoryDto input)
         {
-            var formulaCategory = await Repository.GetAsync(id);
+            var formulaCategory = await _formulaCategoryManager.GetUpdateAsync(id, input.Name);
             if (formulaCategory == null)
                 throw new BusinessException(HCNDomainErrorCodes.FormulaCategoryIsNotExists);
             formulaCategory.Name = input.Name;

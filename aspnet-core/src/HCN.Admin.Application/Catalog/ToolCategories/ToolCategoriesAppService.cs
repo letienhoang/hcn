@@ -109,7 +109,7 @@ namespace HCN.Admin.Catalog.ToolCategories
         [Authorize(AdminPermissions.ToolCategory.Update)]
         public override async Task<ToolCategoryDto> UpdateAsync(Guid id, CreateUpdateToolCategoryDto input)
         {
-            var ToolCategory = await Repository.GetAsync(id);
+            var ToolCategory = await _materialCategoryManager.GetUpdateAsync(id, input.Name);
             if (ToolCategory == null)
                 throw new BusinessException(HCNDomainErrorCodes.ToolCategoryIsNotExists);
             ToolCategory.Name = input.Name;
