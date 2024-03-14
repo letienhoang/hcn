@@ -44,4 +44,11 @@ public static class AdminPermissions
         public const string Update = Default + ".Update";
         public const string Delete = Default + ".Delete";
     }
+    public static class Tag
+    {
+        public const string Default = CatalogGroupName + ".Tag";
+        public const string Create = Default + ".Create";
+        public const string Update = Default + ".Update";
+        public const string Delete = Default + ".Delete";
+    }
 }

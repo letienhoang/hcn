@@ -40,6 +40,11 @@ public class AdminPermissionDefinitionProvider : PermissionDefinitionProvider
         topicPermission.AddChild(AdminPermissions.Topic.Create, L("Permission:HCNAdminCatalog.Topic.Create"));
         topicPermission.AddChild(AdminPermissions.Topic.Update, L("Permission:HCNAdminCatalog.Topic.Update"));
         topicPermission.AddChild(AdminPermissions.Topic.Delete, L("Permission:HCNAdminCatalog.Topic.Delete"));
+        //Tag
+        var tagPermission = catalogGroup.AddPermission(AdminPermissions.Tag.Default, L("Permission:HCNAdminCatalog.Tag"));
+        tagPermission.AddChild(AdminPermissions.Tag.Create, L("Permission:HCNAdminCatalog.Tag.Create"));
+        tagPermission.AddChild(AdminPermissions.Tag.Update, L("Permission:HCNAdminCatalog.Tag.Update"));
+        tagPermission.AddChild(AdminPermissions.Tag.Delete, L("Permission:HCNAdminCatalog.Tag.Delete"));
     }
 
     private static LocalizableString L(string name)

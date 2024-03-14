@@ -156,7 +156,6 @@ export class FormulaCategoryDetailComponent implements OnInit, OnDestroy {
       { type: 'required', message: 'Bạn phải nhập slug' },
       { type: 'maxLength', message: 'Bạn không được nhập quá 256 kí tự' },
     ],
-    coverPicture: [{ type: 'maxLength', message: 'Bạn không được nhập quá 512 kí tự' }],
     keywordSEO: [{ type: 'maxLength', message: 'Bạn không được nhập quá 512 kí tự' }],
     descriptionSEO: [{ type: 'maxLength', message: 'Bạn không được nhập quá 1024 kí tự' }],
   };

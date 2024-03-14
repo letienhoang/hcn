@@ -25,5 +25,9 @@ public static class HCNDomainErrorCodes
     public const string TopicCodeAlreadyExists = "HCN:TopicCodeAlreadyExists";
     public const string TopicIsNotExists = "HCN:TopicIsNotExists";
 
+    //Tag
+    public const string TagNameAlreadyExists = "HCN:TagNameAlreadyExists";
+    public const string TagIsNotExists = "HCN:TagIsNotExists";
+
     public const string RoleNameAlreadyExists = "HCN:RoleNameAlreadyExists";
 }

@@ -21,6 +21,10 @@
     "Permission:HCNAdminCatalog.Topic": "Chủ đề",
     "Permission:HCNAdminCatalog.Topic.Create": "Tạo mới chủ đề",
     "Permission:HCNAdminCatalog.Topic.Update": "Cập nhật chủ đề",
-    "Permission:HCNAdminCatalog.Topic.Delete": "Xóa chủ đề"
+    "Permission:HCNAdminCatalog.Topic.Delete": "Xóa chủ đề",
+    "Permission:HCNAdminCatalog.Tag": "Thẻ",
+    "Permission:HCNAdminCatalog.Tag.Create": "Tạo mới thẻ",
+    "Permission:HCNAdminCatalog.Tag.Update": "Cập nhật thẻ",
+    "Permission:HCNAdminCatalog.Tag.Delete": "Xóa thẻ"
   }
 }

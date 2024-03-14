@@ -1,0 +1,34 @@
+<form [formGroup]="form" skipValidation (ngSubmit)="saveChange()">
+    <p-panel #pnl header="Chi tiết thuộc tính">
+        <!--Form grid-->
+        <div class="formgrid grid">
+
+            <div class="field col-12">
+                <label for="name" class="block">Tên danh mục <span class="required">*</span></label>
+                <input id="name" pInputText type="text" (keyup)="generateSlug()" class="w-full" formControlName="name"/>
+                <app-validation-message [entityForm]="form" fieldName="name" [validationMessages]="validationMessages"></app-validation-message>
+            </div>
+            
+            <div class="field col-12">
+                <label for="slug" class="block">Slug <span class="required">*</span></label>
+                <input id="slug" pInputText type="text" class="w-full" formControlName="slug"/>
+                <app-validation-message [entityForm]="form" fieldName="slug" [validationMessages]="validationMessages"></app-validation-message>
+            </div>
+            
+            <div class="field-checkbox col-12 md:col-3">
+                <p-checkbox formControlName="visibility" binary="true" id="visibility"></p-checkbox>
+                <label for="visibility">Hiển thị</label>
+            </div>
+
+        </div>
+    
+        <ng-template pTemplate="footer">
+            <button type="submit" [disabled]="!form.valid || btnDisabled" pButton icon="pi pi-save" iconPos="left" label="Lưu lại"></button>
+        </ng-template>
+        
+        <!--BlockUI-->
+        <p-blockUI [blocked]="blockedPanel" [target]="pnl">
+            <p-progressSpinner [style]="{width: '50px', height: '50px'}" styleClass="custom-spinner" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s"></p-progressSpinner>
+        </p-blockUI>
+    </p-panel>
+</form>
