@@ -1,10 +1,11 @@
 ﻿using HCN.IdentitySettings;
 using System.Threading.Tasks;
+using Volo.Abp.DependencyInjection;
 using Volo.Abp.Domain.Repositories;
 
 namespace HCN.EntityManagers;
 
-public class CodeGenerators
+public class CodeGenerators : ITransientDependency
 {
     private readonly IRepository<IdentitySetting, string> _identitySettingRepository;
 
@@ -35,10 +36,10 @@ public class CodeGenerators
     public async Task<string> StoryGenerateAsync()
     {
         string newCode;
-        var identitySetting = await _identitySettingRepository.FindAsync(HCNConsts.TopicIdentitySettingId);
+        var identitySetting = await _identitySettingRepository.FindAsync(HCNConsts.StoryIdentitySettingId);
         if (identitySetting == null)
         {
-            identitySetting = await _identitySettingRepository.InsertAsync(new IdentitySetting(HCNConsts.TopicIdentitySettingId, "Câu chuyện", HCNConsts.TopicIdentitySettingPrefix, 1, 1));
+            identitySetting = await _identitySettingRepository.InsertAsync(new IdentitySetting(HCNConsts.StoryIdentitySettingId, "Câu chuyện", HCNConsts.StoryIdentitySettingPrefix, 1, 1));
             newCode = identitySetting.Prefix + identitySetting.CurrentNumber;
         }
         else

@@ -7,6 +7,28 @@ namespace HCN.Stories
     {
         public Story()
         { }
+        public Story(Guid id, string title, string slug, string code, string briefContent, string content, 
+            string thumnailPicture, string pictures, int liked, int viewCount, int sortOrder, bool visibility,
+            string referenceSource, string keywordSEO, string descriptionSEO, Guid? topicId)
+        {
+            Id = id;
+            Title = title;
+            Slug = slug;
+            Code = code;
+            BriefContent = briefContent;
+            Content = content;
+            ThumbnailPicture = thumnailPicture;
+            Pictures = pictures;
+            Liked = liked;
+            ViewCount = viewCount;
+            SortOrder = sortOrder;
+            Visibility = visibility;
+            ReferenceSource = referenceSource;
+            KeywordSEO = keywordSEO;
+            DescriptionSEO = descriptionSEO;
+            TopicId = topicId;
+        }
+
         public string Title { get; set; }
         public string Slug { get; set; }
         public string Code { get; set; }

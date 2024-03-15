@@ -40,6 +40,13 @@ public class AdminPermissionDefinitionProvider : PermissionDefinitionProvider
         topicPermission.AddChild(AdminPermissions.Topic.Create, L("Permission:HCNAdminCatalog.Topic.Create"));
         topicPermission.AddChild(AdminPermissions.Topic.Update, L("Permission:HCNAdminCatalog.Topic.Update"));
         topicPermission.AddChild(AdminPermissions.Topic.Delete, L("Permission:HCNAdminCatalog.Topic.Delete"));
+
+        //Story
+        var storyPermission = catalogGroup.AddPermission(AdminPermissions.Story.Default, L("Permission:HCNAdminCatalog.Story"));
+        storyPermission.AddChild(AdminPermissions.Story.Create, L("Permission:HCNAdminCatalog.Story.Create"));
+        storyPermission.AddChild(AdminPermissions.Story.Update, L("Permission:HCNAdminCatalog.Story.Update"));
+        storyPermission.AddChild(AdminPermissions.Story.Delete, L("Permission:HCNAdminCatalog.Story.Delete"));
+
         //Tag
         var tagPermission = catalogGroup.AddPermission(AdminPermissions.Tag.Default, L("Permission:HCNAdminCatalog.Tag"));
         tagPermission.AddChild(AdminPermissions.Tag.Create, L("Permission:HCNAdminCatalog.Tag.Create"));

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using HCN.Admin.Catalog.FormulaCategories;
 using HCN.Admin.Catalog.MaterialCategories;
+using HCN.Admin.Catalog.Stories;
 using HCN.Admin.Catalog.Tags;
 using HCN.Admin.Catalog.ToolCategories;
 using HCN.Admin.Catalog.Topics;
@@ -35,12 +36,16 @@ public class AdminApplicationAutoMapperProfile : Profile
         CreateMap<ToolCategory, ToolCategoryInListDto>();
         CreateMap<CreateUpdateToolCategoryDto, ToolCategory>();
 
-
         //Topic
         CreateMap<Topic, TopicDto>();
         CreateMap<Topic, TopicInListDto>();
         CreateMap<CreateUpdateTopicDto, Topic>();
-
+        
+        //Story
+        CreateMap<Story, StoryDto>();
+        CreateMap<Story, StoryInListDto>();
+        CreateMap<CreateUpdateStoryDto, Story>();
+        
         //Tag
         CreateMap<Tag, TagDto>();
         CreateMap<Tag, TagInListDto>();

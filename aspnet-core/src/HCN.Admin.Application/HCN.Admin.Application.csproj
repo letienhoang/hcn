@@ -10,6 +10,7 @@
   <ItemGroup>
     <ProjectReference Include="..\HCN.Domain\HCN.Domain.csproj" />
     <ProjectReference Include="..\HCN.Admin.Application.Contracts\HCN.Admin.Application.Contracts.csproj" />
+    <ProjectReference Include="..\HCN.EntityFrameworkCore\HCN.EntityFrameworkCore.csproj" />
   </ItemGroup>
 
   <ItemGroup>

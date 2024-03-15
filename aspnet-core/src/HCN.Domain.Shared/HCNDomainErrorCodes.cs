@@ -3,6 +3,7 @@
 public static class HCNDomainErrorCodes
 {
     /* You can add your business exception error codes here, as constants */
+    //Formula
     public const string FormulaNameAlreadyExists = "HCN:FormulaNameAlreadyExists";
     public const string FormulaCodeAlreadyExists = "HCN:FormulaCodeAlreadyExists";
     public const string FormulaSKUAlreadyExists = "HCN:FormulaSKUAlreadyExists";
@@ -24,6 +25,11 @@ public static class HCNDomainErrorCodes
     public const string TopicNameAlreadyExists = "HCN:TopicNameAlreadyExists";
     public const string TopicCodeAlreadyExists = "HCN:TopicCodeAlreadyExists";
     public const string TopicIsNotExists = "HCN:TopicIsNotExists";
+
+    //Story
+    public const string StoryNameAlreadyExists = "HCN:StoryNameAlreadyExists";
+    public const string StoryCodeAlreadyExists = "HCN:StoryCodeAlreadyExists";
+    public const string StoryIsNotExists = "HCN:StoryIsNotExists";
 
     //Tag
     public const string TagNameAlreadyExists = "HCN:TagNameAlreadyExists";
