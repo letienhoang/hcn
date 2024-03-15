@@ -1,4 +1,4 @@
-<p-panel header="Danh sách chủ đề câu chuyện">
+<p-panel header="Danh sách câu chuyện">
     <!--Filter (search panel)-->
     <div class="grid">
         <div class="col-4">
@@ -12,6 +12,9 @@
                     <label for="txt-keyword" class="p-sr-only">Từ khóa</label>
                     <input id="txt-keyword" (keypress)="loadData()" [(ngModel)]="keyword" pInputText type="text" placeholder="Gõ từ khóa">
                 </div>
+                <div class="field">
+                    <p-dropdown [options]="topics" [(ngModel)]="topicId" placeholder="Chọn chủ đề"></p-dropdown>
+                </div>
                 <button type="button" pButton icon="pi pi-search" iconPos="left" label="Tìm" (click)="loadData()"></button>
             </div>
         </div>
@@ -23,9 +26,13 @@
                 <th style="width: 10px;">
                     <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                 </th>
-                <th>Tên chủ đề</th>
-                <th style="width: 100px;">Mã chủ đề</th>
+                <th>Tiêu đề</th>
+                <th style="width: 100px;">Mã câu chuyện</th>
+                <th style="width: 100px;">Lượt thích</th>
+                <th style="width: 100px;">Lượt xem</th>
+                <th style="width: 100px;">Sắp xếp</th>
                 <th>Hiện thị</th>
+                <th></th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-row>
@@ -35,9 +42,15 @@
                 </td>
                 <td>{{ row.name }}</td>
                 <td>{{ row.code }}</td>
+                <td>{{ row.liked }}</td>
+                <td>{{ row.viewCount }}</td>
+                <td>{{ row.sortOrder }}</td>
                 <td>
                     <p-badge *ngIf="row.visibility" severity="success" value="Hiện thị"></p-badge>
                     <p-badge *ngIf="!row.visibility" severity="danger" value="Ẩn"></p-badge>
+                </td>
+                <td>
+                    <button pButton pRipple type="button" class="p-button-text" (click)="manageStoryTag(row.id)" icon="pi pi-pencil" label="Thuộc tính"></button>
                 </td>
             </tr>
         </ng-template>

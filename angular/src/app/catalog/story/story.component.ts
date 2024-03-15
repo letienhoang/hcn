@@ -4,19 +4,22 @@ import { DialogService } from 'primeng/dynamicdialog';
 import { Subject, takeUntil } from 'rxjs';
 import { NotificationService } from '../../shared/services/notification.service';
 import { ConfirmationService } from 'primeng/api';
-import { TopicsService, TopicDto, TopicInListDto } from '@proxy/catalog/topics';
-import { TopicDetailComponent } from './topic-detail.component';
+import { StoriesService, StoryDto, StoryInListDto } from '@proxy/catalog/stories';
+import { StoryDetailComponent } from './story-detail.component';
+import { TopicInListDto, TopicsService } from '@proxy/catalog/topics';
+import { StoryTagComponent } from './story-tag.component';
+import { TagInListDto } from '@proxy/catalog/tags';
 
 @Component({
-  selector: 'app-topic',
-  templateUrl: './topic.component.html',
-  styleUrls: ['./topic.component.scss'],
+  selector: 'app-story',
+  templateUrl: './story.component.html',
+  styleUrls: ['./story.component.scss'],
 })
-export class TopicComponent implements OnInit, OnDestroy {
+export class StoryComponent implements OnInit, OnDestroy {
   private ngUnsubscribe = new Subject<void>();
   blockedPanel: boolean = false;
-  items: TopicInListDto[] = [];
-  public selectedItems: TopicInListDto[] = [];
+  items: StoryInListDto[] = [];
+  public selectedItems: StoryInListDto[] = [];
 
   //Paging variables
   public skipCount: number = 0;
@@ -24,10 +27,12 @@ export class TopicComponent implements OnInit, OnDestroy {
   public totalCount: number;
 
   //Filter
+  topics: any[] = [];
   keyword: string = '';
-  categoryId: string = '';
+  topicId: string = '';
 
   constructor(
+    private storyService: StoriesService,
     private topicService: TopicsService,
     private dialogService: DialogService,
     private notificationService: NotificationService,
@@ -40,20 +45,22 @@ export class TopicComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.loadTopics();
     this.loadData();
   }
 
   loadData() {
     this.toggleBlockUI(true);
-    this.topicService
+    this.storyService
       .getListFilter({
         keyword: this.keyword,
+        topicId: this.topicId,
         maxResultCount: this.maxResultCount,
         skipCount: this.skipCount,
       })
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe({
-        next: (response: PagedResultDto<TopicInListDto>) => {
+        next: (response: PagedResultDto<StoryInListDto>) => {
           this.items = response.items;
           this.totalCount = response.totalCount;
           this.toggleBlockUI(false);
@@ -71,15 +78,15 @@ export class TopicComponent implements OnInit, OnDestroy {
   }
 
   showAddModal() {
-    const ref = this.dialogService.open(TopicDetailComponent, {
-      header: 'Thêm mới chủ đề',
+    const ref = this.dialogService.open(StoryDetailComponent, {
+      header: 'Thêm mới câu chuyện',
       width: '70%',
     });
 
-    ref.onClose.subscribe((data: TopicDto) => {
+    ref.onClose.subscribe((data: StoryDto) => {
       if (data) {
         this.loadData();
-        this.notificationService.showSuccess('Thêm chủ đề thành công');
+        this.notificationService.showSuccess('Thêm câu chuyện thành công');
         this.selectedItems = [];
       }
     });
@@ -91,18 +98,18 @@ export class TopicComponent implements OnInit, OnDestroy {
       return;
     }
     const id = this.selectedItems[0].id;
-    const ref = this.dialogService.open(TopicDetailComponent, {
+    const ref = this.dialogService.open(StoryDetailComponent, {
       data: {
         id: id,
       },
-      header: 'Cập nhật chủ đề',
+      header: 'Cập nhật câu chuyện',
       width: '70%',
     });
 
-    ref.onClose.subscribe((data: TopicDto) => {
+    ref.onClose.subscribe((data: StoryDto) => {
       if (data) {
         this.loadData();
-        this.notificationService.showSuccess('Cập nhật chủ đề thành công');
+        this.notificationService.showSuccess('Cập nhật câu chuyện thành công');
         this.selectedItems = [];
       }
     });
@@ -127,7 +134,7 @@ export class TopicComponent implements OnInit, OnDestroy {
 
   deleteItemsConfirmed(ids: string[]) {
     this.toggleBlockUI(true);
-    this.topicService
+    this.storyService
       .deleteMultiple(ids)
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe({
@@ -151,5 +158,34 @@ export class TopicComponent implements OnInit, OnDestroy {
         this.blockedPanel = false;
       }, 1000);
     }
+  }
+
+  loadTopics() {
+    this.topicService.getListAll().subscribe((response: TopicInListDto[]) => {
+      response.forEach(element => {
+        this.topics.push({
+          value: element.id,
+          label: element.name,
+        });
+      });
+    });
+  }
+
+  manageStoryTag(id: string){
+    const ref = this.dialogService.open(StoryTagComponent, {
+      data: {
+        id: id,
+      },
+      header: 'Quản lý thẻ câu chuyện',
+      width: '70%',
+    });
+
+    ref.onClose.subscribe((data: StoryDto)=> {
+      if (data) {
+        this.loadData();
+        this.notificationService.showSuccess('Cập nhật thẻ câu chuyện thành công');
+        this.selectedItems = [];
+      }
+    });
   }
 }

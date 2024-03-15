@@ -27,6 +27,13 @@ import { ToolCategoryComponent } from './toolCategory/tool-category.component';
 import { ToolCategoryDetailComponent } from './toolCategory/tool-category-detail.component';
 import { TopicComponent } from './topic/topic.component';
 import { TopicDetailComponent } from './topic/topic-detail.component';
+import { StoryComponent } from './story/story.component';
+import { StoryDetailComponent } from './story/story-detail.component';
+import { StoryTagComponent } from './story/story-tag.component';
+import { TagComponent } from './tag/tag.component';
+import { TagDetailComponent } from './tag/tag-detail.component';
+import {MultiSelectModule} from 'primeng/multiselect';
+import {ChipsModule} from 'primeng/chips';
 
 @NgModule({
   declarations: [
@@ -37,7 +44,12 @@ import { TopicDetailComponent } from './topic/topic-detail.component';
     ToolCategoryComponent,
     ToolCategoryDetailComponent,
     TopicComponent,
-    TopicDetailComponent
+    TopicDetailComponent,
+    StoryComponent,
+    StoryDetailComponent,
+    StoryTagComponent,
+    TagComponent,
+    TagDetailComponent
   ],
   imports: [
     SharedModule,
@@ -60,12 +72,17 @@ import { TopicDetailComponent } from './topic/topic-detail.component';
     ImageModule,
     ConfirmDialogModule,
     CalendarModule,
+    MultiSelectModule,
+    ChipsModule
   ],
   entryComponents: [
     FormulaCategoryDetailComponent,
     MaterialCategoryDetailComponent,
     ToolCategoryDetailComponent,
-    TopicDetailComponent
+    TopicDetailComponent,
+    StoryDetailComponent,
+    StoryTagComponent,
+    TagDetailComponent
   ],
 })
 export class CatalogModule {}

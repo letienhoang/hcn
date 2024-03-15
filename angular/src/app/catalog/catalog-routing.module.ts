@@ -5,6 +5,8 @@ import { FormulaCategoryComponent } from './formulaCategory/formula-category.com
 import { MaterialCategoryComponent } from './materialCategory/material-category.component';
 import { ToolCategoryComponent } from './toolCategory/tool-category.component';
 import { TopicComponent } from './topic/topic.component';
+import { StoryComponent } from './story/story.component';
+import { TagComponent } from './tag/tag.component';
 
 const routes: Routes = [
   {
@@ -37,6 +39,22 @@ const routes: Routes = [
     canActivate: [PermissionGuard],
     data: {
       requiredPolicy: 'HCNAdminCatalog.Topic',
+    },
+  },
+  {
+    path: 'story',
+    component: StoryComponent,
+    canActivate: [PermissionGuard],
+    data: {
+      requiredPolicy: 'HCNAdminCatalog.Story',
+    },
+  },
+  {
+    path: 'tag',
+    component: TagComponent,
+    canActivate: [PermissionGuard],
+    data: {
+      requiredPolicy: 'HCNAdminCatalog.Tag',
     },
   },
 ];

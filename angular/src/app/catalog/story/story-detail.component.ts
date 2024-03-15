@@ -5,13 +5,14 @@ import { Subject, forkJoin, takeUntil } from 'rxjs';
 import { UtilityService } from '../../shared/services/utility.service';
 import { NotificationService } from '../../shared/services/notification.service';
 import { DomSanitizer } from '@angular/platform-browser';
-import { TopicsService, TopicDto, TopicInListDto } from '@proxy/catalog/topics';
+import { StoriesService, StoryDto, StoryInListDto } from '@proxy/catalog/stories';
+import { TopicInListDto, TopicsService } from '@proxy/catalog/topics';
 
 @Component({
-  selector: 'app-topic-detail',
-  templateUrl: './topic-detail.component.html',
+  selector: 'app-story-detail',
+  templateUrl: './story-detail.component.html',
 })
-export class TopicDetailComponent implements OnInit, OnDestroy {
+export class StoryDetailComponent implements OnInit, OnDestroy {
   private ngUnsubscribe = new Subject<void>();
   btnDisabled = false;
   blockedPanel: boolean = false;
@@ -20,8 +21,9 @@ export class TopicDetailComponent implements OnInit, OnDestroy {
 
   //Dropdown
   topics: any[] = [];
-  selectedEntity = {} as TopicDto;
+  selectedEntity = {} as StoryDto;
   constructor(
+    private storyService: StoriesService,
     private topicService: TopicsService,
     private fb: FormBuilder,
     private config: DynamicDialogConfig,
@@ -78,13 +80,13 @@ export class TopicDetailComponent implements OnInit, OnDestroy {
 
   loadFormDetails(id: string) {
     this.toggleBlockUI(true);
-    this.topicService
+    this.storyService
       .get(id)
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe({
-        next: (response: TopicDto) => {
+        next: (response: StoryDto) => {
           this.selectedEntity = response;
-          this.loadThumbnail(this.selectedEntity.coverPicture);
+          this.loadThumbnail(this.selectedEntity.thumbnailPicture);
           this.buildForm();
           this.toggleBlockUI(false);
         },
@@ -98,7 +100,7 @@ export class TopicDetailComponent implements OnInit, OnDestroy {
     this.toggleBlockUI(true);
 
     if (this.utilService.isEmpty(this.config.data?.id)) {
-      this.topicService
+      this.storyService
         .create(this.form.value)
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe({
@@ -112,7 +114,7 @@ export class TopicDetailComponent implements OnInit, OnDestroy {
           },
         });
     } else {
-      this.topicService
+      this.storyService
         .update(this.config.data?.id, this.form.value)
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe({
@@ -130,8 +132,8 @@ export class TopicDetailComponent implements OnInit, OnDestroy {
 
   private buildForm() {
     this.form = this.fb.group({
-      name: new FormControl(
-        this.selectedEntity.name || null,
+      title: new FormControl(
+        this.selectedEntity.title || null,
         Validators.compose([Validators.required, Validators.maxLength(256)])
       ),
       slug: new FormControl(
@@ -142,12 +144,18 @@ export class TopicDetailComponent implements OnInit, OnDestroy {
         this.selectedEntity.code || null,
         Validators.compose([Validators.required, Validators.maxLength(128)])
       ),
-      description: new FormControl(this.selectedEntity.description || null),
+      briefContent: new FormControl(this.selectedEntity.briefContent || null,Validators.maxLength(1024)),
+      content: new FormControl(this.selectedEntity.content || null),
+      pictures: new FormControl(this.selectedEntity.pictures || null, Validators.maxLength(512)),
+      liked: new FormControl(this.selectedEntity.liked || 1, Validators.required),
+      viewCount: new FormControl(this.selectedEntity.viewCount || 1, Validators.required),
+      sortOrder: new FormControl(this.selectedEntity.sortOrder || 1, Validators.required),
+      visibility: new FormControl(this.selectedEntity.visibility || false),
+      referenceSource: new FormControl(this.selectedEntity.referenceSource || null, Validators.maxLength(512)),
       keywordSEO: new FormControl(this.selectedEntity.keywordSEO || null, Validators.maxLength(512)),
       descriptionSEO: new FormControl(this.selectedEntity.descriptionSEO || null, Validators.maxLength(1024)),
-      visibility: new FormControl(this.selectedEntity.visibility || false),
-      parentId: new FormControl(this.selectedEntity.parentId || null),
-      coverPictureName: new FormControl(this.selectedEntity.coverPicture || null),
+      topicId: new FormControl(this.selectedEntity.topicId || null),
+      coverPictureName: new FormControl(this.selectedEntity.thumbnailPicture || null),
       coverPictureContent: new FormControl(null),
     });
   }
@@ -165,6 +173,11 @@ export class TopicDetailComponent implements OnInit, OnDestroy {
       { type: 'required', message: 'Bạn phải nhập mã' },
       { type: 'maxLength', message: 'Bạn không được nhập quá 128 kí tự' },
     ],
+    briefContent: [{ type: 'maxLength', message: 'Bạn không được nhập quá 1024 kí tự' }],
+    pictures: [{ type: 'maxLength', message: 'Bạn không được nhập quá 1024 kí tự' }],
+    liked: [{ type: 'required', message: 'Bạn phải nhập lượt thích (ít nhất là 1 lượt)' }],
+    viewCount: [{ type: 'required', message: 'Bạn phải nhập lượt xem (ít nhất là 1 lượt)' }],
+    sortOrder: [{ type: 'required', message: 'Bạn phải nhập thứ tự (ít nhất là 1)' }],
     keywordSEO: [{ type: 'maxLength', message: 'Bạn không được nhập quá 512 kí tự' }],
     descriptionSEO: [{ type: 'maxLength', message: 'Bạn không được nhập quá 1024 kí tự' }],
   };
@@ -199,15 +212,15 @@ export class TopicDetailComponent implements OnInit, OnDestroy {
   }
 
   generateSlug() {
-    this.form.controls['slug'].setValue(this.utilService.MakeSeoTitle(this.form.get('name').value));
+    this.form.controls['slug'].setValue(this.utilService.MakeSeoTitle(this.form.get('title').value));
   }
 
   loadThumbnail(fileName: string){
-    this.topicService.getThumbnailImage(fileName)
+    this.storyService.getThumbnailImage(fileName)
     .pipe(takeUntil(this.ngUnsubscribe))
     .subscribe({
       next: (response: string) => {
-        var fileExt = this.selectedEntity.coverPicture?.split('.').pop();
+        var fileExt = this.selectedEntity.thumbnailPicture?.split('.').pop();
         this.thumbnailImage = this.sanitizer.bypassSecurityTrustResourceUrl(
           `data:image/${fileExt};base64, ${response}`
         );
@@ -216,7 +229,7 @@ export class TopicDetailComponent implements OnInit, OnDestroy {
   }
 
   getNewSuggestionCode(){
-    this.topicService.getSuggestNewCode()
+    this.storyService.getSuggestNewCode()
     .pipe(takeUntil(this.ngUnsubscribe))
     .subscribe({
       next: (response: string)=>{
