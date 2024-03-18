@@ -26,6 +26,9 @@ namespace HCN.Configurations.Materials
                  .IsUnicode(false)
                  .IsRequired();
 
+            builder.Property(x => x.ThumbnailPicture)
+               .HasMaxLength(512);
+
             builder.Property(x => x.Pictures)
                .HasMaxLength(512);
 

@@ -4,6 +4,7 @@ using HCN.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Volo.Abp.EntityFrameworkCore;
 
@@ -12,9 +13,10 @@ using Volo.Abp.EntityFrameworkCore;
 namespace HCN.Migrations
 {
     [DbContext(typeof(HCNDbContext))]
-    partial class HCNDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240318082756_AddMaterialType_And_ThumbnailPicture_For_Material_And_Tool")]
+    partial class AddMaterialType_And_ThumbnailPicture_For_Material_And_Tool
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
