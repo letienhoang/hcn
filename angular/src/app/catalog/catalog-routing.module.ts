@@ -7,6 +7,7 @@ import { ToolCategoryComponent } from './toolCategory/tool-category.component';
 import { TopicComponent } from './topic/topic.component';
 import { StoryComponent } from './story/story.component';
 import { TagComponent } from './tag/tag.component';
+import { MaterialComponent } from './material/material.component';
 
 const routes: Routes = [
   {
@@ -55,6 +56,14 @@ const routes: Routes = [
     canActivate: [PermissionGuard],
     data: {
       requiredPolicy: 'HCNAdminCatalog.Tag',
+    },
+  },
+  {
+    path: 'material',
+    component: MaterialComponent,
+    canActivate: [PermissionGuard],
+    data: {
+      requiredPolicy: 'HCNAdminCatalog.Material',
     },
   },
 ];

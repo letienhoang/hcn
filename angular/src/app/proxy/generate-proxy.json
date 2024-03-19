@@ -3,6 +3,1415 @@
     "app"
   ],
   "modules": {
+    "account": {
+      "rootPath": "account",
+      "remoteServiceName": "AbpAccount",
+      "controllers": {
+        "Volo.Abp.Account.AccountController": {
+          "controllerName": "Account",
+          "controllerGroupName": "Account",
+          "isRemoteService": true,
+          "apiVersion": null,
+          "type": "Volo.Abp.Account.AccountController",
+          "interfaces": [
+            {
+              "type": "Volo.Abp.Account.IAccountAppService"
+            }
+          ],
+          "actions": {
+            "RegisterAsyncByInput": {
+              "uniqueName": "RegisterAsyncByInput",
+              "name": "RegisterAsync",
+              "httpMethod": "POST",
+              "url": "api/account/register",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "Volo.Abp.Account.RegisterDto, Volo.Abp.Account.Application.Contracts",
+                  "type": "Volo.Abp.Account.RegisterDto",
+                  "typeSimple": "Volo.Abp.Account.RegisterDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "Volo.Abp.Account.RegisterDto",
+                  "typeSimple": "Volo.Abp.Account.RegisterDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Identity.IdentityUserDto",
+                "typeSimple": "Volo.Abp.Identity.IdentityUserDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Account.IAccountAppService"
+            },
+            "SendPasswordResetCodeAsyncByInput": {
+              "uniqueName": "SendPasswordResetCodeAsyncByInput",
+              "name": "SendPasswordResetCodeAsync",
+              "httpMethod": "POST",
+              "url": "api/account/send-password-reset-code",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "Volo.Abp.Account.SendPasswordResetCodeDto, Volo.Abp.Account.Application.Contracts",
+                  "type": "Volo.Abp.Account.SendPasswordResetCodeDto",
+                  "typeSimple": "Volo.Abp.Account.SendPasswordResetCodeDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "Volo.Abp.Account.SendPasswordResetCodeDto",
+                  "typeSimple": "Volo.Abp.Account.SendPasswordResetCodeDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Account.IAccountAppService"
+            },
+            "ResetPasswordAsyncByInput": {
+              "uniqueName": "ResetPasswordAsyncByInput",
+              "name": "ResetPasswordAsync",
+              "httpMethod": "POST",
+              "url": "api/account/reset-password",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "Volo.Abp.Account.ResetPasswordDto, Volo.Abp.Account.Application.Contracts",
+                  "type": "Volo.Abp.Account.ResetPasswordDto",
+                  "typeSimple": "Volo.Abp.Account.ResetPasswordDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "Volo.Abp.Account.ResetPasswordDto",
+                  "typeSimple": "Volo.Abp.Account.ResetPasswordDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Account.IAccountAppService"
+            }
+          }
+        },
+        "Volo.Abp.Account.ProfileController": {
+          "controllerName": "Profile",
+          "controllerGroupName": "Profile",
+          "isRemoteService": true,
+          "apiVersion": null,
+          "type": "Volo.Abp.Account.ProfileController",
+          "interfaces": [
+            {
+              "type": "Volo.Abp.Account.IProfileAppService"
+            }
+          ],
+          "actions": {
+            "GetAsync": {
+              "uniqueName": "GetAsync",
+              "name": "GetAsync",
+              "httpMethod": "GET",
+              "url": "api/account/my-profile",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "Volo.Abp.Account.ProfileDto",
+                "typeSimple": "Volo.Abp.Account.ProfileDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Account.IProfileAppService"
+            },
+            "UpdateAsyncByInput": {
+              "uniqueName": "UpdateAsyncByInput",
+              "name": "UpdateAsync",
+              "httpMethod": "PUT",
+              "url": "api/account/my-profile",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "Volo.Abp.Account.UpdateProfileDto, Volo.Abp.Account.Application.Contracts",
+                  "type": "Volo.Abp.Account.UpdateProfileDto",
+                  "typeSimple": "Volo.Abp.Account.UpdateProfileDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "Volo.Abp.Account.UpdateProfileDto",
+                  "typeSimple": "Volo.Abp.Account.UpdateProfileDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Account.ProfileDto",
+                "typeSimple": "Volo.Abp.Account.ProfileDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Account.IProfileAppService"
+            },
+            "ChangePasswordAsyncByInput": {
+              "uniqueName": "ChangePasswordAsyncByInput",
+              "name": "ChangePasswordAsync",
+              "httpMethod": "POST",
+              "url": "api/account/my-profile/change-password",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "Volo.Abp.Account.ChangePasswordInput, Volo.Abp.Account.Application.Contracts",
+                  "type": "Volo.Abp.Account.ChangePasswordInput",
+                  "typeSimple": "Volo.Abp.Account.ChangePasswordInput",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "Volo.Abp.Account.ChangePasswordInput",
+                  "typeSimple": "Volo.Abp.Account.ChangePasswordInput",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Account.IProfileAppService"
+            }
+          }
+        }
+      }
+    },
+    "settingManagement": {
+      "rootPath": "settingManagement",
+      "remoteServiceName": "SettingManagement",
+      "controllers": {
+        "Volo.Abp.SettingManagement.EmailSettingsController": {
+          "controllerName": "EmailSettings",
+          "controllerGroupName": "EmailSettings",
+          "isRemoteService": true,
+          "apiVersion": null,
+          "type": "Volo.Abp.SettingManagement.EmailSettingsController",
+          "interfaces": [
+            {
+              "type": "Volo.Abp.SettingManagement.IEmailSettingsAppService"
+            }
+          ],
+          "actions": {
+            "GetAsync": {
+              "uniqueName": "GetAsync",
+              "name": "GetAsync",
+              "httpMethod": "GET",
+              "url": "api/setting-management/emailing",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "Volo.Abp.SettingManagement.EmailSettingsDto",
+                "typeSimple": "Volo.Abp.SettingManagement.EmailSettingsDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.SettingManagement.IEmailSettingsAppService"
+            },
+            "UpdateAsyncByInput": {
+              "uniqueName": "UpdateAsyncByInput",
+              "name": "UpdateAsync",
+              "httpMethod": "POST",
+              "url": "api/setting-management/emailing",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "Volo.Abp.SettingManagement.UpdateEmailSettingsDto, Volo.Abp.SettingManagement.Application.Contracts",
+                  "type": "Volo.Abp.SettingManagement.UpdateEmailSettingsDto",
+                  "typeSimple": "Volo.Abp.SettingManagement.UpdateEmailSettingsDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "Volo.Abp.SettingManagement.UpdateEmailSettingsDto",
+                  "typeSimple": "Volo.Abp.SettingManagement.UpdateEmailSettingsDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.SettingManagement.IEmailSettingsAppService"
+            },
+            "SendTestEmailAsyncByInput": {
+              "uniqueName": "SendTestEmailAsyncByInput",
+              "name": "SendTestEmailAsync",
+              "httpMethod": "POST",
+              "url": "api/setting-management/emailing/send-test-email",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "Volo.Abp.SettingManagement.SendTestEmailInput, Volo.Abp.SettingManagement.Application.Contracts",
+                  "type": "Volo.Abp.SettingManagement.SendTestEmailInput",
+                  "typeSimple": "Volo.Abp.SettingManagement.SendTestEmailInput",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "Volo.Abp.SettingManagement.SendTestEmailInput",
+                  "typeSimple": "Volo.Abp.SettingManagement.SendTestEmailInput",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.SettingManagement.IEmailSettingsAppService"
+            }
+          }
+        }
+      }
+    },
+    "identity": {
+      "rootPath": "identity",
+      "remoteServiceName": "AbpIdentity",
+      "controllers": {
+        "Volo.Abp.Identity.IdentityRoleController": {
+          "controllerName": "IdentityRole",
+          "controllerGroupName": "Role",
+          "isRemoteService": true,
+          "apiVersion": null,
+          "type": "Volo.Abp.Identity.IdentityRoleController",
+          "interfaces": [
+            {
+              "type": "Volo.Abp.Identity.IIdentityRoleAppService"
+            }
+          ],
+          "actions": {
+            "GetAllListAsync": {
+              "uniqueName": "GetAllListAsync",
+              "name": "GetAllListAsync",
+              "httpMethod": "GET",
+              "url": "api/identity/roles/all",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.ListResultDto<Volo.Abp.Identity.IdentityRoleDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.ListResultDto<Volo.Abp.Identity.IdentityRoleDto>"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Identity.IIdentityRoleAppService"
+            },
+            "GetListAsyncByInput": {
+              "uniqueName": "GetListAsyncByInput",
+              "name": "GetListAsync",
+              "httpMethod": "GET",
+              "url": "api/identity/roles",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "Volo.Abp.Identity.GetIdentityRolesInput, Volo.Abp.Identity.Application.Contracts",
+                  "type": "Volo.Abp.Identity.GetIdentityRolesInput",
+                  "typeSimple": "Volo.Abp.Identity.GetIdentityRolesInput",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "Filter",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "Sorting",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "SkipCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "MaxResultCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<Volo.Abp.Identity.IdentityRoleDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<Volo.Abp.Identity.IdentityRoleDto>"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<Volo.Abp.Identity.IdentityRoleDto,Volo.Abp.Identity.IdentityRoleDto,System.Guid,Volo.Abp.Identity.GetIdentityRolesInput>"
+            },
+            "GetAsyncById": {
+              "uniqueName": "GetAsyncById",
+              "name": "GetAsync",
+              "httpMethod": "GET",
+              "url": "api/identity/roles/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Identity.IdentityRoleDto",
+                "typeSimple": "Volo.Abp.Identity.IdentityRoleDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<Volo.Abp.Identity.IdentityRoleDto,Volo.Abp.Identity.IdentityRoleDto,System.Guid,Volo.Abp.Identity.GetIdentityRolesInput>"
+            },
+            "CreateAsyncByInput": {
+              "uniqueName": "CreateAsyncByInput",
+              "name": "CreateAsync",
+              "httpMethod": "POST",
+              "url": "api/identity/roles",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "Volo.Abp.Identity.IdentityRoleCreateDto, Volo.Abp.Identity.Application.Contracts",
+                  "type": "Volo.Abp.Identity.IdentityRoleCreateDto",
+                  "typeSimple": "Volo.Abp.Identity.IdentityRoleCreateDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "Volo.Abp.Identity.IdentityRoleCreateDto",
+                  "typeSimple": "Volo.Abp.Identity.IdentityRoleCreateDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Identity.IdentityRoleDto",
+                "typeSimple": "Volo.Abp.Identity.IdentityRoleDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<Volo.Abp.Identity.IdentityRoleDto,Volo.Abp.Identity.IdentityRoleCreateDto>"
+            },
+            "UpdateAsyncByIdAndInput": {
+              "uniqueName": "UpdateAsyncByIdAndInput",
+              "name": "UpdateAsync",
+              "httpMethod": "PUT",
+              "url": "api/identity/roles/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                },
+                {
+                  "name": "input",
+                  "typeAsString": "Volo.Abp.Identity.IdentityRoleUpdateDto, Volo.Abp.Identity.Application.Contracts",
+                  "type": "Volo.Abp.Identity.IdentityRoleUpdateDto",
+                  "typeSimple": "Volo.Abp.Identity.IdentityRoleUpdateDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "Volo.Abp.Identity.IdentityRoleUpdateDto",
+                  "typeSimple": "Volo.Abp.Identity.IdentityRoleUpdateDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Identity.IdentityRoleDto",
+                "typeSimple": "Volo.Abp.Identity.IdentityRoleDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<Volo.Abp.Identity.IdentityRoleDto,System.Guid,Volo.Abp.Identity.IdentityRoleUpdateDto>"
+            },
+            "DeleteAsyncById": {
+              "uniqueName": "DeleteAsyncById",
+              "name": "DeleteAsync",
+              "httpMethod": "DELETE",
+              "url": "api/identity/roles/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Application.Services.IDeleteAppService<System.Guid>"
+            }
+          }
+        },
+        "Volo.Abp.Identity.IdentityUserController": {
+          "controllerName": "IdentityUser",
+          "controllerGroupName": "User",
+          "isRemoteService": true,
+          "apiVersion": null,
+          "type": "Volo.Abp.Identity.IdentityUserController",
+          "interfaces": [
+            {
+              "type": "Volo.Abp.Identity.IIdentityUserAppService"
+            }
+          ],
+          "actions": {
+            "GetAsyncById": {
+              "uniqueName": "GetAsyncById",
+              "name": "GetAsync",
+              "httpMethod": "GET",
+              "url": "api/identity/users/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Identity.IdentityUserDto",
+                "typeSimple": "Volo.Abp.Identity.IdentityUserDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<Volo.Abp.Identity.IdentityUserDto,Volo.Abp.Identity.IdentityUserDto,System.Guid,Volo.Abp.Identity.GetIdentityUsersInput>"
+            },
+            "GetListAsyncByInput": {
+              "uniqueName": "GetListAsyncByInput",
+              "name": "GetListAsync",
+              "httpMethod": "GET",
+              "url": "api/identity/users",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "Volo.Abp.Identity.GetIdentityUsersInput, Volo.Abp.Identity.Application.Contracts",
+                  "type": "Volo.Abp.Identity.GetIdentityUsersInput",
+                  "typeSimple": "Volo.Abp.Identity.GetIdentityUsersInput",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "Filter",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "Sorting",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "SkipCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "MaxResultCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<Volo.Abp.Identity.IdentityUserDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<Volo.Abp.Identity.IdentityUserDto>"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<Volo.Abp.Identity.IdentityUserDto,Volo.Abp.Identity.IdentityUserDto,System.Guid,Volo.Abp.Identity.GetIdentityUsersInput>"
+            },
+            "CreateAsyncByInput": {
+              "uniqueName": "CreateAsyncByInput",
+              "name": "CreateAsync",
+              "httpMethod": "POST",
+              "url": "api/identity/users",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "Volo.Abp.Identity.IdentityUserCreateDto, Volo.Abp.Identity.Application.Contracts",
+                  "type": "Volo.Abp.Identity.IdentityUserCreateDto",
+                  "typeSimple": "Volo.Abp.Identity.IdentityUserCreateDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "Volo.Abp.Identity.IdentityUserCreateDto",
+                  "typeSimple": "Volo.Abp.Identity.IdentityUserCreateDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Identity.IdentityUserDto",
+                "typeSimple": "Volo.Abp.Identity.IdentityUserDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<Volo.Abp.Identity.IdentityUserDto,Volo.Abp.Identity.IdentityUserCreateDto>"
+            },
+            "UpdateAsyncByIdAndInput": {
+              "uniqueName": "UpdateAsyncByIdAndInput",
+              "name": "UpdateAsync",
+              "httpMethod": "PUT",
+              "url": "api/identity/users/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                },
+                {
+                  "name": "input",
+                  "typeAsString": "Volo.Abp.Identity.IdentityUserUpdateDto, Volo.Abp.Identity.Application.Contracts",
+                  "type": "Volo.Abp.Identity.IdentityUserUpdateDto",
+                  "typeSimple": "Volo.Abp.Identity.IdentityUserUpdateDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "Volo.Abp.Identity.IdentityUserUpdateDto",
+                  "typeSimple": "Volo.Abp.Identity.IdentityUserUpdateDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Identity.IdentityUserDto",
+                "typeSimple": "Volo.Abp.Identity.IdentityUserDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<Volo.Abp.Identity.IdentityUserDto,System.Guid,Volo.Abp.Identity.IdentityUserUpdateDto>"
+            },
+            "DeleteAsyncById": {
+              "uniqueName": "DeleteAsyncById",
+              "name": "DeleteAsync",
+              "httpMethod": "DELETE",
+              "url": "api/identity/users/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Application.Services.IDeleteAppService<System.Guid>"
+            },
+            "GetRolesAsyncById": {
+              "uniqueName": "GetRolesAsyncById",
+              "name": "GetRolesAsync",
+              "httpMethod": "GET",
+              "url": "api/identity/users/{id}/roles",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.ListResultDto<Volo.Abp.Identity.IdentityRoleDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.ListResultDto<Volo.Abp.Identity.IdentityRoleDto>"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Identity.IIdentityUserAppService"
+            },
+            "GetAssignableRolesAsync": {
+              "uniqueName": "GetAssignableRolesAsync",
+              "name": "GetAssignableRolesAsync",
+              "httpMethod": "GET",
+              "url": "api/identity/users/assignable-roles",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.ListResultDto<Volo.Abp.Identity.IdentityRoleDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.ListResultDto<Volo.Abp.Identity.IdentityRoleDto>"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Identity.IIdentityUserAppService"
+            },
+            "UpdateRolesAsyncByIdAndInput": {
+              "uniqueName": "UpdateRolesAsyncByIdAndInput",
+              "name": "UpdateRolesAsync",
+              "httpMethod": "PUT",
+              "url": "api/identity/users/{id}/roles",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                },
+                {
+                  "name": "input",
+                  "typeAsString": "Volo.Abp.Identity.IdentityUserUpdateRolesDto, Volo.Abp.Identity.Application.Contracts",
+                  "type": "Volo.Abp.Identity.IdentityUserUpdateRolesDto",
+                  "typeSimple": "Volo.Abp.Identity.IdentityUserUpdateRolesDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "Volo.Abp.Identity.IdentityUserUpdateRolesDto",
+                  "typeSimple": "Volo.Abp.Identity.IdentityUserUpdateRolesDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Identity.IIdentityUserAppService"
+            },
+            "FindByUsernameAsyncByUserName": {
+              "uniqueName": "FindByUsernameAsyncByUserName",
+              "name": "FindByUsernameAsync",
+              "httpMethod": "GET",
+              "url": "api/identity/users/by-username/{userName}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "userName",
+                  "typeAsString": "System.String, System.Private.CoreLib",
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "userName",
+                  "name": "userName",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Identity.IdentityUserDto",
+                "typeSimple": "Volo.Abp.Identity.IdentityUserDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Identity.IIdentityUserAppService"
+            },
+            "FindByEmailAsyncByEmail": {
+              "uniqueName": "FindByEmailAsyncByEmail",
+              "name": "FindByEmailAsync",
+              "httpMethod": "GET",
+              "url": "api/identity/users/by-email/{email}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "email",
+                  "typeAsString": "System.String, System.Private.CoreLib",
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "email",
+                  "name": "email",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Identity.IdentityUserDto",
+                "typeSimple": "Volo.Abp.Identity.IdentityUserDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Identity.IIdentityUserAppService"
+            }
+          }
+        },
+        "Volo.Abp.Identity.IdentityUserLookupController": {
+          "controllerName": "IdentityUserLookup",
+          "controllerGroupName": "UserLookup",
+          "isRemoteService": true,
+          "apiVersion": null,
+          "type": "Volo.Abp.Identity.IdentityUserLookupController",
+          "interfaces": [
+            {
+              "type": "Volo.Abp.Identity.IIdentityUserLookupAppService"
+            }
+          ],
+          "actions": {
+            "FindByIdAsyncById": {
+              "uniqueName": "FindByIdAsyncById",
+              "name": "FindByIdAsync",
+              "httpMethod": "GET",
+              "url": "api/identity/users/lookup/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Users.UserData",
+                "typeSimple": "Volo.Abp.Users.UserData"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Identity.IIdentityUserLookupAppService"
+            },
+            "FindByUserNameAsyncByUserName": {
+              "uniqueName": "FindByUserNameAsyncByUserName",
+              "name": "FindByUserNameAsync",
+              "httpMethod": "GET",
+              "url": "api/identity/users/lookup/by-username/{userName}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "userName",
+                  "typeAsString": "System.String, System.Private.CoreLib",
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "userName",
+                  "name": "userName",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Users.UserData",
+                "typeSimple": "Volo.Abp.Users.UserData"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Identity.IIdentityUserLookupAppService"
+            },
+            "SearchAsyncByInput": {
+              "uniqueName": "SearchAsyncByInput",
+              "name": "SearchAsync",
+              "httpMethod": "GET",
+              "url": "api/identity/users/lookup/search",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "Volo.Abp.Identity.UserLookupSearchInputDto, Volo.Abp.Identity.Application.Contracts",
+                  "type": "Volo.Abp.Identity.UserLookupSearchInputDto",
+                  "typeSimple": "Volo.Abp.Identity.UserLookupSearchInputDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "Filter",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "Sorting",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "SkipCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "MaxResultCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.ListResultDto<Volo.Abp.Users.UserData>",
+                "typeSimple": "Volo.Abp.Application.Dtos.ListResultDto<Volo.Abp.Users.UserData>"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Identity.IIdentityUserLookupAppService"
+            },
+            "GetCountAsyncByInput": {
+              "uniqueName": "GetCountAsyncByInput",
+              "name": "GetCountAsync",
+              "httpMethod": "GET",
+              "url": "api/identity/users/lookup/count",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "Volo.Abp.Identity.UserLookupCountInputDto, Volo.Abp.Identity.Application.Contracts",
+                  "type": "Volo.Abp.Identity.UserLookupCountInputDto",
+                  "typeSimple": "Volo.Abp.Identity.UserLookupCountInputDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "Filter",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "System.Int64",
+                "typeSimple": "number"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Identity.IIdentityUserLookupAppService"
+            }
+          }
+        }
+      }
+    },
+    "featureManagement": {
+      "rootPath": "featureManagement",
+      "remoteServiceName": "AbpFeatureManagement",
+      "controllers": {
+        "Volo.Abp.FeatureManagement.FeaturesController": {
+          "controllerName": "Features",
+          "controllerGroupName": "Features",
+          "isRemoteService": true,
+          "apiVersion": null,
+          "type": "Volo.Abp.FeatureManagement.FeaturesController",
+          "interfaces": [
+            {
+              "type": "Volo.Abp.FeatureManagement.IFeatureAppService"
+            }
+          ],
+          "actions": {
+            "GetAsyncByProviderNameAndProviderKey": {
+              "uniqueName": "GetAsyncByProviderNameAndProviderKey",
+              "name": "GetAsync",
+              "httpMethod": "GET",
+              "url": "api/feature-management/features",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "providerName",
+                  "typeAsString": "System.String, System.Private.CoreLib",
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                },
+                {
+                  "name": "providerKey",
+                  "typeAsString": "System.String, System.Private.CoreLib",
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "providerName",
+                  "name": "providerName",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": ""
+                },
+                {
+                  "nameOnMethod": "providerKey",
+                  "name": "providerKey",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.FeatureManagement.GetFeatureListResultDto",
+                "typeSimple": "Volo.Abp.FeatureManagement.GetFeatureListResultDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.FeatureManagement.IFeatureAppService"
+            },
+            "UpdateAsyncByProviderNameAndProviderKeyAndInput": {
+              "uniqueName": "UpdateAsyncByProviderNameAndProviderKeyAndInput",
+              "name": "UpdateAsync",
+              "httpMethod": "PUT",
+              "url": "api/feature-management/features",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "providerName",
+                  "typeAsString": "System.String, System.Private.CoreLib",
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                },
+                {
+                  "name": "providerKey",
+                  "typeAsString": "System.String, System.Private.CoreLib",
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                },
+                {
+                  "name": "input",
+                  "typeAsString": "Volo.Abp.FeatureManagement.UpdateFeaturesDto, Volo.Abp.FeatureManagement.Application.Contracts",
+                  "type": "Volo.Abp.FeatureManagement.UpdateFeaturesDto",
+                  "typeSimple": "Volo.Abp.FeatureManagement.UpdateFeaturesDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "providerName",
+                  "name": "providerName",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": ""
+                },
+                {
+                  "nameOnMethod": "providerKey",
+                  "name": "providerKey",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": ""
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "Volo.Abp.FeatureManagement.UpdateFeaturesDto",
+                  "typeSimple": "Volo.Abp.FeatureManagement.UpdateFeaturesDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.FeatureManagement.IFeatureAppService"
+            }
+          }
+        }
+      }
+    },
     "multi-tenancy": {
       "rootPath": "multi-tenancy",
       "remoteServiceName": "AbpTenantManagement",
@@ -395,374 +1804,39 @@
         }
       }
     },
-    "settingManagement": {
-      "rootPath": "settingManagement",
-      "remoteServiceName": "SettingManagement",
+    "permissionManagement": {
+      "rootPath": "permissionManagement",
+      "remoteServiceName": "AbpPermissionManagement",
       "controllers": {
-        "Volo.Abp.SettingManagement.EmailSettingsController": {
-          "controllerName": "EmailSettings",
-          "controllerGroupName": "EmailSettings",
+        "Volo.Abp.PermissionManagement.PermissionsController": {
+          "controllerName": "Permissions",
+          "controllerGroupName": "Permissions",
           "isRemoteService": true,
           "apiVersion": null,
-          "type": "Volo.Abp.SettingManagement.EmailSettingsController",
+          "type": "Volo.Abp.PermissionManagement.PermissionsController",
           "interfaces": [
             {
-              "type": "Volo.Abp.SettingManagement.IEmailSettingsAppService"
+              "type": "Volo.Abp.PermissionManagement.IPermissionAppService"
             }
           ],
           "actions": {
-            "GetAsync": {
-              "uniqueName": "GetAsync",
+            "GetAsyncByProviderNameAndProviderKey": {
+              "uniqueName": "GetAsyncByProviderNameAndProviderKey",
               "name": "GetAsync",
               "httpMethod": "GET",
-              "url": "api/setting-management/emailing",
-              "supportedVersions": [],
-              "parametersOnMethod": [],
-              "parameters": [],
-              "returnValue": {
-                "type": "Volo.Abp.SettingManagement.EmailSettingsDto",
-                "typeSimple": "Volo.Abp.SettingManagement.EmailSettingsDto"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.SettingManagement.IEmailSettingsAppService"
-            },
-            "UpdateAsyncByInput": {
-              "uniqueName": "UpdateAsyncByInput",
-              "name": "UpdateAsync",
-              "httpMethod": "POST",
-              "url": "api/setting-management/emailing",
+              "url": "api/permission-management/permissions",
               "supportedVersions": [],
               "parametersOnMethod": [
                 {
-                  "name": "input",
-                  "typeAsString": "Volo.Abp.SettingManagement.UpdateEmailSettingsDto, Volo.Abp.SettingManagement.Application.Contracts",
-                  "type": "Volo.Abp.SettingManagement.UpdateEmailSettingsDto",
-                  "typeSimple": "Volo.Abp.SettingManagement.UpdateEmailSettingsDto",
+                  "name": "providerName",
+                  "typeAsString": "System.String, System.Private.CoreLib",
+                  "type": "System.String",
+                  "typeSimple": "string",
                   "isOptional": false,
                   "defaultValue": null
-                }
-              ],
-              "parameters": [
+                },
                 {
-                  "nameOnMethod": "input",
-                  "name": "input",
-                  "jsonName": null,
-                  "type": "Volo.Abp.SettingManagement.UpdateEmailSettingsDto",
-                  "typeSimple": "Volo.Abp.SettingManagement.UpdateEmailSettingsDto",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "Body",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "System.Void",
-                "typeSimple": "System.Void"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.SettingManagement.IEmailSettingsAppService"
-            },
-            "SendTestEmailAsyncByInput": {
-              "uniqueName": "SendTestEmailAsyncByInput",
-              "name": "SendTestEmailAsync",
-              "httpMethod": "POST",
-              "url": "api/setting-management/emailing/send-test-email",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "input",
-                  "typeAsString": "Volo.Abp.SettingManagement.SendTestEmailInput, Volo.Abp.SettingManagement.Application.Contracts",
-                  "type": "Volo.Abp.SettingManagement.SendTestEmailInput",
-                  "typeSimple": "Volo.Abp.SettingManagement.SendTestEmailInput",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "input",
-                  "name": "input",
-                  "jsonName": null,
-                  "type": "Volo.Abp.SettingManagement.SendTestEmailInput",
-                  "typeSimple": "Volo.Abp.SettingManagement.SendTestEmailInput",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "Body",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "System.Void",
-                "typeSimple": "System.Void"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.SettingManagement.IEmailSettingsAppService"
-            }
-          }
-        }
-      }
-    },
-    "account": {
-      "rootPath": "account",
-      "remoteServiceName": "AbpAccount",
-      "controllers": {
-        "Volo.Abp.Account.AccountController": {
-          "controllerName": "Account",
-          "controllerGroupName": "Account",
-          "isRemoteService": true,
-          "apiVersion": null,
-          "type": "Volo.Abp.Account.AccountController",
-          "interfaces": [
-            {
-              "type": "Volo.Abp.Account.IAccountAppService"
-            }
-          ],
-          "actions": {
-            "RegisterAsyncByInput": {
-              "uniqueName": "RegisterAsyncByInput",
-              "name": "RegisterAsync",
-              "httpMethod": "POST",
-              "url": "api/account/register",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "input",
-                  "typeAsString": "Volo.Abp.Account.RegisterDto, Volo.Abp.Account.Application.Contracts",
-                  "type": "Volo.Abp.Account.RegisterDto",
-                  "typeSimple": "Volo.Abp.Account.RegisterDto",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "input",
-                  "name": "input",
-                  "jsonName": null,
-                  "type": "Volo.Abp.Account.RegisterDto",
-                  "typeSimple": "Volo.Abp.Account.RegisterDto",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "Body",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "Volo.Abp.Identity.IdentityUserDto",
-                "typeSimple": "Volo.Abp.Identity.IdentityUserDto"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Account.IAccountAppService"
-            },
-            "SendPasswordResetCodeAsyncByInput": {
-              "uniqueName": "SendPasswordResetCodeAsyncByInput",
-              "name": "SendPasswordResetCodeAsync",
-              "httpMethod": "POST",
-              "url": "api/account/send-password-reset-code",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "input",
-                  "typeAsString": "Volo.Abp.Account.SendPasswordResetCodeDto, Volo.Abp.Account.Application.Contracts",
-                  "type": "Volo.Abp.Account.SendPasswordResetCodeDto",
-                  "typeSimple": "Volo.Abp.Account.SendPasswordResetCodeDto",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "input",
-                  "name": "input",
-                  "jsonName": null,
-                  "type": "Volo.Abp.Account.SendPasswordResetCodeDto",
-                  "typeSimple": "Volo.Abp.Account.SendPasswordResetCodeDto",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "Body",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "System.Void",
-                "typeSimple": "System.Void"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Account.IAccountAppService"
-            },
-            "ResetPasswordAsyncByInput": {
-              "uniqueName": "ResetPasswordAsyncByInput",
-              "name": "ResetPasswordAsync",
-              "httpMethod": "POST",
-              "url": "api/account/reset-password",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "input",
-                  "typeAsString": "Volo.Abp.Account.ResetPasswordDto, Volo.Abp.Account.Application.Contracts",
-                  "type": "Volo.Abp.Account.ResetPasswordDto",
-                  "typeSimple": "Volo.Abp.Account.ResetPasswordDto",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "input",
-                  "name": "input",
-                  "jsonName": null,
-                  "type": "Volo.Abp.Account.ResetPasswordDto",
-                  "typeSimple": "Volo.Abp.Account.ResetPasswordDto",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "Body",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "System.Void",
-                "typeSimple": "System.Void"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Account.IAccountAppService"
-            }
-          }
-        },
-        "Volo.Abp.Account.ProfileController": {
-          "controllerName": "Profile",
-          "controllerGroupName": "Profile",
-          "isRemoteService": true,
-          "apiVersion": null,
-          "type": "Volo.Abp.Account.ProfileController",
-          "interfaces": [
-            {
-              "type": "Volo.Abp.Account.IProfileAppService"
-            }
-          ],
-          "actions": {
-            "GetAsync": {
-              "uniqueName": "GetAsync",
-              "name": "GetAsync",
-              "httpMethod": "GET",
-              "url": "api/account/my-profile",
-              "supportedVersions": [],
-              "parametersOnMethod": [],
-              "parameters": [],
-              "returnValue": {
-                "type": "Volo.Abp.Account.ProfileDto",
-                "typeSimple": "Volo.Abp.Account.ProfileDto"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Account.IProfileAppService"
-            },
-            "UpdateAsyncByInput": {
-              "uniqueName": "UpdateAsyncByInput",
-              "name": "UpdateAsync",
-              "httpMethod": "PUT",
-              "url": "api/account/my-profile",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "input",
-                  "typeAsString": "Volo.Abp.Account.UpdateProfileDto, Volo.Abp.Account.Application.Contracts",
-                  "type": "Volo.Abp.Account.UpdateProfileDto",
-                  "typeSimple": "Volo.Abp.Account.UpdateProfileDto",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "input",
-                  "name": "input",
-                  "jsonName": null,
-                  "type": "Volo.Abp.Account.UpdateProfileDto",
-                  "typeSimple": "Volo.Abp.Account.UpdateProfileDto",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "Body",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "Volo.Abp.Account.ProfileDto",
-                "typeSimple": "Volo.Abp.Account.ProfileDto"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Account.IProfileAppService"
-            },
-            "ChangePasswordAsyncByInput": {
-              "uniqueName": "ChangePasswordAsyncByInput",
-              "name": "ChangePasswordAsync",
-              "httpMethod": "POST",
-              "url": "api/account/my-profile/change-password",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "input",
-                  "typeAsString": "Volo.Abp.Account.ChangePasswordInput, Volo.Abp.Account.Application.Contracts",
-                  "type": "Volo.Abp.Account.ChangePasswordInput",
-                  "typeSimple": "Volo.Abp.Account.ChangePasswordInput",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "input",
-                  "name": "input",
-                  "jsonName": null,
-                  "type": "Volo.Abp.Account.ChangePasswordInput",
-                  "typeSimple": "Volo.Abp.Account.ChangePasswordInput",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "Body",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "System.Void",
-                "typeSimple": "System.Void"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Account.IProfileAppService"
-            }
-          }
-        }
-      }
-    },
-    "abp": {
-      "rootPath": "abp",
-      "remoteServiceName": "abp",
-      "controllers": {
-        "Pages.Abp.MultiTenancy.AbpTenantController": {
-          "controllerName": "AbpTenant",
-          "controllerGroupName": "AbpTenant",
-          "isRemoteService": true,
-          "apiVersion": null,
-          "type": "Pages.Abp.MultiTenancy.AbpTenantController",
-          "interfaces": [
-            {
-              "type": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.IAbpTenantAppService"
-            }
-          ],
-          "actions": {
-            "FindTenantByNameAsyncByName": {
-              "uniqueName": "FindTenantByNameAsyncByName",
-              "name": "FindTenantByNameAsync",
-              "httpMethod": "GET",
-              "url": "api/abp/multi-tenancy/tenants/by-name/{name}",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "name",
+                  "name": "providerKey",
                   "typeAsString": "System.String, System.Private.CoreLib",
                   "type": "System.String",
                   "typeSimple": "string",
@@ -772,137 +1846,113 @@
               ],
               "parameters": [
                 {
-                  "nameOnMethod": "name",
-                  "name": "name",
+                  "nameOnMethod": "providerName",
+                  "name": "providerName",
                   "jsonName": null,
                   "type": "System.String",
                   "typeSimple": "string",
                   "isOptional": false,
                   "defaultValue": null,
-                  "constraintTypes": [],
-                  "bindingSourceId": "Path",
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
                   "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.FindTenantResultDto",
-                "typeSimple": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.FindTenantResultDto"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.IAbpTenantAppService"
-            },
-            "FindTenantByIdAsyncById": {
-              "uniqueName": "FindTenantByIdAsyncById",
-              "name": "FindTenantByIdAsync",
-              "httpMethod": "GET",
-              "url": "api/abp/multi-tenancy/tenants/by-id/{id}",
-              "supportedVersions": [],
-              "parametersOnMethod": [
+                },
                 {
-                  "name": "id",
-                  "typeAsString": "System.Guid, System.Private.CoreLib",
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "id",
-                  "name": "id",
+                  "nameOnMethod": "providerKey",
+                  "name": "providerKey",
                   "jsonName": null,
-                  "type": "System.Guid",
+                  "type": "System.String",
                   "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": [],
-                  "bindingSourceId": "Path",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.FindTenantResultDto",
-                "typeSimple": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.FindTenantResultDto"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.IAbpTenantAppService"
-            }
-          }
-        },
-        "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationController": {
-          "controllerName": "AbpApplicationConfiguration",
-          "controllerGroupName": "AbpApplicationConfiguration",
-          "isRemoteService": true,
-          "apiVersion": null,
-          "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationController",
-          "interfaces": [
-            {
-              "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.IAbpApplicationConfigurationAppService"
-            }
-          ],
-          "actions": {
-            "GetAsync": {
-              "uniqueName": "GetAsync",
-              "name": "GetAsync",
-              "httpMethod": "GET",
-              "url": "api/abp/application-configuration",
-              "supportedVersions": [],
-              "parametersOnMethod": [],
-              "parameters": [],
-              "returnValue": {
-                "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationConfigurationDto",
-                "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationConfigurationDto"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.IAbpApplicationConfigurationAppService"
-            }
-          }
-        },
-        "Volo.Abp.AspNetCore.Mvc.ApiExploring.AbpApiDefinitionController": {
-          "controllerName": "AbpApiDefinition",
-          "controllerGroupName": "AbpApiDefinition",
-          "isRemoteService": true,
-          "apiVersion": null,
-          "type": "Volo.Abp.AspNetCore.Mvc.ApiExploring.AbpApiDefinitionController",
-          "interfaces": [],
-          "actions": {
-            "GetByModel": {
-              "uniqueName": "GetByModel",
-              "name": "Get",
-              "httpMethod": "GET",
-              "url": "api/abp/api-definition",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "model",
-                  "typeAsString": "Volo.Abp.Http.Modeling.ApplicationApiDescriptionModelRequestDto, Volo.Abp.Http",
-                  "type": "Volo.Abp.Http.Modeling.ApplicationApiDescriptionModelRequestDto",
-                  "typeSimple": "Volo.Abp.Http.Modeling.ApplicationApiDescriptionModelRequestDto",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "model",
-                  "name": "IncludeTypes",
-                  "jsonName": null,
-                  "type": "System.Boolean",
-                  "typeSimple": "boolean",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
                   "bindingSourceId": "ModelBinding",
-                  "descriptorName": "model"
+                  "descriptorName": ""
                 }
               ],
               "returnValue": {
-                "type": "Volo.Abp.Http.Modeling.ApplicationApiDescriptionModel",
-                "typeSimple": "Volo.Abp.Http.Modeling.ApplicationApiDescriptionModel"
+                "type": "Volo.Abp.PermissionManagement.GetPermissionListResultDto",
+                "typeSimple": "Volo.Abp.PermissionManagement.GetPermissionListResultDto"
               },
               "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.AspNetCore.Mvc.ApiExploring.AbpApiDefinitionController"
+              "implementFrom": "Volo.Abp.PermissionManagement.IPermissionAppService"
+            },
+            "UpdateAsyncByProviderNameAndProviderKeyAndInput": {
+              "uniqueName": "UpdateAsyncByProviderNameAndProviderKeyAndInput",
+              "name": "UpdateAsync",
+              "httpMethod": "PUT",
+              "url": "api/permission-management/permissions",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "providerName",
+                  "typeAsString": "System.String, System.Private.CoreLib",
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                },
+                {
+                  "name": "providerKey",
+                  "typeAsString": "System.String, System.Private.CoreLib",
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                },
+                {
+                  "name": "input",
+                  "typeAsString": "Volo.Abp.PermissionManagement.UpdatePermissionsDto, Volo.Abp.PermissionManagement.Application.Contracts",
+                  "type": "Volo.Abp.PermissionManagement.UpdatePermissionsDto",
+                  "typeSimple": "Volo.Abp.PermissionManagement.UpdatePermissionsDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "providerName",
+                  "name": "providerName",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": ""
+                },
+                {
+                  "nameOnMethod": "providerKey",
+                  "name": "providerKey",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": ""
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "Volo.Abp.PermissionManagement.UpdatePermissionsDto",
+                  "typeSimple": "Volo.Abp.PermissionManagement.UpdatePermissionsDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.PermissionManagement.IPermissionAppService"
             }
           }
         }
@@ -3547,6 +4597,517 @@
             }
           }
         },
+        "HCN.Admin.Catalog.Materials.MaterialsAppService": {
+          "controllerName": "Materials",
+          "controllerGroupName": "Materials",
+          "isRemoteService": true,
+          "apiVersion": null,
+          "type": "HCN.Admin.Catalog.Materials.MaterialsAppService",
+          "interfaces": [
+            {
+              "type": "Volo.Abp.Validation.IValidationEnabled"
+            },
+            {
+              "type": "Volo.Abp.Auditing.IAuditingEnabled"
+            },
+            {
+              "type": "Volo.Abp.GlobalFeatures.IGlobalFeatureCheckingEnabled"
+            },
+            {
+              "type": "HCN.Admin.Catalog.Materials.IMaterialsAppService"
+            }
+          ],
+          "actions": {
+            "DeleteMultipleAsyncByIds": {
+              "uniqueName": "DeleteMultipleAsyncByIds",
+              "name": "DeleteMultipleAsync",
+              "httpMethod": "DELETE",
+              "url": "api/app/materials/multiple",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "ids",
+                  "typeAsString": "System.Collections.Generic.IEnumerable`1[[System.Guid, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib",
+                  "type": "System.Collections.Generic.IEnumerable<System.Guid>",
+                  "typeSimple": "[string]",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "ids",
+                  "name": "ids",
+                  "jsonName": null,
+                  "type": "System.Collections.Generic.IEnumerable<System.Guid>",
+                  "typeSimple": "[string]",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "HCN.Admin.Catalog.Materials.IMaterialsAppService"
+            },
+            "GetListAllAsync": {
+              "uniqueName": "GetListAllAsync",
+              "name": "GetListAllAsync",
+              "httpMethod": "GET",
+              "url": "api/app/materials/all",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "System.Collections.Generic.List<HCN.Admin.Catalog.Materials.MaterialInListDto>",
+                "typeSimple": "[HCN.Admin.Catalog.Materials.MaterialInListDto]"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "HCN.Admin.Catalog.Materials.IMaterialsAppService"
+            },
+            "GetListFilterAsyncByInput": {
+              "uniqueName": "GetListFilterAsyncByInput",
+              "name": "GetListFilterAsync",
+              "httpMethod": "GET",
+              "url": "api/app/materials/filter",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "HCN.Admin.Catalog.Materials.MaterialListFilterDto, HCN.Admin.Application.Contracts",
+                  "type": "HCN.Admin.Catalog.Materials.MaterialListFilterDto",
+                  "typeSimple": "HCN.Admin.Catalog.Materials.MaterialListFilterDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "CategoryId",
+                  "jsonName": null,
+                  "type": "System.Guid?",
+                  "typeSimple": "string?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "Keyword",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "SkipCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "MaxResultCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<HCN.Admin.Catalog.Materials.MaterialInListDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<HCN.Admin.Catalog.Materials.MaterialInListDto>"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "HCN.Admin.Catalog.Materials.IMaterialsAppService"
+            },
+            "CreateAsyncByInput": {
+              "uniqueName": "CreateAsyncByInput",
+              "name": "CreateAsync",
+              "httpMethod": "POST",
+              "url": "api/app/materials",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "HCN.Admin.Catalog.Materials.CreateUpdateMaterialDto, HCN.Admin.Application.Contracts",
+                  "type": "HCN.Admin.Catalog.Materials.CreateUpdateMaterialDto",
+                  "typeSimple": "HCN.Admin.Catalog.Materials.CreateUpdateMaterialDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "HCN.Admin.Catalog.Materials.CreateUpdateMaterialDto",
+                  "typeSimple": "HCN.Admin.Catalog.Materials.CreateUpdateMaterialDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "HCN.Admin.Catalog.Materials.MaterialDto",
+                "typeSimple": "HCN.Admin.Catalog.Materials.MaterialDto"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<HCN.Admin.Catalog.Materials.MaterialDto,HCN.Admin.Catalog.Materials.CreateUpdateMaterialDto>"
+            },
+            "UpdateAsyncByIdAndInput": {
+              "uniqueName": "UpdateAsyncByIdAndInput",
+              "name": "UpdateAsync",
+              "httpMethod": "PUT",
+              "url": "api/app/materials/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                },
+                {
+                  "name": "input",
+                  "typeAsString": "HCN.Admin.Catalog.Materials.CreateUpdateMaterialDto, HCN.Admin.Application.Contracts",
+                  "type": "HCN.Admin.Catalog.Materials.CreateUpdateMaterialDto",
+                  "typeSimple": "HCN.Admin.Catalog.Materials.CreateUpdateMaterialDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "HCN.Admin.Catalog.Materials.CreateUpdateMaterialDto",
+                  "typeSimple": "HCN.Admin.Catalog.Materials.CreateUpdateMaterialDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "HCN.Admin.Catalog.Materials.MaterialDto",
+                "typeSimple": "HCN.Admin.Catalog.Materials.MaterialDto"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<HCN.Admin.Catalog.Materials.MaterialDto,System.Guid,HCN.Admin.Catalog.Materials.CreateUpdateMaterialDto>"
+            },
+            "GetThumbnailImageAsyncByFileName": {
+              "uniqueName": "GetThumbnailImageAsyncByFileName",
+              "name": "GetThumbnailImageAsync",
+              "httpMethod": "GET",
+              "url": "api/app/materials/thumbnail-image",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "fileName",
+                  "typeAsString": "System.String, System.Private.CoreLib",
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "fileName",
+                  "name": "fileName",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.String",
+                "typeSimple": "string"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "HCN.Admin.Catalog.Materials.IMaterialsAppService"
+            },
+            "GetSuggestNewCodeAsync": {
+              "uniqueName": "GetSuggestNewCodeAsync",
+              "name": "GetSuggestNewCodeAsync",
+              "httpMethod": "GET",
+              "url": "api/app/materials/suggest-new-code",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "System.String",
+                "typeSimple": "string"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "HCN.Admin.Catalog.Materials.MaterialsAppService"
+            },
+            "GetMaterialTagAsyncByMaterialId": {
+              "uniqueName": "GetMaterialTagAsyncByMaterialId",
+              "name": "GetMaterialTagAsync",
+              "httpMethod": "GET",
+              "url": "api/app/materials/material-tag/{materialId}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "materialId",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "materialId",
+                  "name": "materialId",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Collections.Generic.List<HCN.Admin.Catalog.Tags.TagInListDto>",
+                "typeSimple": "[HCN.Admin.Catalog.Tags.TagInListDto]"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "HCN.Admin.Catalog.Materials.MaterialsAppService"
+            },
+            "UpdateMaterialTagAsyncByMaterialIdAndMaterialTagList": {
+              "uniqueName": "UpdateMaterialTagAsyncByMaterialIdAndMaterialTagList",
+              "name": "UpdateMaterialTagAsync",
+              "httpMethod": "PUT",
+              "url": "api/app/materials/material-tag/{materialId}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "materialId",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                },
+                {
+                  "name": "materialTagList",
+                  "typeAsString": "System.String[], System.Private.CoreLib",
+                  "type": "System.String[]",
+                  "typeSimple": "[string]",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "materialId",
+                  "name": "materialId",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                },
+                {
+                  "nameOnMethod": "materialTagList",
+                  "name": "materialTagList",
+                  "jsonName": null,
+                  "type": "System.String[]",
+                  "typeSimple": "[string]",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "HCN.Admin.Catalog.Materials.MaterialDto",
+                "typeSimple": "HCN.Admin.Catalog.Materials.MaterialDto"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "HCN.Admin.Catalog.Materials.MaterialsAppService"
+            },
+            "DeleteAsyncById": {
+              "uniqueName": "DeleteAsyncById",
+              "name": "DeleteAsync",
+              "httpMethod": "DELETE",
+              "url": "api/app/materials/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "Volo.Abp.Application.Services.IDeleteAppService<System.Guid>"
+            },
+            "GetAsyncById": {
+              "uniqueName": "GetAsyncById",
+              "name": "GetAsync",
+              "httpMethod": "GET",
+              "url": "api/app/materials/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "HCN.Admin.Catalog.Materials.MaterialDto",
+                "typeSimple": "HCN.Admin.Catalog.Materials.MaterialDto"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<HCN.Admin.Catalog.Materials.MaterialDto,HCN.Admin.Catalog.Materials.MaterialDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
+            },
+            "GetListAsyncByInput": {
+              "uniqueName": "GetListAsyncByInput",
+              "name": "GetListAsync",
+              "httpMethod": "GET",
+              "url": "api/app/materials",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "Volo.Abp.Application.Dtos.PagedResultRequestDto, Volo.Abp.Ddd.Application.Contracts",
+                  "type": "Volo.Abp.Application.Dtos.PagedResultRequestDto",
+                  "typeSimple": "Volo.Abp.Application.Dtos.PagedResultRequestDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "MaxResultCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "SkipCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<HCN.Admin.Catalog.Materials.MaterialDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<HCN.Admin.Catalog.Materials.MaterialDto>"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<HCN.Admin.Catalog.Materials.MaterialDto,HCN.Admin.Catalog.Materials.MaterialDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
+            }
+          }
+        },
         "HCN.Admin.Catalog.MaterialCategories.MaterialCategoriesAppService": {
           "controllerName": "MaterialCategories",
           "controllerGroupName": "MaterialCategories",
@@ -4329,39 +5890,31 @@
         }
       }
     },
-    "featureManagement": {
-      "rootPath": "featureManagement",
-      "remoteServiceName": "AbpFeatureManagement",
+    "abp": {
+      "rootPath": "abp",
+      "remoteServiceName": "abp",
       "controllers": {
-        "Volo.Abp.FeatureManagement.FeaturesController": {
-          "controllerName": "Features",
-          "controllerGroupName": "Features",
+        "Pages.Abp.MultiTenancy.AbpTenantController": {
+          "controllerName": "AbpTenant",
+          "controllerGroupName": "AbpTenant",
           "isRemoteService": true,
           "apiVersion": null,
-          "type": "Volo.Abp.FeatureManagement.FeaturesController",
+          "type": "Pages.Abp.MultiTenancy.AbpTenantController",
           "interfaces": [
             {
-              "type": "Volo.Abp.FeatureManagement.IFeatureAppService"
+              "type": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.IAbpTenantAppService"
             }
           ],
           "actions": {
-            "GetAsyncByProviderNameAndProviderKey": {
-              "uniqueName": "GetAsyncByProviderNameAndProviderKey",
-              "name": "GetAsync",
+            "FindTenantByNameAsyncByName": {
+              "uniqueName": "FindTenantByNameAsyncByName",
+              "name": "FindTenantByNameAsync",
               "httpMethod": "GET",
-              "url": "api/feature-management/features",
+              "url": "api/abp/multi-tenancy/tenants/by-name/{name}",
               "supportedVersions": [],
               "parametersOnMethod": [
                 {
-                  "name": "providerName",
-                  "typeAsString": "System.String, System.Private.CoreLib",
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                },
-                {
-                  "name": "providerKey",
+                  "name": "name",
                   "typeAsString": "System.String, System.Private.CoreLib",
                   "type": "System.String",
                   "typeSimple": "string",
@@ -4371,1179 +5924,137 @@
               ],
               "parameters": [
                 {
-                  "nameOnMethod": "providerName",
-                  "name": "providerName",
+                  "nameOnMethod": "name",
+                  "name": "name",
                   "jsonName": null,
                   "type": "System.String",
                   "typeSimple": "string",
                   "isOptional": false,
                   "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": ""
-                },
-                {
-                  "nameOnMethod": "providerKey",
-                  "name": "providerKey",
-                  "jsonName": null,
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
                   "descriptorName": ""
                 }
               ],
               "returnValue": {
-                "type": "Volo.Abp.FeatureManagement.GetFeatureListResultDto",
-                "typeSimple": "Volo.Abp.FeatureManagement.GetFeatureListResultDto"
+                "type": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.FindTenantResultDto",
+                "typeSimple": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.FindTenantResultDto"
               },
               "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.FeatureManagement.IFeatureAppService"
+              "implementFrom": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.IAbpTenantAppService"
             },
-            "UpdateAsyncByProviderNameAndProviderKeyAndInput": {
-              "uniqueName": "UpdateAsyncByProviderNameAndProviderKeyAndInput",
-              "name": "UpdateAsync",
-              "httpMethod": "PUT",
-              "url": "api/feature-management/features",
+            "FindTenantByIdAsyncById": {
+              "uniqueName": "FindTenantByIdAsyncById",
+              "name": "FindTenantByIdAsync",
+              "httpMethod": "GET",
+              "url": "api/abp/multi-tenancy/tenants/by-id/{id}",
               "supportedVersions": [],
               "parametersOnMethod": [
                 {
-                  "name": "providerName",
-                  "typeAsString": "System.String, System.Private.CoreLib",
-                  "type": "System.String",
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
                   "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                },
-                {
-                  "name": "providerKey",
-                  "typeAsString": "System.String, System.Private.CoreLib",
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                },
-                {
-                  "name": "input",
-                  "typeAsString": "Volo.Abp.FeatureManagement.UpdateFeaturesDto, Volo.Abp.FeatureManagement.Application.Contracts",
-                  "type": "Volo.Abp.FeatureManagement.UpdateFeaturesDto",
-                  "typeSimple": "Volo.Abp.FeatureManagement.UpdateFeaturesDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
               ],
               "parameters": [
                 {
-                  "nameOnMethod": "providerName",
-                  "name": "providerName",
+                  "nameOnMethod": "id",
+                  "name": "id",
                   "jsonName": null,
-                  "type": "System.String",
+                  "type": "System.Guid",
                   "typeSimple": "string",
                   "isOptional": false,
                   "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": ""
-                },
-                {
-                  "nameOnMethod": "providerKey",
-                  "name": "providerKey",
-                  "jsonName": null,
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": ""
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "input",
-                  "jsonName": null,
-                  "type": "Volo.Abp.FeatureManagement.UpdateFeaturesDto",
-                  "typeSimple": "Volo.Abp.FeatureManagement.UpdateFeaturesDto",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "Body",
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
                   "descriptorName": ""
                 }
               ],
               "returnValue": {
-                "type": "System.Void",
-                "typeSimple": "System.Void"
+                "type": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.FindTenantResultDto",
+                "typeSimple": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.FindTenantResultDto"
               },
               "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.FeatureManagement.IFeatureAppService"
+              "implementFrom": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.IAbpTenantAppService"
             }
           }
-        }
-      }
-    },
-    "permissionManagement": {
-      "rootPath": "permissionManagement",
-      "remoteServiceName": "AbpPermissionManagement",
-      "controllers": {
-        "Volo.Abp.PermissionManagement.PermissionsController": {
-          "controllerName": "Permissions",
-          "controllerGroupName": "Permissions",
+        },
+        "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationController": {
+          "controllerName": "AbpApplicationConfiguration",
+          "controllerGroupName": "AbpApplicationConfiguration",
           "isRemoteService": true,
           "apiVersion": null,
-          "type": "Volo.Abp.PermissionManagement.PermissionsController",
+          "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationController",
           "interfaces": [
             {
-              "type": "Volo.Abp.PermissionManagement.IPermissionAppService"
+              "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.IAbpApplicationConfigurationAppService"
             }
           ],
           "actions": {
-            "GetAsyncByProviderNameAndProviderKey": {
-              "uniqueName": "GetAsyncByProviderNameAndProviderKey",
+            "GetAsync": {
+              "uniqueName": "GetAsync",
               "name": "GetAsync",
               "httpMethod": "GET",
-              "url": "api/permission-management/permissions",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "providerName",
-                  "typeAsString": "System.String, System.Private.CoreLib",
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                },
-                {
-                  "name": "providerKey",
-                  "typeAsString": "System.String, System.Private.CoreLib",
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "providerName",
-                  "name": "providerName",
-                  "jsonName": null,
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": ""
-                },
-                {
-                  "nameOnMethod": "providerKey",
-                  "name": "providerKey",
-                  "jsonName": null,
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "Volo.Abp.PermissionManagement.GetPermissionListResultDto",
-                "typeSimple": "Volo.Abp.PermissionManagement.GetPermissionListResultDto"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.PermissionManagement.IPermissionAppService"
-            },
-            "UpdateAsyncByProviderNameAndProviderKeyAndInput": {
-              "uniqueName": "UpdateAsyncByProviderNameAndProviderKeyAndInput",
-              "name": "UpdateAsync",
-              "httpMethod": "PUT",
-              "url": "api/permission-management/permissions",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "providerName",
-                  "typeAsString": "System.String, System.Private.CoreLib",
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                },
-                {
-                  "name": "providerKey",
-                  "typeAsString": "System.String, System.Private.CoreLib",
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                },
-                {
-                  "name": "input",
-                  "typeAsString": "Volo.Abp.PermissionManagement.UpdatePermissionsDto, Volo.Abp.PermissionManagement.Application.Contracts",
-                  "type": "Volo.Abp.PermissionManagement.UpdatePermissionsDto",
-                  "typeSimple": "Volo.Abp.PermissionManagement.UpdatePermissionsDto",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "providerName",
-                  "name": "providerName",
-                  "jsonName": null,
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": ""
-                },
-                {
-                  "nameOnMethod": "providerKey",
-                  "name": "providerKey",
-                  "jsonName": null,
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": ""
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "input",
-                  "jsonName": null,
-                  "type": "Volo.Abp.PermissionManagement.UpdatePermissionsDto",
-                  "typeSimple": "Volo.Abp.PermissionManagement.UpdatePermissionsDto",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "Body",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "System.Void",
-                "typeSimple": "System.Void"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.PermissionManagement.IPermissionAppService"
-            }
-          }
-        }
-      }
-    },
-    "identity": {
-      "rootPath": "identity",
-      "remoteServiceName": "AbpIdentity",
-      "controllers": {
-        "Volo.Abp.Identity.IdentityRoleController": {
-          "controllerName": "IdentityRole",
-          "controllerGroupName": "Role",
-          "isRemoteService": true,
-          "apiVersion": null,
-          "type": "Volo.Abp.Identity.IdentityRoleController",
-          "interfaces": [
-            {
-              "type": "Volo.Abp.Identity.IIdentityRoleAppService"
-            }
-          ],
-          "actions": {
-            "GetAllListAsync": {
-              "uniqueName": "GetAllListAsync",
-              "name": "GetAllListAsync",
-              "httpMethod": "GET",
-              "url": "api/identity/roles/all",
+              "url": "api/abp/application-configuration",
               "supportedVersions": [],
               "parametersOnMethod": [],
               "parameters": [],
               "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.ListResultDto<Volo.Abp.Identity.IdentityRoleDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.ListResultDto<Volo.Abp.Identity.IdentityRoleDto>"
+                "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationConfigurationDto",
+                "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationConfigurationDto"
               },
               "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Identity.IIdentityRoleAppService"
-            },
-            "GetListAsyncByInput": {
-              "uniqueName": "GetListAsyncByInput",
-              "name": "GetListAsync",
-              "httpMethod": "GET",
-              "url": "api/identity/roles",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "input",
-                  "typeAsString": "Volo.Abp.Identity.GetIdentityRolesInput, Volo.Abp.Identity.Application.Contracts",
-                  "type": "Volo.Abp.Identity.GetIdentityRolesInput",
-                  "typeSimple": "Volo.Abp.Identity.GetIdentityRolesInput",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "input",
-                  "name": "Filter",
-                  "jsonName": null,
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "Sorting",
-                  "jsonName": null,
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "SkipCount",
-                  "jsonName": null,
-                  "type": "System.Int32",
-                  "typeSimple": "number",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "MaxResultCount",
-                  "jsonName": null,
-                  "type": "System.Int32",
-                  "typeSimple": "number",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                }
-              ],
-              "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.PagedResultDto<Volo.Abp.Identity.IdentityRoleDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<Volo.Abp.Identity.IdentityRoleDto>"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<Volo.Abp.Identity.IdentityRoleDto,Volo.Abp.Identity.IdentityRoleDto,System.Guid,Volo.Abp.Identity.GetIdentityRolesInput>"
-            },
-            "GetAsyncById": {
-              "uniqueName": "GetAsyncById",
-              "name": "GetAsync",
-              "httpMethod": "GET",
-              "url": "api/identity/roles/{id}",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "id",
-                  "typeAsString": "System.Guid, System.Private.CoreLib",
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "id",
-                  "name": "id",
-                  "jsonName": null,
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": [],
-                  "bindingSourceId": "Path",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "Volo.Abp.Identity.IdentityRoleDto",
-                "typeSimple": "Volo.Abp.Identity.IdentityRoleDto"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<Volo.Abp.Identity.IdentityRoleDto,Volo.Abp.Identity.IdentityRoleDto,System.Guid,Volo.Abp.Identity.GetIdentityRolesInput>"
-            },
-            "CreateAsyncByInput": {
-              "uniqueName": "CreateAsyncByInput",
-              "name": "CreateAsync",
-              "httpMethod": "POST",
-              "url": "api/identity/roles",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "input",
-                  "typeAsString": "Volo.Abp.Identity.IdentityRoleCreateDto, Volo.Abp.Identity.Application.Contracts",
-                  "type": "Volo.Abp.Identity.IdentityRoleCreateDto",
-                  "typeSimple": "Volo.Abp.Identity.IdentityRoleCreateDto",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "input",
-                  "name": "input",
-                  "jsonName": null,
-                  "type": "Volo.Abp.Identity.IdentityRoleCreateDto",
-                  "typeSimple": "Volo.Abp.Identity.IdentityRoleCreateDto",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "Body",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "Volo.Abp.Identity.IdentityRoleDto",
-                "typeSimple": "Volo.Abp.Identity.IdentityRoleDto"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<Volo.Abp.Identity.IdentityRoleDto,Volo.Abp.Identity.IdentityRoleCreateDto>"
-            },
-            "UpdateAsyncByIdAndInput": {
-              "uniqueName": "UpdateAsyncByIdAndInput",
-              "name": "UpdateAsync",
-              "httpMethod": "PUT",
-              "url": "api/identity/roles/{id}",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "id",
-                  "typeAsString": "System.Guid, System.Private.CoreLib",
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                },
-                {
-                  "name": "input",
-                  "typeAsString": "Volo.Abp.Identity.IdentityRoleUpdateDto, Volo.Abp.Identity.Application.Contracts",
-                  "type": "Volo.Abp.Identity.IdentityRoleUpdateDto",
-                  "typeSimple": "Volo.Abp.Identity.IdentityRoleUpdateDto",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "id",
-                  "name": "id",
-                  "jsonName": null,
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": [],
-                  "bindingSourceId": "Path",
-                  "descriptorName": ""
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "input",
-                  "jsonName": null,
-                  "type": "Volo.Abp.Identity.IdentityRoleUpdateDto",
-                  "typeSimple": "Volo.Abp.Identity.IdentityRoleUpdateDto",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "Body",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "Volo.Abp.Identity.IdentityRoleDto",
-                "typeSimple": "Volo.Abp.Identity.IdentityRoleDto"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<Volo.Abp.Identity.IdentityRoleDto,System.Guid,Volo.Abp.Identity.IdentityRoleUpdateDto>"
-            },
-            "DeleteAsyncById": {
-              "uniqueName": "DeleteAsyncById",
-              "name": "DeleteAsync",
-              "httpMethod": "DELETE",
-              "url": "api/identity/roles/{id}",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "id",
-                  "typeAsString": "System.Guid, System.Private.CoreLib",
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "id",
-                  "name": "id",
-                  "jsonName": null,
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": [],
-                  "bindingSourceId": "Path",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "System.Void",
-                "typeSimple": "System.Void"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Application.Services.IDeleteAppService<System.Guid>"
+              "implementFrom": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.IAbpApplicationConfigurationAppService"
             }
           }
         },
-        "Volo.Abp.Identity.IdentityUserController": {
-          "controllerName": "IdentityUser",
-          "controllerGroupName": "User",
+        "Volo.Abp.AspNetCore.Mvc.ApiExploring.AbpApiDefinitionController": {
+          "controllerName": "AbpApiDefinition",
+          "controllerGroupName": "AbpApiDefinition",
           "isRemoteService": true,
           "apiVersion": null,
-          "type": "Volo.Abp.Identity.IdentityUserController",
-          "interfaces": [
-            {
-              "type": "Volo.Abp.Identity.IIdentityUserAppService"
-            }
-          ],
+          "type": "Volo.Abp.AspNetCore.Mvc.ApiExploring.AbpApiDefinitionController",
+          "interfaces": [],
           "actions": {
-            "GetAsyncById": {
-              "uniqueName": "GetAsyncById",
-              "name": "GetAsync",
+            "GetByModel": {
+              "uniqueName": "GetByModel",
+              "name": "Get",
               "httpMethod": "GET",
-              "url": "api/identity/users/{id}",
+              "url": "api/abp/api-definition",
               "supportedVersions": [],
               "parametersOnMethod": [
                 {
-                  "name": "id",
-                  "typeAsString": "System.Guid, System.Private.CoreLib",
-                  "type": "System.Guid",
-                  "typeSimple": "string",
+                  "name": "model",
+                  "typeAsString": "Volo.Abp.Http.Modeling.ApplicationApiDescriptionModelRequestDto, Volo.Abp.Http",
+                  "type": "Volo.Abp.Http.Modeling.ApplicationApiDescriptionModelRequestDto",
+                  "typeSimple": "Volo.Abp.Http.Modeling.ApplicationApiDescriptionModelRequestDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
               ],
               "parameters": [
                 {
-                  "nameOnMethod": "id",
-                  "name": "id",
+                  "nameOnMethod": "model",
+                  "name": "IncludeTypes",
                   "jsonName": null,
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": [],
-                  "bindingSourceId": "Path",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "Volo.Abp.Identity.IdentityUserDto",
-                "typeSimple": "Volo.Abp.Identity.IdentityUserDto"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<Volo.Abp.Identity.IdentityUserDto,Volo.Abp.Identity.IdentityUserDto,System.Guid,Volo.Abp.Identity.GetIdentityUsersInput>"
-            },
-            "GetListAsyncByInput": {
-              "uniqueName": "GetListAsyncByInput",
-              "name": "GetListAsync",
-              "httpMethod": "GET",
-              "url": "api/identity/users",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "input",
-                  "typeAsString": "Volo.Abp.Identity.GetIdentityUsersInput, Volo.Abp.Identity.Application.Contracts",
-                  "type": "Volo.Abp.Identity.GetIdentityUsersInput",
-                  "typeSimple": "Volo.Abp.Identity.GetIdentityUsersInput",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "input",
-                  "name": "Filter",
-                  "jsonName": null,
-                  "type": "System.String",
-                  "typeSimple": "string",
+                  "type": "System.Boolean",
+                  "typeSimple": "boolean",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
                   "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "Sorting",
-                  "jsonName": null,
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "SkipCount",
-                  "jsonName": null,
-                  "type": "System.Int32",
-                  "typeSimple": "number",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "MaxResultCount",
-                  "jsonName": null,
-                  "type": "System.Int32",
-                  "typeSimple": "number",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
+                  "descriptorName": "model"
                 }
               ],
               "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.PagedResultDto<Volo.Abp.Identity.IdentityUserDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<Volo.Abp.Identity.IdentityUserDto>"
+                "type": "Volo.Abp.Http.Modeling.ApplicationApiDescriptionModel",
+                "typeSimple": "Volo.Abp.Http.Modeling.ApplicationApiDescriptionModel"
               },
               "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<Volo.Abp.Identity.IdentityUserDto,Volo.Abp.Identity.IdentityUserDto,System.Guid,Volo.Abp.Identity.GetIdentityUsersInput>"
-            },
-            "CreateAsyncByInput": {
-              "uniqueName": "CreateAsyncByInput",
-              "name": "CreateAsync",
-              "httpMethod": "POST",
-              "url": "api/identity/users",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "input",
-                  "typeAsString": "Volo.Abp.Identity.IdentityUserCreateDto, Volo.Abp.Identity.Application.Contracts",
-                  "type": "Volo.Abp.Identity.IdentityUserCreateDto",
-                  "typeSimple": "Volo.Abp.Identity.IdentityUserCreateDto",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "input",
-                  "name": "input",
-                  "jsonName": null,
-                  "type": "Volo.Abp.Identity.IdentityUserCreateDto",
-                  "typeSimple": "Volo.Abp.Identity.IdentityUserCreateDto",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "Body",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "Volo.Abp.Identity.IdentityUserDto",
-                "typeSimple": "Volo.Abp.Identity.IdentityUserDto"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<Volo.Abp.Identity.IdentityUserDto,Volo.Abp.Identity.IdentityUserCreateDto>"
-            },
-            "UpdateAsyncByIdAndInput": {
-              "uniqueName": "UpdateAsyncByIdAndInput",
-              "name": "UpdateAsync",
-              "httpMethod": "PUT",
-              "url": "api/identity/users/{id}",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "id",
-                  "typeAsString": "System.Guid, System.Private.CoreLib",
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                },
-                {
-                  "name": "input",
-                  "typeAsString": "Volo.Abp.Identity.IdentityUserUpdateDto, Volo.Abp.Identity.Application.Contracts",
-                  "type": "Volo.Abp.Identity.IdentityUserUpdateDto",
-                  "typeSimple": "Volo.Abp.Identity.IdentityUserUpdateDto",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "id",
-                  "name": "id",
-                  "jsonName": null,
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": [],
-                  "bindingSourceId": "Path",
-                  "descriptorName": ""
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "input",
-                  "jsonName": null,
-                  "type": "Volo.Abp.Identity.IdentityUserUpdateDto",
-                  "typeSimple": "Volo.Abp.Identity.IdentityUserUpdateDto",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "Body",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "Volo.Abp.Identity.IdentityUserDto",
-                "typeSimple": "Volo.Abp.Identity.IdentityUserDto"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<Volo.Abp.Identity.IdentityUserDto,System.Guid,Volo.Abp.Identity.IdentityUserUpdateDto>"
-            },
-            "DeleteAsyncById": {
-              "uniqueName": "DeleteAsyncById",
-              "name": "DeleteAsync",
-              "httpMethod": "DELETE",
-              "url": "api/identity/users/{id}",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "id",
-                  "typeAsString": "System.Guid, System.Private.CoreLib",
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "id",
-                  "name": "id",
-                  "jsonName": null,
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": [],
-                  "bindingSourceId": "Path",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "System.Void",
-                "typeSimple": "System.Void"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Application.Services.IDeleteAppService<System.Guid>"
-            },
-            "GetRolesAsyncById": {
-              "uniqueName": "GetRolesAsyncById",
-              "name": "GetRolesAsync",
-              "httpMethod": "GET",
-              "url": "api/identity/users/{id}/roles",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "id",
-                  "typeAsString": "System.Guid, System.Private.CoreLib",
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "id",
-                  "name": "id",
-                  "jsonName": null,
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": [],
-                  "bindingSourceId": "Path",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.ListResultDto<Volo.Abp.Identity.IdentityRoleDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.ListResultDto<Volo.Abp.Identity.IdentityRoleDto>"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Identity.IIdentityUserAppService"
-            },
-            "GetAssignableRolesAsync": {
-              "uniqueName": "GetAssignableRolesAsync",
-              "name": "GetAssignableRolesAsync",
-              "httpMethod": "GET",
-              "url": "api/identity/users/assignable-roles",
-              "supportedVersions": [],
-              "parametersOnMethod": [],
-              "parameters": [],
-              "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.ListResultDto<Volo.Abp.Identity.IdentityRoleDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.ListResultDto<Volo.Abp.Identity.IdentityRoleDto>"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Identity.IIdentityUserAppService"
-            },
-            "UpdateRolesAsyncByIdAndInput": {
-              "uniqueName": "UpdateRolesAsyncByIdAndInput",
-              "name": "UpdateRolesAsync",
-              "httpMethod": "PUT",
-              "url": "api/identity/users/{id}/roles",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "id",
-                  "typeAsString": "System.Guid, System.Private.CoreLib",
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                },
-                {
-                  "name": "input",
-                  "typeAsString": "Volo.Abp.Identity.IdentityUserUpdateRolesDto, Volo.Abp.Identity.Application.Contracts",
-                  "type": "Volo.Abp.Identity.IdentityUserUpdateRolesDto",
-                  "typeSimple": "Volo.Abp.Identity.IdentityUserUpdateRolesDto",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "id",
-                  "name": "id",
-                  "jsonName": null,
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": [],
-                  "bindingSourceId": "Path",
-                  "descriptorName": ""
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "input",
-                  "jsonName": null,
-                  "type": "Volo.Abp.Identity.IdentityUserUpdateRolesDto",
-                  "typeSimple": "Volo.Abp.Identity.IdentityUserUpdateRolesDto",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "Body",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "System.Void",
-                "typeSimple": "System.Void"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Identity.IIdentityUserAppService"
-            },
-            "FindByUsernameAsyncByUserName": {
-              "uniqueName": "FindByUsernameAsyncByUserName",
-              "name": "FindByUsernameAsync",
-              "httpMethod": "GET",
-              "url": "api/identity/users/by-username/{userName}",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "userName",
-                  "typeAsString": "System.String, System.Private.CoreLib",
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "userName",
-                  "name": "userName",
-                  "jsonName": null,
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": [],
-                  "bindingSourceId": "Path",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "Volo.Abp.Identity.IdentityUserDto",
-                "typeSimple": "Volo.Abp.Identity.IdentityUserDto"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Identity.IIdentityUserAppService"
-            },
-            "FindByEmailAsyncByEmail": {
-              "uniqueName": "FindByEmailAsyncByEmail",
-              "name": "FindByEmailAsync",
-              "httpMethod": "GET",
-              "url": "api/identity/users/by-email/{email}",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "email",
-                  "typeAsString": "System.String, System.Private.CoreLib",
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "email",
-                  "name": "email",
-                  "jsonName": null,
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": [],
-                  "bindingSourceId": "Path",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "Volo.Abp.Identity.IdentityUserDto",
-                "typeSimple": "Volo.Abp.Identity.IdentityUserDto"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Identity.IIdentityUserAppService"
-            }
-          }
-        },
-        "Volo.Abp.Identity.IdentityUserLookupController": {
-          "controllerName": "IdentityUserLookup",
-          "controllerGroupName": "UserLookup",
-          "isRemoteService": true,
-          "apiVersion": null,
-          "type": "Volo.Abp.Identity.IdentityUserLookupController",
-          "interfaces": [
-            {
-              "type": "Volo.Abp.Identity.IIdentityUserLookupAppService"
-            }
-          ],
-          "actions": {
-            "FindByIdAsyncById": {
-              "uniqueName": "FindByIdAsyncById",
-              "name": "FindByIdAsync",
-              "httpMethod": "GET",
-              "url": "api/identity/users/lookup/{id}",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "id",
-                  "typeAsString": "System.Guid, System.Private.CoreLib",
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "id",
-                  "name": "id",
-                  "jsonName": null,
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": [],
-                  "bindingSourceId": "Path",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "Volo.Abp.Users.UserData",
-                "typeSimple": "Volo.Abp.Users.UserData"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Identity.IIdentityUserLookupAppService"
-            },
-            "FindByUserNameAsyncByUserName": {
-              "uniqueName": "FindByUserNameAsyncByUserName",
-              "name": "FindByUserNameAsync",
-              "httpMethod": "GET",
-              "url": "api/identity/users/lookup/by-username/{userName}",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "userName",
-                  "typeAsString": "System.String, System.Private.CoreLib",
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "userName",
-                  "name": "userName",
-                  "jsonName": null,
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": [],
-                  "bindingSourceId": "Path",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "Volo.Abp.Users.UserData",
-                "typeSimple": "Volo.Abp.Users.UserData"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Identity.IIdentityUserLookupAppService"
-            },
-            "SearchAsyncByInput": {
-              "uniqueName": "SearchAsyncByInput",
-              "name": "SearchAsync",
-              "httpMethod": "GET",
-              "url": "api/identity/users/lookup/search",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "input",
-                  "typeAsString": "Volo.Abp.Identity.UserLookupSearchInputDto, Volo.Abp.Identity.Application.Contracts",
-                  "type": "Volo.Abp.Identity.UserLookupSearchInputDto",
-                  "typeSimple": "Volo.Abp.Identity.UserLookupSearchInputDto",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "input",
-                  "name": "Filter",
-                  "jsonName": null,
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "Sorting",
-                  "jsonName": null,
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "SkipCount",
-                  "jsonName": null,
-                  "type": "System.Int32",
-                  "typeSimple": "number",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "MaxResultCount",
-                  "jsonName": null,
-                  "type": "System.Int32",
-                  "typeSimple": "number",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                }
-              ],
-              "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.ListResultDto<Volo.Abp.Users.UserData>",
-                "typeSimple": "Volo.Abp.Application.Dtos.ListResultDto<Volo.Abp.Users.UserData>"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Identity.IIdentityUserLookupAppService"
-            },
-            "GetCountAsyncByInput": {
-              "uniqueName": "GetCountAsyncByInput",
-              "name": "GetCountAsync",
-              "httpMethod": "GET",
-              "url": "api/identity/users/lookup/count",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "input",
-                  "typeAsString": "Volo.Abp.Identity.UserLookupCountInputDto, Volo.Abp.Identity.Application.Contracts",
-                  "type": "Volo.Abp.Identity.UserLookupCountInputDto",
-                  "typeSimple": "Volo.Abp.Identity.UserLookupCountInputDto",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "input",
-                  "name": "Filter",
-                  "jsonName": null,
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                }
-              ],
-              "returnValue": {
-                "type": "System.Int64",
-                "typeSimple": "number"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Identity.IIdentityUserLookupAppService"
+              "implementFrom": "Volo.Abp.AspNetCore.Mvc.ApiExploring.AbpApiDefinitionController"
             }
           }
         }
@@ -12081,18 +12592,6 @@
           "minimum": null,
           "maximum": null,
           "regex": null
-        },
-        {
-          "name": "Tags",
-          "jsonName": null,
-          "type": "[System.String]",
-          "typeSimple": "[string]",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
         }
       ]
     },
@@ -12276,6 +12775,456 @@
           "jsonName": null,
           "type": "System.Guid?",
           "typeSimple": "string?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Id",
+          "jsonName": null,
+          "type": "System.Guid",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "HCN.Admin.Catalog.Materials.MaterialInListDto": {
+      "baseType": "Volo.Abp.Application.Dtos.EntityDto<System.Guid>",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Code",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ThumbnailPicture",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Visibility",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "CategoryName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "CategorySlug",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "HCN.Admin.Catalog.Materials.MaterialListFilterDto": {
+      "baseType": "HCN.Admin.BaseListFilterDto",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "CategoryId",
+          "jsonName": null,
+          "type": "System.Guid?",
+          "typeSimple": "string?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "HCN.Admin.Catalog.Materials.CreateUpdateMaterialDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Slug",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Code",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "CategoryId",
+          "jsonName": null,
+          "type": "System.Guid",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "MaterialType",
+          "jsonName": null,
+          "type": "HCN.Materials.MaterialType",
+          "typeSimple": "HCN.Materials.MaterialType",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Description",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Pictures",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "KeywordSEO",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "DescriptionSEO",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ParentId",
+          "jsonName": null,
+          "type": "System.Guid?",
+          "typeSimple": "string?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Visibility",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "CoverPictureName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "CoverPictureContent",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "HCN.Materials.MaterialType": {
+      "baseType": "System.Enum",
+      "isEnum": true,
+      "enumNames": [
+        "Animal",
+        "Plants",
+        "Chemical",
+        "Virtual"
+      ],
+      "enumValues": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "genericArguments": null,
+      "properties": null
+    },
+    "HCN.Admin.Catalog.Materials.MaterialDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Slug",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Code",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "CategoryId",
+          "jsonName": null,
+          "type": "System.Guid",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "MaterialType",
+          "jsonName": null,
+          "type": "HCN.Materials.MaterialType",
+          "typeSimple": "HCN.Materials.MaterialType",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Description",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ThumbnailPicture",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Pictures",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "KeywordSEO",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "DescriptionSEO",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ParentId",
+          "jsonName": null,
+          "type": "System.Guid?",
+          "typeSimple": "string?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Visibility",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
           "isRequired": false,
           "minLength": null,
           "maxLength": null,

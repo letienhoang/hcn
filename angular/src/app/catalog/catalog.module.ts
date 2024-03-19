@@ -34,6 +34,9 @@ import { TagComponent } from './tag/tag.component';
 import { TagDetailComponent } from './tag/tag-detail.component';
 import {MultiSelectModule} from 'primeng/multiselect';
 import {ChipsModule} from 'primeng/chips';
+import { MaterialComponent } from './material/material.component';
+import { MaterialDetailComponent } from './material/material-detail.component';
+import { MaterialTagComponent } from './material/material-tag.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +52,10 @@ import {ChipsModule} from 'primeng/chips';
     StoryDetailComponent,
     StoryTagComponent,
     TagComponent,
-    TagDetailComponent
+    TagDetailComponent,
+    MaterialComponent,
+    MaterialDetailComponent,
+    MaterialTagComponent,
   ],
   imports: [
     SharedModule,
@@ -82,7 +88,9 @@ import {ChipsModule} from 'primeng/chips';
     TopicDetailComponent,
     StoryDetailComponent,
     StoryTagComponent,
-    TagDetailComponent
+    TagDetailComponent,
+    MaterialDetailComponent,
+    MaterialTagComponent,
   ],
 })
 export class CatalogModule {}

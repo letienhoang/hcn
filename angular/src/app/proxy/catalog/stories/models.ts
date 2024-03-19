@@ -18,7 +18,6 @@ export interface CreateUpdateStoryDto {
   topicId?: string;
   coverPictureName?: string;
   coverPictureContent?: string;
-  tags: string[];
 }
 
 export interface StoryDto {

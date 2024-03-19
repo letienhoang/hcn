@@ -1,12 +1,12 @@
 <form [formGroup]="form" skipValidation (ngSubmit)="saveChange()">
-    <p-panel #pnl header="Chi tiết câu chuyện">
+    <p-panel #pnl header="Chi tiết nguyên liệu">
         <!--Form grid-->
         <div class="formgrid grid">
 
             <div class="field col-12">
-                <label for="title" class="block">Tiêu đề câu chuyện <span class="required">*</span></label>
-                <input id="title" pInputText type="text" (keyup)="generateSlug()" class="w-full" formControlName="title"/>
-                <app-validation-message [entityForm]="form" fieldName="title" [validationMessages]="validationMessages"></app-validation-message>
+                <label for="name" class="block">Tiêu đề câu chuyện <span class="required">*</span></label>
+                <input id="name" pInputText type="text" (keyup)="generateSlug()" class="w-full" formControlName="name"/>
+                <app-validation-message [entityForm]="form" fieldName="name" [validationMessages]="validationMessages"></app-validation-message>
             </div>
             
             <div class="field col-12">
@@ -22,20 +22,36 @@
             </div>
 
             <div class="field col-12">
-                <label for="topicId" class="block">Chủ đề</label>
+                <label for="categoryId" class="block">Danh mục</label>
                 <p-dropdown 
-                    [options]="topics" 
-                    formControlName="topicId" 
-                    placeholder="Chọn chủ đề" 
+                    [options]="materialCategories" 
+                    formControlName="categoryId" 
+                    placeholder="Chọn danh mục" 
                     [showClear]="true"
                     autoWidth="false" [style]="{'width':'100%'}"
                 ></p-dropdown>
             </div>
 
             <div class="field col-12">
-                <label for="briefContent" class="block">Mô tả ngắn</label>
-                <textarea id="briefContent" pInputTextarea class="w-full" formControlName="briefContent"></textarea>
-                <app-validation-message [entityForm]="form" fieldName="briefContent" [validationMessages]="validationMessages"></app-validation-message>
+                <label for="materialType" class="block">Loại nguyên liệu</label>
+                <p-dropdown 
+                    [options]="materialTypes" 
+                    formControlName="materialType" 
+                    placeholder="Chọn loại" 
+                    [showClear]="true"
+                    autoWidth="false" [style]="{'width':'100%'}"
+                ></p-dropdown>
+            </div>
+
+            <div class="field col-12">
+                <label for="parentId" class="block">Nguyên liệu cha</label>
+                <p-dropdown 
+                    [options]="materialParents" 
+                    formControlName="parentId" 
+                    placeholder="Chọn nguyên liệu cha" 
+                    [showClear]="true"
+                    autoWidth="false" [style]="{'width':'100%'}"
+                ></p-dropdown>
             </div>
 
             <div class="field col-12 md:col-6">
@@ -44,12 +60,12 @@
             </div>
 
             <div class="field col-12 md:col-6">
-                <p-image [src]="thumbnailImage" [alt]="selectedEntity.title" width="250" [preview]="true"></p-image>
+                <p-image [src]="thumbnailImage" [alt]="selectedEntity.name" width="250" [preview]="true"></p-image>
             </div>
 
             <div class="field col-12">
-                <label for="content" class="block">Nội dung</label>
-                <p-editor formControlName="content" [style]="{'height':'320px'}"></p-editor>
+                <label for="description" class="block">Mô tả</label>
+                <p-editor formControlName="description" [style]="{'height':'320px'}"></p-editor>
             </div>
 
             <div class="field col-12">
@@ -58,33 +74,9 @@
                 <app-validation-message [entityForm]="form" fieldName="pictures" [validationMessages]="validationMessages"></app-validation-message>
             </div>
 
-            <div class="field col-12 md:col-6">
-                <label for="liked" class="block">Lượt thích <span class="required">*</span></label>
-                <p-inputNumber formControlName="liked"></p-inputNumber>
-                <app-validation-message [entityForm]="form" fieldName="liked" [validationMessages]="validationMessages"></app-validation-message>
-            </div>
-
-            <div class="field col-12 md:col-6">
-                <label for="viewCount" class="block">Lượt xem <span class="required">*</span></label>
-                <p-inputNumber formControlName="viewCount"></p-inputNumber>
-                <app-validation-message [entityForm]="form" fieldName="viewCount" [validationMessages]="validationMessages"></app-validation-message>
-            </div>
-
-            <div class="field col-12 md:col-3">
-                <label for="sortOrder" class="block">Thứ tự <span class="required">*</span></label>
-                <p-inputNumber formControlName="sortOrder"></p-inputNumber>
-                <app-validation-message [entityForm]="form" fieldName="sortOrder" [validationMessages]="validationMessages"></app-validation-message>
-            </div>
-
             <div class="field-checkbox col-12 md:col-3">
                 <p-checkbox formControlName="visibility" binary="true" id="visibility"></p-checkbox>
                 <label for="visibility">Hiển thị</label>
-            </div>
-
-            <div class="field col-12">
-                <label for="referenceSource" class="block">Nguồn thông tin</label>
-                <textarea id="referenceSource" pInputTextarea class="w-full" formControlName="referenceSource"></textarea>
-                <app-validation-message [entityForm]="form" fieldName="referenceSource" [validationMessages]="validationMessages"></app-validation-message>
             </div>
 
             <div class="field col-12">
