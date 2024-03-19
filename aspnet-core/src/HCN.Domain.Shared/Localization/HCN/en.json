@@ -33,6 +33,10 @@
     "Permission:HCNAdminCatalog.Material": "Material",
     "Permission:HCNAdminCatalog.Material.Create": "Create Material",
     "Permission:HCNAdminCatalog.Material.Update": "Update Material",
-    "Permission:HCNAdminCatalog.Material.Delete": "Delete Material"
+    "Permission:HCNAdminCatalog.Material.Delete": "Delete Material",
+    "Permission:HCNAdminCatalog.Tool": "Tool",
+    "Permission:HCNAdminCatalog.Tool.Create": "Create Tool",
+    "Permission:HCNAdminCatalog.Tool.Update": "Update Tool",
+    "Permission:HCNAdminCatalog.Tool.Delete": "Delete Tool"
   }
 }

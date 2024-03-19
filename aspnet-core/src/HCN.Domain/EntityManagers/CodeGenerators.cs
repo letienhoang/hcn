@@ -70,4 +70,23 @@ public class CodeGenerators : ITransientDependency
         }
         return newCode;
     }
+
+    public async Task<string> ToolGenerateAsync()
+    {
+        string newCode;
+        var identitySetting = await _identitySettingRepository.FindAsync(HCNConsts.ToolIdentitySettingId);
+        if (identitySetting == null)
+        {
+            identitySetting = await _identitySettingRepository.InsertAsync(new IdentitySetting(HCNConsts.ToolIdentitySettingId, "Công cụ", HCNConsts.ToolIdentitySettingPrefix, 1, 1));
+            newCode = identitySetting.Prefix + identitySetting.CurrentNumber;
+        }
+        else
+        {
+            identitySetting.CurrentNumber += identitySetting.StepNumber;
+            newCode = identitySetting.Prefix + identitySetting.CurrentNumber;
+
+            await _identitySettingRepository.UpdateAsync(identitySetting);
+        }
+        return newCode;
+    }
 }

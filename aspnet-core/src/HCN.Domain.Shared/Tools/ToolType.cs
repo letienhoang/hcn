@@ -2,7 +2,11 @@
 {
     public enum ToolType
     {
-        Physical = 1,
-        Virtual = 2,
+        Utensils = 1,
+        Kitchenware = 2,
+        ChemicalInstruments = 3,
+        Learning = 4,
+        Crafts = 5,
+        Virtual = 6,
     }
 }

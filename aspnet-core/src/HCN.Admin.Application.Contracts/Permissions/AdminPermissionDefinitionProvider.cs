@@ -58,6 +58,12 @@ public class AdminPermissionDefinitionProvider : PermissionDefinitionProvider
         materialPermission.AddChild(AdminPermissions.Material.Create, L("Permission:HCNAdminCatalog.Material.Create"));
         materialPermission.AddChild(AdminPermissions.Material.Update, L("Permission:HCNAdminCatalog.Material.Update"));
         materialPermission.AddChild(AdminPermissions.Material.Delete, L("Permission:HCNAdminCatalog.Material.Delete"));
+
+        //Tool
+        var toolPermission = catalogGroup.AddPermission(AdminPermissions.Tool.Default, L("Permission:HCNAdminCatalog.Tool"));
+        toolPermission.AddChild(AdminPermissions.Tool.Create, L("Permission:HCNAdminCatalog.Tool.Create"));
+        toolPermission.AddChild(AdminPermissions.Tool.Update, L("Permission:HCNAdminCatalog.Tool.Update"));
+        toolPermission.AddChild(AdminPermissions.Tool.Delete, L("Permission:HCNAdminCatalog.Tool.Delete"));
     }
 
     private static LocalizableString L(string name)

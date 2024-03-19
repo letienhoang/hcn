@@ -9,22 +9,22 @@ namespace HCN.EntityManagers
 {
     public class MaterialManager : DomainService
     {
-        private readonly IRepository<Material, Guid> _storyRepository;
+        private readonly IRepository<Material, Guid> _materialRepository;
 
-        public MaterialManager(IRepository<Material, Guid> storyRepository)
+        public MaterialManager(IRepository<Material, Guid> materialRepository)
         {
-            _storyRepository = storyRepository;
+            _materialRepository = materialRepository;
         }
 
         public async Task<Material> CreateAsync(string name, string slug, string code,
             Guid categoryId, MaterialType materialType, string description, 
             string pictures, bool visibility, string keywordSEO, string descriptionSEO, Guid? parentId)
         {
-            if (await _storyRepository.AnyAsync(x => x.Name == name))
+            if (await _materialRepository.AnyAsync(x => x.Name == name))
             {
                 throw new UserFriendlyException("Tên nguyên liệu đã tồn tại", HCNDomainErrorCodes.MaterialNameAlreadyExists);
             }
-            if (await _storyRepository.AnyAsync(x => x.Code == code))
+            if (await _materialRepository.AnyAsync(x => x.Code == code))
             {
                 throw new UserFriendlyException("Mã nguyên liệu đã tồn tại", HCNDomainErrorCodes.MaterialCodeAlreadyExists);
             }
@@ -35,17 +35,17 @@ namespace HCN.EntityManagers
 
         public async Task<Material> GetUpdateAsync(Guid id, string name, string code)
         {
-            if (await _storyRepository.AnyAsync(x => x.Name == name && x.Id != id))
+            if (await _materialRepository.AnyAsync(x => x.Name == name && x.Id != id))
             {
                 throw new UserFriendlyException("Tên nguyên liệu đã tồn tại", HCNDomainErrorCodes.MaterialNameAlreadyExists);
             }
 
-            if (await _storyRepository.AnyAsync(x => x.Code == code))
+            if (await _materialRepository.AnyAsync(x => x.Code == code && x.Id != id))
             {
                 throw new UserFriendlyException("Mã nguyên liệu đã tồn tại", HCNDomainErrorCodes.MaterialCodeAlreadyExists);
             }
 
-            return await _storyRepository.GetAsync(id);
+            return await _materialRepository.GetAsync(id);
         }
     }
 }

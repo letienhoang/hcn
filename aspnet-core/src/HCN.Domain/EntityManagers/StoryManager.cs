@@ -41,7 +41,7 @@ namespace HCN.EntityManagers
                 throw new UserFriendlyException("Tiêu đề câu chuyện đã tồn tại", HCNDomainErrorCodes.StoryNameAlreadyExists);
             }
 
-            if (await _storyRepository.AnyAsync(x => x.Code == code))
+            if (await _storyRepository.AnyAsync(x => x.Code == code && x.Id != id))
             {
                 throw new UserFriendlyException("Mã câu chuyện đã tồn tại", HCNDomainErrorCodes.StoryCodeAlreadyExists);
             }

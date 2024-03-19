@@ -5,6 +5,7 @@ using HCN.Admin.Catalog.Materials;
 using HCN.Admin.Catalog.Stories;
 using HCN.Admin.Catalog.Tags;
 using HCN.Admin.Catalog.ToolCategories;
+using HCN.Admin.Catalog.Tools;
 using HCN.Admin.Catalog.Topics;
 using HCN.Admin.System.Roles;
 using HCN.Admin.System.Users;
@@ -52,11 +53,15 @@ public class AdminApplicationAutoMapperProfile : Profile
         CreateMap<Tag, TagInListDto>();
         CreateMap<CreateUpdateTagDto, Tag>();
 
-        
         //Material
         CreateMap<Material, MaterialDto>();
         CreateMap<Material, MaterialInListDto>();
         CreateMap<CreateUpdateMaterialDto, Material>();
+
+        //Tool
+        CreateMap<Tool, ToolDto>();
+        CreateMap<Tool, ToolInListDto>();
+        CreateMap<CreateUpdateToolDto, Tool>();
 
         ////Formula
         //CreateMap<Formula, FormulaDto>();

@@ -33,6 +33,10 @@
     "Permission:HCNAdminCatalog.Material": "Nguyên liệu",
     "Permission:HCNAdminCatalog.Material.Create": "Tạo mới nguyên liệu",
     "Permission:HCNAdminCatalog.Material.Update": "Cập nhật nguyên liệu",
-    "Permission:HCNAdminCatalog.Material.Delete": "Xóa nguyên liệu"
+    "Permission:HCNAdminCatalog.Material.Delete": "Xóa nguyên liệu",
+    "Permission:HCNAdminCatalog.Tool": "Công cụ",
+    "Permission:HCNAdminCatalog.Tool.Create": "Tạo mới công cụ",
+    "Permission:HCNAdminCatalog.Tool.Update": "Cập nhật công cụ",
+    "Permission:HCNAdminCatalog.Tool.Delete": "Xóa công cụ"
   }
 }

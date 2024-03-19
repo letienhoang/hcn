@@ -23,4 +23,7 @@ public static class HCNConsts
     
     public const string MaterialIdentitySettingId = "Material";
     public const string MaterialIdentitySettingPrefix = "M";
+
+    public const string ToolIdentitySettingId = "Tool";
+    public const string ToolIdentitySettingPrefix = "TL";
 }

@@ -36,6 +36,11 @@ public static class HCNDomainErrorCodes
     public const string MaterialCodeAlreadyExists = "HCN:MaterialCodeAlreadyExists";
     public const string MaterialIsNotExists = "HCN:MaterialIsNotExists";
 
+    //Tool
+    public const string ToolNameAlreadyExists = "HCN:ToolNameAlreadyExists";
+    public const string ToolCodeAlreadyExists = "HCN:ToolCodeAlreadyExists";
+    public const string ToolIsNotExists = "HCN:ToolIsNotExists";
+
     //Tag
     public const string TagNameAlreadyExists = "HCN:TagNameAlreadyExists";
     public const string TagIsNotExists = "HCN:TagIsNotExists";
