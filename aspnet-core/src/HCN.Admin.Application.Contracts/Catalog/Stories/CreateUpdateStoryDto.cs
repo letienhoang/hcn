@@ -20,6 +20,5 @@ namespace HCN.Admin.Catalog.Stories
         public Guid? TopicId { get; set; }
         public string CoverPictureName { get; set; }
         public string CoverPictureContent { get; set; }
-        public string[] Tags { get; set; }
     }
 }

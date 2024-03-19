@@ -29,6 +29,10 @@
     "Permission:HCNAdminCatalog.Tag": "Tag",
     "Permission:HCNAdminCatalog.Tag.Create": "Create Tag",
     "Permission:HCNAdminCatalog.Tag.Update": "Update Tag",
-    "Permission:HCNAdminCatalog.Tag.Delete": "Delete Tag"
+    "Permission:HCNAdminCatalog.Tag.Delete": "Delete Tag",
+    "Permission:HCNAdminCatalog.Material": "Material",
+    "Permission:HCNAdminCatalog.Material.Create": "Create Material",
+    "Permission:HCNAdminCatalog.Material.Update": "Update Material",
+    "Permission:HCNAdminCatalog.Material.Delete": "Delete Material"
   }
 }

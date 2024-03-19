@@ -61,4 +61,12 @@ public static class AdminPermissions
         public const string Update = Default + ".Update";
         public const string Delete = Default + ".Delete";
     }
+
+    public static class Material
+    {
+        public const string Default = CatalogGroupName + ".Material";
+        public const string Create = Default + ".Create";
+        public const string Update = Default + ".Update";
+        public const string Delete = Default + ".Delete";
+    }
 }

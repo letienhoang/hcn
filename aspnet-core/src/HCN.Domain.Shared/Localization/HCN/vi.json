@@ -29,6 +29,10 @@
     "Permission:HCNAdminCatalog.Tag": "Thẻ",
     "Permission:HCNAdminCatalog.Tag.Create": "Tạo mới thẻ",
     "Permission:HCNAdminCatalog.Tag.Update": "Cập nhật thẻ",
-    "Permission:HCNAdminCatalog.Tag.Delete": "Xóa thẻ"
+    "Permission:HCNAdminCatalog.Tag.Delete": "Xóa thẻ",
+    "Permission:HCNAdminCatalog.Material": "Nguyên liệu",
+    "Permission:HCNAdminCatalog.Material.Create": "Tạo mới nguyên liệu",
+    "Permission:HCNAdminCatalog.Material.Update": "Cập nhật nguyên liệu",
+    "Permission:HCNAdminCatalog.Material.Delete": "Xóa nguyên liệu"
   }
 }

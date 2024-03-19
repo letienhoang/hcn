@@ -8,6 +8,26 @@ namespace HCN.Materials
         public Material()
         { }
 
+        public Material(Guid id, string name, string slug, string code,
+            Guid categoryId, MaterialType materialType, string description, 
+            string thumnailPicture, string pictures, bool visibility,
+            string keywordSEO, string descriptionSEO, Guid? parentId)
+        {
+            Id = id;
+            Name = name;
+            Slug = slug;
+            Code = code;
+            CategoryId = categoryId;
+            MaterialType = materialType;
+            Description = description;
+            ThumbnailPicture = thumnailPicture;
+            Pictures = pictures;
+            Visibility = visibility;
+            KeywordSEO = keywordSEO;
+            DescriptionSEO = descriptionSEO;
+            ParentId = parentId;
+        }
+
         public string Name { get; set; }
         public string Slug { get; set; }
         public string Code { get; set; }

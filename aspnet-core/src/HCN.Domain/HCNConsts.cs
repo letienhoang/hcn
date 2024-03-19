@@ -19,5 +19,8 @@ public static class HCNConsts
     public const string TopicIdentitySettingPrefix = "T";    
     
     public const string StoryIdentitySettingId = "Story";
-    public const string StoryIdentitySettingPrefix = "S";
+    public const string StoryIdentitySettingPrefix = "S";   
+    
+    public const string MaterialIdentitySettingId = "Material";
+    public const string MaterialIdentitySettingPrefix = "M";
 }

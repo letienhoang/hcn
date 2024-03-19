@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using HCN.Admin.Catalog.FormulaCategories;
 using HCN.Admin.Catalog.MaterialCategories;
+using HCN.Admin.Catalog.Materials;
 using HCN.Admin.Catalog.Stories;
 using HCN.Admin.Catalog.Tags;
 using HCN.Admin.Catalog.ToolCategories;
@@ -50,6 +51,12 @@ public class AdminApplicationAutoMapperProfile : Profile
         CreateMap<Tag, TagDto>();
         CreateMap<Tag, TagInListDto>();
         CreateMap<CreateUpdateTagDto, Tag>();
+
+        
+        //Material
+        CreateMap<Material, MaterialDto>();
+        CreateMap<Material, MaterialInListDto>();
+        CreateMap<CreateUpdateMaterialDto, Material>();
 
         ////Formula
         //CreateMap<Formula, FormulaDto>();

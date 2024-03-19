@@ -51,4 +51,23 @@ public class CodeGenerators : ITransientDependency
         }
         return newCode;
     }
+
+    public async Task<string> MaterialGenerateAsync()
+    {
+        string newCode;
+        var identitySetting = await _identitySettingRepository.FindAsync(HCNConsts.MaterialIdentitySettingId);
+        if (identitySetting == null)
+        {
+            identitySetting = await _identitySettingRepository.InsertAsync(new IdentitySetting(HCNConsts.MaterialIdentitySettingId, "Nguyên liệu", HCNConsts.MaterialIdentitySettingPrefix, 1, 1));
+            newCode = identitySetting.Prefix + identitySetting.CurrentNumber;
+        }
+        else
+        {
+            identitySetting.CurrentNumber += identitySetting.StepNumber;
+            newCode = identitySetting.Prefix + identitySetting.CurrentNumber;
+
+            await _identitySettingRepository.UpdateAsync(identitySetting);
+        }
+        return newCode;
+    }
 }

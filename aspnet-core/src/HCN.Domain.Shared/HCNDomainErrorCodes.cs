@@ -31,6 +31,11 @@ public static class HCNDomainErrorCodes
     public const string StoryCodeAlreadyExists = "HCN:StoryCodeAlreadyExists";
     public const string StoryIsNotExists = "HCN:StoryIsNotExists";
 
+    //Material
+    public const string MaterialNameAlreadyExists = "HCN:MaterialNameAlreadyExists";
+    public const string MaterialCodeAlreadyExists = "HCN:MaterialCodeAlreadyExists";
+    public const string MaterialIsNotExists = "HCN:MaterialIsNotExists";
+
     //Tag
     public const string TagNameAlreadyExists = "HCN:TagNameAlreadyExists";
     public const string TagIsNotExists = "HCN:TagIsNotExists";
