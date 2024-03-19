@@ -1,2 +1,3 @@
 import * as Materials from './materials';
-export { Materials };
+import * as Tools from './tools';
+export { Materials, Tools };

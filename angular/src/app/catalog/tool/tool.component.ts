@@ -4,21 +4,21 @@ import { DialogService } from 'primeng/dynamicdialog';
 import { Subject, takeUntil } from 'rxjs';
 import { NotificationService } from '../../shared/services/notification.service';
 import { ConfirmationService } from 'primeng/api';
-import { MaterialsService, MaterialDto, MaterialInListDto } from '@proxy/catalog/materials';
-import { MaterialDetailComponent } from './material-detail.component';
-import { MaterialTagComponent } from './material-tag.component';
-import { MaterialCategoriesService, MaterialCategoryInListDto } from '@proxy/catalog/material-categories';
+import { ToolsService, ToolDto, ToolInListDto } from '@proxy/catalog/tools';
+import { ToolDetailComponent } from './tool-detail.component';
+import { ToolTagComponent } from './tool-tag.component';
+import { ToolCategoriesService, ToolCategoryInListDto } from '@proxy/catalog/tool-categories';
 
 @Component({
-  selector: 'app-material',
-  templateUrl: './material.component.html',
-  styleUrls: ['./material.component.scss'],
+  selector: 'app-tool',
+  templateUrl: './tool.component.html',
+  styleUrls: ['./tool.component.scss'],
 })
-export class MaterialComponent implements OnInit, OnDestroy {
+export class ToolComponent implements OnInit, OnDestroy {
   private ngUnsubscribe = new Subject<void>();
   blockedPanel: boolean = false;
-  items: MaterialInListDto[] = [];
-  public selectedItems: MaterialInListDto[] = [];
+  items: ToolInListDto[] = [];
+  public selectedItems: ToolInListDto[] = [];
 
   //Paging variables
   public skipCount: number = 0;
@@ -31,8 +31,8 @@ export class MaterialComponent implements OnInit, OnDestroy {
   categoryId: string = '';
 
   constructor(
-    private materialService: MaterialsService,
-    private categoryService: MaterialCategoriesService,
+    private toolService: ToolsService,
+    private categoryService: ToolCategoriesService,
     private dialogService: DialogService,
     private notificationService: NotificationService,
     private confirmationService: ConfirmationService,
@@ -50,7 +50,7 @@ export class MaterialComponent implements OnInit, OnDestroy {
 
   loadData() {
     this.toggleBlockUI(true);
-    this.materialService
+    this.toolService
       .getListFilter({
         keyword: this.keyword,
         categoryId: this.categoryId,
@@ -59,7 +59,7 @@ export class MaterialComponent implements OnInit, OnDestroy {
       })
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe({
-        next: (response: PagedResultDto<MaterialInListDto>) => {
+        next: (response: PagedResultDto<ToolInListDto>) => {
           this.items = response.items;
           this.totalCount = response.totalCount;
           this.toggleBlockUI(false);
@@ -77,15 +77,15 @@ export class MaterialComponent implements OnInit, OnDestroy {
   }
 
   showAddModal() {
-    const ref = this.dialogService.open(MaterialDetailComponent, {
-      header: 'Thêm mới nguyên liệu',
+    const ref = this.dialogService.open(ToolDetailComponent, {
+      header: 'Thêm mới công cụ',
       width: '70%',
     });
 
-    ref.onClose.subscribe((data: MaterialDto) => {
+    ref.onClose.subscribe((data: ToolDto) => {
       if (data) {
         this.loadData();
-        this.notificationService.showSuccess('Thêm nguyên liệu thành công');
+        this.notificationService.showSuccess('Thêm công cụ thành công');
         this.selectedItems = [];
       }
     });
@@ -97,18 +97,18 @@ export class MaterialComponent implements OnInit, OnDestroy {
       return;
     }
     const id = this.selectedItems[0].id;
-    const ref = this.dialogService.open(MaterialDetailComponent, {
+    const ref = this.dialogService.open(ToolDetailComponent, {
       data: {
         id: id,
       },
-      header: 'Cập nhật nguyên liệu',
+      header: 'Cập nhật câu chuyện',
       width: '70%',
     });
 
-    ref.onClose.subscribe((data: MaterialDto) => {
+    ref.onClose.subscribe((data: ToolDto) => {
       if (data) {
         this.loadData();
-        this.notificationService.showSuccess('Cập nhật nguyên liệu thành công');
+        this.notificationService.showSuccess('Cập nhật công cụ thành công');
         this.selectedItems = [];
       }
     });
@@ -133,7 +133,7 @@ export class MaterialComponent implements OnInit, OnDestroy {
 
   deleteItemsConfirmed(ids: string[]) {
     this.toggleBlockUI(true);
-    this.materialService
+    this.toolService
       .deleteMultiple(ids)
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe({
@@ -160,7 +160,7 @@ export class MaterialComponent implements OnInit, OnDestroy {
   }
 
   loadCategories() {
-    this.categoryService.getListAll().subscribe((response: MaterialCategoryInListDto[]) => {
+    this.categoryService.getListAll().subscribe((response: ToolCategoryInListDto[]) => {
       response.forEach(element => {
         this.categories.push({
           value: element.id,
@@ -170,19 +170,19 @@ export class MaterialComponent implements OnInit, OnDestroy {
     });
   }
 
-  manageMaterialTag(id: string){
-    const ref = this.dialogService.open(MaterialTagComponent, {
+  manageToolTag(id: string){
+    const ref = this.dialogService.open(ToolTagComponent, {
       data: {
         id: id,
       },
-      header: 'Quản lý thẻ nguyên liệu',
+      header: 'Quản lý thẻ công cụ',
       width: '70%',
     });
 
-    ref.onClose.subscribe((data: MaterialDto)=> {
+    ref.onClose.subscribe((data: ToolDto)=> {
       if (data) {
         this.loadData();
-        this.notificationService.showSuccess('Cập nhật thẻ nguyên liệu thành công');
+        this.notificationService.showSuccess('Cập nhật thẻ công cụ thành công');
         this.selectedItems = [];
       }
     });

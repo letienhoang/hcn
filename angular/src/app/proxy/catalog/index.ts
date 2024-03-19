@@ -4,5 +4,6 @@ import * as Materials from './materials';
 import * as Stories from './stories';
 import * as Tags from './tags';
 import * as ToolCategories from './tool-categories';
+import * as Tools from './tools';
 import * as Topics from './topics';
-export { FormulaCategories, MaterialCategories, Materials, Stories, Tags, ToolCategories, Topics };
+export { FormulaCategories, MaterialCategories, Materials, Stories, Tags, ToolCategories, Tools, Topics };

@@ -37,6 +37,9 @@ import {ChipsModule} from 'primeng/chips';
 import { MaterialComponent } from './material/material.component';
 import { MaterialDetailComponent } from './material/material-detail.component';
 import { MaterialTagComponent } from './material/material-tag.component';
+import { ToolComponent } from './tool/tool.component';
+import { ToolDetailComponent } from './tool/tool-detail.component';
+import { ToolTagComponent } from './tool/tool-tag.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +59,9 @@ import { MaterialTagComponent } from './material/material-tag.component';
     MaterialComponent,
     MaterialDetailComponent,
     MaterialTagComponent,
+    ToolComponent,
+    ToolDetailComponent,
+    ToolTagComponent
   ],
   imports: [
     SharedModule,
@@ -91,6 +97,8 @@ import { MaterialTagComponent } from './material/material-tag.component';
     TagDetailComponent,
     MaterialDetailComponent,
     MaterialTagComponent,
+    ToolDetailComponent,
+    ToolTagComponent
   ],
 })
 export class CatalogModule {}
