@@ -114,6 +114,15 @@ export class StoriesService {
       body: storyTagList,
     },
     { apiName: this.apiName });
+  
+
+  updateVisibility = (storyId: string, visibility: boolean) =>
+    this.restService.request<any, StoryDto>({
+      method: 'PUT',
+      url: `/api/app/stories/visibility/${storyId}`,
+      params: { visibility },
+    },
+    { apiName: this.apiName });
 
   constructor(private restService: RestService) {}
 }

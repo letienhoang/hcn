@@ -9,6 +9,7 @@ import { StoryComponent } from './story/story.component';
 import { TagComponent } from './tag/tag.component';
 import { MaterialComponent } from './material/material.component';
 import { ToolComponent } from './tool/tool.component';
+import { FormulaComponent } from './formula/formula.component';
 
 const routes: Routes = [
   {
@@ -73,6 +74,14 @@ const routes: Routes = [
     canActivate: [PermissionGuard],
     data: {
       requiredPolicy: 'HCNAdminCatalog.Tool',
+    },
+  },
+  {
+    path: 'formula',
+    component: FormulaComponent,
+    canActivate: [PermissionGuard],
+    data: {
+      requiredPolicy: 'HCNAdminCatalog.Formula',
     },
   },
 ];

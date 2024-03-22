@@ -97,6 +97,15 @@ export class TopicsService {
       body: input,
     },
     { apiName: this.apiName });
+  
+
+  updateVisibility = (topicId: string, visibility: boolean) =>
+    this.restService.request<any, TopicDto>({
+      method: 'PUT',
+      url: `/api/app/topics/visibility/${topicId}`,
+      params: { visibility },
+    },
+    { apiName: this.apiName });
 
   constructor(private restService: RestService) {}
 }

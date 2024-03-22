@@ -88,6 +88,15 @@ export class MaterialCategoriesService {
       body: input,
     },
     { apiName: this.apiName });
+  
+
+  updateVisibility = (formulaCategoryId: string, visibility: boolean) =>
+    this.restService.request<any, MaterialCategoryDto>({
+      method: 'PUT',
+      url: `/api/app/material-categories/visibility/${formulaCategoryId}`,
+      params: { visibility },
+    },
+    { apiName: this.apiName });
 
   constructor(private restService: RestService) {}
 }

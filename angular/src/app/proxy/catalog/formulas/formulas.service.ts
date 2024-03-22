@@ -1,4 +1,4 @@
-import type { CreateUpdateToolDto, ToolDto, ToolInListDto, ToolListFilterDto } from './models';
+import type { CreateUpdateFormulaDto, FormulaDto, FormulaInListDto, FormulaListFilterDto } from './models';
 import { RestService } from '@abp/ng.core';
 import type { PagedResultDto, PagedResultRequestDto } from '@abp/ng.core';
 import { Injectable } from '@angular/core';
@@ -7,14 +7,14 @@ import type { TagInListDto } from '../tags/models';
 @Injectable({
   providedIn: 'root',
 })
-export class ToolsService {
+export class FormulasService {
   apiName = 'Default';
   
 
-  create = (input: CreateUpdateToolDto) =>
-    this.restService.request<any, ToolDto>({
+  create = (input: CreateUpdateFormulaDto) =>
+    this.restService.request<any, FormulaDto>({
       method: 'POST',
-      url: '/api/app/tools',
+      url: '/api/app/formulas',
       body: input,
     },
     { apiName: this.apiName });
@@ -23,7 +23,7 @@ export class ToolsService {
   delete = (id: string) =>
     this.restService.request<any, void>({
       method: 'DELETE',
-      url: `/api/app/tools/${id}`,
+      url: `/api/app/formulas/${id}`,
     },
     { apiName: this.apiName });
   
@@ -31,41 +31,49 @@ export class ToolsService {
   deleteMultiple = (ids: string[]) =>
     this.restService.request<any, void>({
       method: 'DELETE',
-      url: '/api/app/tools/multiple',
+      url: '/api/app/formulas/multiple',
       params: { ids },
     },
     { apiName: this.apiName });
   
 
   get = (id: string) =>
-    this.restService.request<any, ToolDto>({
+    this.restService.request<any, FormulaDto>({
       method: 'GET',
-      url: `/api/app/tools/${id}`,
+      url: `/api/app/formulas/${id}`,
+    },
+    { apiName: this.apiName });
+  
+
+  getFormulaTag = (formulaId: string) =>
+    this.restService.request<any, TagInListDto[]>({
+      method: 'GET',
+      url: `/api/app/formulas/formula-tag/${formulaId}`,
     },
     { apiName: this.apiName });
   
 
   getList = (input: PagedResultRequestDto) =>
-    this.restService.request<any, PagedResultDto<ToolDto>>({
+    this.restService.request<any, PagedResultDto<FormulaDto>>({
       method: 'GET',
-      url: '/api/app/tools',
+      url: '/api/app/formulas',
       params: { maxResultCount: input.maxResultCount, skipCount: input.skipCount },
     },
     { apiName: this.apiName });
   
 
   getListAll = () =>
-    this.restService.request<any, ToolInListDto[]>({
+    this.restService.request<any, FormulaInListDto[]>({
       method: 'GET',
-      url: '/api/app/tools/all',
+      url: '/api/app/formulas/all',
     },
     { apiName: this.apiName });
   
 
-  getListFilter = (input: ToolListFilterDto) =>
-    this.restService.request<any, PagedResultDto<ToolInListDto>>({
+  getListFilter = (input: FormulaListFilterDto) =>
+    this.restService.request<any, PagedResultDto<FormulaInListDto>>({
       method: 'GET',
-      url: '/api/app/tools/filter',
+      url: '/api/app/formulas/filter',
       params: { categoryId: input.categoryId, keyword: input.keyword, skipCount: input.skipCount, maxResultCount: input.maxResultCount },
     },
     { apiName: this.apiName });
@@ -75,7 +83,7 @@ export class ToolsService {
     this.restService.request<any, string>({
       method: 'GET',
       responseType: 'text',
-      url: '/api/app/tools/suggest-new-code',
+      url: '/api/app/formulas/suggest-new-code',
     },
     { apiName: this.apiName });
   
@@ -84,42 +92,34 @@ export class ToolsService {
     this.restService.request<any, string>({
       method: 'GET',
       responseType: 'text',
-      url: '/api/app/tools/thumbnail-image',
+      url: '/api/app/formulas/thumbnail-image',
       params: { fileName },
     },
     { apiName: this.apiName });
   
 
-  getToolTag = (toolId: string) =>
-    this.restService.request<any, TagInListDto[]>({
-      method: 'GET',
-      url: `/api/app/tools/tool-tag/${toolId}`,
-    },
-    { apiName: this.apiName });
-  
-
-  update = (id: string, input: CreateUpdateToolDto) =>
-    this.restService.request<any, ToolDto>({
+  update = (id: string, input: CreateUpdateFormulaDto) =>
+    this.restService.request<any, FormulaDto>({
       method: 'PUT',
-      url: `/api/app/tools/${id}`,
+      url: `/api/app/formulas/${id}`,
       body: input,
     },
     { apiName: this.apiName });
   
 
-  updateToolTag = (toolId: string, toolTagList: string[]) =>
-    this.restService.request<any, ToolDto>({
+  updateFormulaTag = (formulaId: string, formulaTagList: string[]) =>
+    this.restService.request<any, FormulaDto>({
       method: 'PUT',
-      url: `/api/app/tools/tool-tag/${toolId}`,
-      body: toolTagList,
+      url: `/api/app/formulas/formula-tag/${formulaId}`,
+      body: formulaTagList,
     },
     { apiName: this.apiName });
   
 
-  updateVisibility = (toolId: string, visibility: boolean) =>
-    this.restService.request<any, ToolDto>({
+  updateVisibility = (formulaId: string, visibility: boolean) =>
+    this.restService.request<any, FormulaDto>({
       method: 'PUT',
-      url: `/api/app/tools/visibility/${toolId}`,
+      url: `/api/app/formulas/visibility/${formulaId}`,
       params: { visibility },
     },
     { apiName: this.apiName });

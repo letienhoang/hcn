@@ -152,4 +152,17 @@ export class TopicComponent implements OnInit, OnDestroy {
       }, 1000);
     }
   }
+
+  visibilityChange(id: string, e: { checked: boolean }) {
+    this.topicService
+      .updateVisibility(id, e.checked)
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe({
+        next: () => {
+          this.selectedItems = [];
+          this.notificationService.showSuccess('Cập nhật hiện thị thành công');
+        },
+        error: () => {},
+      });
+  }
 }

@@ -46,11 +46,10 @@
                 <td>{{ row.viewCount }}</td>
                 <td>{{ row.sortOrder }}</td>
                 <td>
-                    <p-badge *ngIf="row.visibility" severity="success" value="Hiện thị"></p-badge>
-                    <p-badge *ngIf="!row.visibility" severity="danger" value="Ẩn"></p-badge>
+                    <p-inputSwitch [(ngModel)]="row.visibility" (onChange)="visibilityChange(row.id, $event)"></p-inputSwitch>
                 </td>
                 <td>
-                    <button pButton pRipple type="button" class="p-button-text" (click)="manageStoryTag(row.id)" icon="pi pi-pencil" label="Thẻ"></button>
+                    <button pButton pRipple type="button" class="p-button-text" (click)="manageStoryTag(row.id)" icon="pi pi-tags" label="Thẻ"></button>
                 </td>
             </tr>
         </ng-template>

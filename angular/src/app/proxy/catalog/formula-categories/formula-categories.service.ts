@@ -88,6 +88,15 @@ export class FormulaCategoriesService {
       body: input,
     },
     { apiName: this.apiName });
+  
+
+  updateVisibility = (formulaCategoryId: string, visibility: boolean) =>
+    this.restService.request<any, FormulaCategoryDto>({
+      method: 'PUT',
+      url: `/api/app/formula-categories/visibility/${formulaCategoryId}`,
+      params: { visibility },
+    },
+    { apiName: this.apiName });
 
   constructor(private restService: RestService) {}
 }

@@ -1,4 +1,4 @@
-<p-panel header="Danh sách nguyên liệu">
+<p-panel header="Danh sách công thức">
     <!--Filter (search panel)-->
     <div class="grid">
         <div class="col-4">
@@ -26,10 +26,13 @@
                 <th style="width: 10px;">
                     <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                 </th>
-                <th>Tên nguyên liệu</th>
-                <th style="width: 200px;">Mã nguyên liệu</th>
+                <th>Tên công cụ</th>
+                <th style="width: 10%;">Mã công cụ</th>
+                <th style="width: 10%;">Lượt thích</th>
+                <th style="width: 10%;">Lượt xem</th>
+                <th style="width: 10%;">Thứ tự</th>
                 <th>Hiện thị</th>
-                <th></th>
+                <th style="width: 10%;"></th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-row>
@@ -39,11 +42,14 @@
                 </td>
                 <td>{{ row.name }}</td>
                 <td>{{ row.code }}</td>
+                <td>{{ row.liked }}</td>
+                <td>{{ row.viewCount }}</td>
+                <td>{{ row.sortOrder }}</td>
                 <td>
                     <p-inputSwitch [(ngModel)]="row.visibility" (onChange)="visibilityChange(row.id, $event)"></p-inputSwitch>
                 </td>
                 <td>
-                    <button pButton pRipple type="button" class="p-button-text" (click)="manageMaterialTag(row.id)" icon="pi pi-tags" label="Thẻ"></button>
+                    <button pButton pRipple type="button" class="p-button-text" (click)="manageFormulaTag(row.id)" icon="pi pi-tags" label="Thẻ"></button>
                 </td>
             </tr>
         </ng-template>

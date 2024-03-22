@@ -4,21 +4,24 @@ import { DialogService } from 'primeng/dynamicdialog';
 import { Subject, takeUntil } from 'rxjs';
 import { NotificationService } from '../../shared/services/notification.service';
 import { ConfirmationService } from 'primeng/api';
-import { ToolsService, ToolDto, ToolInListDto } from '@proxy/catalog/tools';
-import { ToolDetailComponent } from './tool-detail.component';
-import { ToolTagComponent } from './tool-tag.component';
-import { ToolCategoriesService, ToolCategoryInListDto } from '@proxy/catalog/tool-categories';
+import { FormulasService, FormulaDto, FormulaInListDto } from '@proxy/catalog/formulas';
+import { FormulaDetailComponent } from './formula-detail.component';
+import { FormulaTagComponent } from './formula-tag.component';
+import {
+  FormulaCategoriesService,
+  FormulaCategoryInListDto,
+} from '@proxy/catalog/formula-categories';
 
 @Component({
-  selector: 'app-tool',
-  templateUrl: './tool.component.html',
-  styleUrls: ['./tool.component.scss'],
+  selector: 'app-formula',
+  templateUrl: './formula.component.html',
+  styleUrls: ['./formula.component.scss'],
 })
-export class ToolComponent implements OnInit, OnDestroy {
+export class FormulaComponent implements OnInit, OnDestroy {
   private ngUnsubscribe = new Subject<void>();
   blockedPanel: boolean = false;
-  items: ToolInListDto[] = [];
-  public selectedItems: ToolInListDto[] = [];
+  items: FormulaInListDto[] = [];
+  public selectedItems: FormulaInListDto[] = [];
 
   //Paging variables
   public skipCount: number = 0;
@@ -31,11 +34,11 @@ export class ToolComponent implements OnInit, OnDestroy {
   categoryId: string = '';
 
   constructor(
-    private toolService: ToolsService,
-    private categoryService: ToolCategoriesService,
+    private formulaService: FormulasService,
+    private categoryService: FormulaCategoriesService,
     private dialogService: DialogService,
     private notificationService: NotificationService,
-    private confirmationService: ConfirmationService,
+    private confirmationService: ConfirmationService
   ) {}
 
   ngOnDestroy(): void {
@@ -50,7 +53,7 @@ export class ToolComponent implements OnInit, OnDestroy {
 
   loadData() {
     this.toggleBlockUI(true);
-    this.toolService
+    this.formulaService
       .getListFilter({
         keyword: this.keyword,
         categoryId: this.categoryId,
@@ -59,7 +62,7 @@ export class ToolComponent implements OnInit, OnDestroy {
       })
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe({
-        next: (response: PagedResultDto<ToolInListDto>) => {
+        next: (response: PagedResultDto<FormulaInListDto>) => {
           this.items = response.items;
           this.totalCount = response.totalCount;
           this.toggleBlockUI(false);
@@ -77,15 +80,15 @@ export class ToolComponent implements OnInit, OnDestroy {
   }
 
   showAddModal() {
-    const ref = this.dialogService.open(ToolDetailComponent, {
-      header: 'Thêm mới công cụ',
+    const ref = this.dialogService.open(FormulaDetailComponent, {
+      header: 'Thêm mới công thức',
       width: '70%',
     });
 
-    ref.onClose.subscribe((data: ToolDto) => {
+    ref.onClose.subscribe((data: FormulaDto) => {
       if (data) {
         this.loadData();
-        this.notificationService.showSuccess('Thêm công cụ thành công');
+        this.notificationService.showSuccess('Thêm công thức thành công');
         this.selectedItems = [];
       }
     });
@@ -97,7 +100,7 @@ export class ToolComponent implements OnInit, OnDestroy {
       return;
     }
     const id = this.selectedItems[0].id;
-    const ref = this.dialogService.open(ToolDetailComponent, {
+    const ref = this.dialogService.open(FormulaDetailComponent, {
       data: {
         id: id,
       },
@@ -105,10 +108,10 @@ export class ToolComponent implements OnInit, OnDestroy {
       width: '70%',
     });
 
-    ref.onClose.subscribe((data: ToolDto) => {
+    ref.onClose.subscribe((data: FormulaDto) => {
       if (data) {
         this.loadData();
-        this.notificationService.showSuccess('Cập nhật công cụ thành công');
+        this.notificationService.showSuccess('Cập nhật công thức thành công');
         this.selectedItems = [];
       }
     });
@@ -133,7 +136,7 @@ export class ToolComponent implements OnInit, OnDestroy {
 
   deleteItemsConfirmed(ids: string[]) {
     this.toggleBlockUI(true);
-    this.toolService
+    this.formulaService
       .deleteMultiple(ids)
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe({
@@ -143,9 +146,9 @@ export class ToolComponent implements OnInit, OnDestroy {
           this.selectedItems = [];
           this.toggleBlockUI(false);
         },
-        error:()=>{
+        error: () => {
           this.toggleBlockUI(false);
-        }
+        },
       });
   }
 
@@ -160,7 +163,7 @@ export class ToolComponent implements OnInit, OnDestroy {
   }
 
   loadCategories() {
-    this.categoryService.getListAll().subscribe((response: ToolCategoryInListDto[]) => {
+    this.categoryService.getListAll().subscribe((response: FormulaCategoryInListDto[]) => {
       response.forEach(element => {
         this.categories.push({
           value: element.id,
@@ -170,26 +173,26 @@ export class ToolComponent implements OnInit, OnDestroy {
     });
   }
 
-  manageToolTag(id: string){
-    const ref = this.dialogService.open(ToolTagComponent, {
+  manageFormulaTag(id: string) {
+    const ref = this.dialogService.open(FormulaTagComponent, {
       data: {
         id: id,
       },
-      header: 'Quản lý thẻ công cụ',
+      header: 'Quản lý thẻ công thức',
       width: '70%',
     });
 
-    ref.onClose.subscribe((data: ToolDto)=> {
+    ref.onClose.subscribe((data: FormulaDto) => {
       if (data) {
         this.loadData();
-        this.notificationService.showSuccess('Cập nhật thẻ công cụ thành công');
+        this.notificationService.showSuccess('Cập nhật thẻ công thức thành công');
         this.selectedItems = [];
       }
     });
   }
 
   visibilityChange(id: string, e: { checked: boolean }) {
-    this.toolService
+    this.formulaService
       .updateVisibility(id, e.checked)
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe({

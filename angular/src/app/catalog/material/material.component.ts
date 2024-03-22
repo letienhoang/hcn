@@ -187,4 +187,17 @@ export class MaterialComponent implements OnInit, OnDestroy {
       }
     });
   }
+
+  visibilityChange(id: string, e: { checked: boolean }) {
+    this.materialService
+      .updateVisibility(id, e.checked)
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe({
+        next: () => {
+          this.selectedItems = [];
+          this.notificationService.showSuccess('Cập nhật hiện thị thành công');
+        },
+        error: () => {},
+      });
+  }
 }

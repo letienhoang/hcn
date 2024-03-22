@@ -6,7 +6,6 @@ import { NotificationService } from '../../shared/services/notification.service'
 import { ConfirmationService } from 'primeng/api';
 import { FormulaCategoriesService, FormulaCategoryDto, FormulaCategoryInListDto } from '@proxy/catalog/formula-categories';
 import { FormulaCategoryDetailComponent } from './formula-category-detail.component';
-import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-formula-category',
@@ -34,7 +33,6 @@ export class FormulaCategoryComponent implements OnInit, OnDestroy {
     private dialogService: DialogService,
     private notificationService: NotificationService,
     private confirmationService: ConfirmationService,
-    private sanitizer: DomSanitizer
   ) {}
 
   ngOnDestroy(): void {
@@ -154,5 +152,18 @@ export class FormulaCategoryComponent implements OnInit, OnDestroy {
         this.blockedPanel = false;
       }, 1000);
     }
+  }
+
+  visibilityChange(id: string, e: { checked: boolean }) {
+    this.formulaCategoryService
+      .updateVisibility(id, e.checked)
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe({
+        next: () => {
+          this.selectedItems = [];
+          this.notificationService.showSuccess('Cập nhật hiện thị thành công');
+        },
+        error: () => {},
+      });
   }
 }

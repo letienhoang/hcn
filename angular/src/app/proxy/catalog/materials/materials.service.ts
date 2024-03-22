@@ -114,6 +114,15 @@ export class MaterialsService {
       body: materialTagList,
     },
     { apiName: this.apiName });
+  
+
+  updateVisibility = (materialId: string, visibility: boolean) =>
+    this.restService.request<any, MaterialDto>({
+      method: 'PUT',
+      url: `/api/app/materials/visibility/${materialId}`,
+      params: { visibility },
+    },
+    { apiName: this.apiName });
 
   constructor(private restService: RestService) {}
 }

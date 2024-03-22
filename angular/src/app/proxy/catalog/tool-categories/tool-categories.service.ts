@@ -88,6 +88,15 @@ export class ToolCategoriesService {
       body: input,
     },
     { apiName: this.apiName });
+  
+
+  updateVisibility = (toolCategoryId: string, visibility: boolean) =>
+    this.restService.request<any, ToolCategoryDto>({
+      method: 'PUT',
+      url: `/api/app/tool-categories/visibility/${toolCategoryId}`,
+      params: { visibility },
+    },
+    { apiName: this.apiName });
 
   constructor(private restService: RestService) {}
 }

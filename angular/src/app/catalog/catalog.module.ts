@@ -40,6 +40,10 @@ import { MaterialTagComponent } from './material/material-tag.component';
 import { ToolComponent } from './tool/tool.component';
 import { ToolDetailComponent } from './tool/tool-detail.component';
 import { ToolTagComponent } from './tool/tool-tag.component';
+import { FormulaComponent } from './formula/formula.component';
+import { FormulaDetailComponent } from './formula/formula-detail.component';
+import { FormulaTagComponent } from './formula/formula-tag.component';
+import {InputSwitchModule} from 'primeng/inputswitch';
 
 @NgModule({
   declarations: [
@@ -61,7 +65,10 @@ import { ToolTagComponent } from './tool/tool-tag.component';
     MaterialTagComponent,
     ToolComponent,
     ToolDetailComponent,
-    ToolTagComponent
+    ToolTagComponent,
+    FormulaComponent,
+    FormulaDetailComponent,
+    FormulaTagComponent,
   ],
   imports: [
     SharedModule,
@@ -85,7 +92,8 @@ import { ToolTagComponent } from './tool/tool-tag.component';
     ConfirmDialogModule,
     CalendarModule,
     MultiSelectModule,
-    ChipsModule
+    ChipsModule,
+    InputSwitchModule
   ],
   entryComponents: [
     FormulaCategoryDetailComponent,
@@ -98,7 +106,9 @@ import { ToolTagComponent } from './tool/tool-tag.component';
     MaterialDetailComponent,
     MaterialTagComponent,
     ToolDetailComponent,
-    ToolTagComponent
+    ToolTagComponent,
+    FormulaDetailComponent,
+    FormulaTagComponent
   ],
 })
 export class CatalogModule {}
