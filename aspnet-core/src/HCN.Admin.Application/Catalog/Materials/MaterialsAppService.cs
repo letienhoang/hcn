@@ -236,5 +236,15 @@ namespace HCN.Admin.Catalog.Materials
 
             return ObjectMapper.Map<Material, MaterialDto>(material);
         }
+
+        [Authorize(AdminPermissions.Material.Update)]
+        public async Task<MaterialDto> UpdateVisibilityAsync(Guid materialId, bool visibility)
+        {
+            var material = await Repository.GetAsync(materialId);
+            material.Visibility = visibility;
+            await Repository.UpdateAsync(material);
+
+            return ObjectMapper.Map<Material, MaterialDto>(material);
+        }
     }
 }

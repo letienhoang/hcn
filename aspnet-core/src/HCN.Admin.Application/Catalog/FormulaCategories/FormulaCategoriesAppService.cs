@@ -147,5 +147,15 @@ namespace HCN.Admin.Catalog.FormulaCategories
             var result = Convert.ToBase64String(thumbnailContent);
             return result;
         }
+
+        [Authorize(AdminPermissions.FormulaCategory.Update)]
+        public async Task<FormulaCategoryDto> UpdateVisibilityAsync(Guid formulaCategoryId, bool visibility)
+        {
+            var formulaCategory = await Repository.GetAsync(formulaCategoryId);
+            formulaCategory.Visibility = visibility;
+            await Repository.UpdateAsync(formulaCategory);
+
+            return ObjectMapper.Map<FormulaCategory, FormulaCategoryDto>(formulaCategory);
+        }
     }
 }

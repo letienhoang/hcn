@@ -147,5 +147,15 @@ namespace HCN.Admin.Catalog.MaterialCategories
             var result = Convert.ToBase64String(thumbnailContent);
             return result;
         }
+
+        [Authorize(AdminPermissions.MaterialCategory.Update)]
+        public async Task<MaterialCategoryDto> UpdateVisibilityAsync(Guid formulaCategoryId, bool visibility)
+        {
+            var formulaCategory = await Repository.GetAsync(formulaCategoryId);
+            formulaCategory.Visibility = visibility;
+            await Repository.UpdateAsync(formulaCategory);
+
+            return ObjectMapper.Map<MaterialCategory, MaterialCategoryDto>(formulaCategory);
+        }
     }
 }

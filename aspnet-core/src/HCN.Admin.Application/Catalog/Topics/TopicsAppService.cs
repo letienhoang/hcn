@@ -156,5 +156,15 @@ namespace HCN.Admin.Catalog.Topics
         {
             return await _codeGenerators.TopicGenerateAsync();
         }
+
+        [Authorize(AdminPermissions.Topic.Update)]
+        public async Task<TopicDto> UpdateVisibilityAsync(Guid topicId, bool visibility)
+        {
+            var topic = await Repository.GetAsync(topicId);
+            topic.Visibility = visibility;
+            await Repository.UpdateAsync(topic);
+
+            return ObjectMapper.Map<Topic, TopicDto>(topic);
+        }
     }
 }

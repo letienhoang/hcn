@@ -236,5 +236,15 @@ namespace HCN.Admin.Catalog.Tools
 
             return ObjectMapper.Map<Tool, ToolDto>(tool);
         }
+
+        [Authorize(AdminPermissions.Tool.Update)]
+        public async Task<ToolDto> UpdateVisibilityAsync(Guid toolId, bool visibility)
+        {
+            var tool = await Repository.GetAsync(toolId);
+            tool.Visibility = visibility;
+            await Repository.UpdateAsync(tool);
+
+            return ObjectMapper.Map<Tool, ToolDto>(tool);
+        }
     }
 }

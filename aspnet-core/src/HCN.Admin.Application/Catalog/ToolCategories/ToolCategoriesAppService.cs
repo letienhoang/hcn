@@ -147,5 +147,15 @@ namespace HCN.Admin.Catalog.ToolCategories
             var result = Convert.ToBase64String(thumbnailContent);
             return result;
         }
+
+        [Authorize(AdminPermissions.ToolCategory.Update)]
+        public async Task<ToolCategoryDto> UpdateVisibilityAsync(Guid toolCategoryId, bool visibility)
+        {
+            var toolCategory = await Repository.GetAsync(toolCategoryId);
+            toolCategory.Visibility = visibility;
+            await Repository.UpdateAsync(toolCategory);
+
+            return ObjectMapper.Map<ToolCategory, ToolCategoryDto>(toolCategory);
+        }
     }
 }

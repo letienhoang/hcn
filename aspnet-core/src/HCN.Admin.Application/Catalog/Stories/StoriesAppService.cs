@@ -241,5 +241,15 @@ namespace HCN.Admin.Catalog.Stories
 
             return ObjectMapper.Map<Story, StoryDto>(story);
         }
+
+        [Authorize(AdminPermissions.Story.Update)]
+        public async Task<StoryDto> UpdateVisibilityAsync(Guid storyId, bool visibility)
+        {
+            var story = await Repository.GetAsync(storyId);
+            story.Visibility = visibility;
+            await Repository.UpdateAsync(story);
+
+            return ObjectMapper.Map<Story, StoryDto>(story);
+        }
     }
 }

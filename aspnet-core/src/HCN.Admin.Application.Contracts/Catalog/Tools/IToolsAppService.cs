@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HCN.Admin.Catalog.Tags;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Volo.Abp.Application.Dtos;
@@ -19,5 +20,11 @@ namespace HCN.Admin.Catalog.Tools
         Task DeleteMultipleAsync(IEnumerable<Guid> ids);
 
         Task<string> GetThumbnailImageAsync(string fileName);
+
+        public Task<List<TagInListDto>> GetToolTagAsync(Guid toolId);
+
+        public Task<ToolDto> UpdateToolTagAsync(Guid toolId, string[] toolTagList);
+
+        public Task<ToolDto> UpdateVisibilityAsync(Guid toolId, bool visibility);
     }
 }

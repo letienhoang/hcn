@@ -19,5 +19,7 @@ namespace HCN.Admin.Catalog.MaterialCategories
         Task DeleteMultipleAsync(IEnumerable<Guid> ids);
 
         Task<string> GetThumbnailImageAsync(string fileName);
+
+        public Task<MaterialCategoryDto> UpdateVisibilityAsync(Guid formulaCategoryId, bool visibility);
     }
 }

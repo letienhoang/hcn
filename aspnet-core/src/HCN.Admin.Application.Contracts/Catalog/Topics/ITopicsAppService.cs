@@ -19,5 +19,7 @@ namespace HCN.Admin.Catalog.Topics
         Task DeleteMultipleAsync(IEnumerable<Guid> ids);
 
         Task<string> GetThumbnailImageAsync(string fileName);
+
+        public Task<TopicDto> UpdateVisibilityAsync(Guid topicId, bool visibility);
     }
 }
