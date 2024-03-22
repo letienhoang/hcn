@@ -4,7 +4,7 @@
         <div class="formgrid grid">
 
             <div class="field col-12">
-                <label for="name" class="block">Tiêu đề câu chuyện <span class="required">*</span></label>
+                <label for="name" class="block">Tiêu đề công cụ <span class="required">*</span></label>
                 <input id="name" pInputText type="text" (keyup)="generateSlug()" class="w-full" formControlName="name"/>
                 <app-validation-message [entityForm]="form" fieldName="name" [validationMessages]="validationMessages"></app-validation-message>
             </div>
@@ -33,7 +33,7 @@
             </div>
 
             <div class="field col-12">
-                <label for="toolType" class="block">Loại nguyên liệu</label>
+                <label for="toolType" class="block">Loại công cụ</label>
                 <p-dropdown 
                     [options]="toolTypes" 
                     formControlName="toolType" 
@@ -44,7 +44,7 @@
             </div>
 
             <div class="field col-12">
-                <label for="parentId" class="block">Nguyên liệu cha</label>
+                <label for="parentId" class="block">Công cụ cha</label>
                 <p-dropdown 
                     [options]="toolParents" 
                     formControlName="parentId" 

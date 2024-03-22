@@ -50,7 +50,7 @@ export class StoryDetailComponent implements OnInit, OnDestroy {
   initFormData() {
     var topics = this.topicService.getListAll();
     forkJoin({
-      topics
+      topics,
     })
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe({
@@ -97,36 +97,38 @@ export class StoryDetailComponent implements OnInit, OnDestroy {
   }
 
   saveChange() {
-    this.toggleBlockUI(true);
+    if (this.form.valid) {
+      this.toggleBlockUI(true);
 
-    if (this.utilService.isEmpty(this.config.data?.id)) {
-      this.storyService
-        .create(this.form.value)
-        .pipe(takeUntil(this.ngUnsubscribe))
-        .subscribe({
-          next: () => {
-            this.toggleBlockUI(false);
-            this.ref.close(this.form.value);
-          },
-          error: err => {
-            this.notificationService.showError(err.error.error.message);
-            this.toggleBlockUI(false);
-          },
-        });
-    } else {
-      this.storyService
-        .update(this.config.data?.id, this.form.value)
-        .pipe(takeUntil(this.ngUnsubscribe))
-        .subscribe({
-          next: () => {
-            this.toggleBlockUI(false);
-            this.ref.close(this.form.value);
-          },
-          error: err => {
-            this.notificationService.showError(err.error.error.message);
-            this.toggleBlockUI(false);
-          },
-        });
+      if (this.utilService.isEmpty(this.config.data?.id)) {
+        this.storyService
+          .create(this.form.value)
+          .pipe(takeUntil(this.ngUnsubscribe))
+          .subscribe({
+            next: () => {
+              this.toggleBlockUI(false);
+              this.ref.close(this.form.value);
+            },
+            error: err => {
+              this.notificationService.showError(err.error.error.message);
+              this.toggleBlockUI(false);
+            },
+          });
+      } else {
+        this.storyService
+          .update(this.config.data?.id, this.form.value)
+          .pipe(takeUntil(this.ngUnsubscribe))
+          .subscribe({
+            next: () => {
+              this.toggleBlockUI(false);
+              this.ref.close(this.form.value);
+            },
+            error: err => {
+              this.notificationService.showError(err.error.error.message);
+              this.toggleBlockUI(false);
+            },
+          });
+      }
     }
   }
 
@@ -144,16 +146,28 @@ export class StoryDetailComponent implements OnInit, OnDestroy {
         this.selectedEntity.code || null,
         Validators.compose([Validators.required, Validators.maxLength(128)])
       ),
-      briefContent: new FormControl(this.selectedEntity.briefContent || null,Validators.maxLength(1024)),
+      briefContent: new FormControl(
+        this.selectedEntity.briefContent || null,
+        Validators.maxLength(1024)
+      ),
       content: new FormControl(this.selectedEntity.content || null),
       pictures: new FormControl(this.selectedEntity.pictures || null, Validators.maxLength(512)),
       liked: new FormControl(this.selectedEntity.liked || 1, Validators.required),
       viewCount: new FormControl(this.selectedEntity.viewCount || 1, Validators.required),
       sortOrder: new FormControl(this.selectedEntity.sortOrder || 1, Validators.required),
       visibility: new FormControl(this.selectedEntity.visibility || false),
-      referenceSource: new FormControl(this.selectedEntity.referenceSource || null, Validators.maxLength(512)),
-      keywordSEO: new FormControl(this.selectedEntity.keywordSEO || null, Validators.maxLength(512)),
-      descriptionSEO: new FormControl(this.selectedEntity.descriptionSEO || null, Validators.maxLength(1024)),
+      referenceSource: new FormControl(
+        this.selectedEntity.referenceSource || null,
+        Validators.maxLength(512)
+      ),
+      keywordSEO: new FormControl(
+        this.selectedEntity.keywordSEO || null,
+        Validators.maxLength(512)
+      ),
+      descriptionSEO: new FormControl(
+        this.selectedEntity.descriptionSEO || null,
+        Validators.maxLength(1024)
+      ),
       topicId: new FormControl(this.selectedEntity.topicId || null),
       coverPictureName: new FormControl(this.selectedEntity.thumbnailPicture || null),
       coverPictureContent: new FormControl(null),
@@ -194,7 +208,7 @@ export class StoryDetailComponent implements OnInit, OnDestroy {
     }
   }
 
-  onFileChange(event){
+  onFileChange(event) {
     const reader = new FileReader();
 
     if (event.target.files && event.target.files.length) {
@@ -212,31 +226,35 @@ export class StoryDetailComponent implements OnInit, OnDestroy {
   }
 
   generateSlug() {
-    this.form.controls['slug'].setValue(this.utilService.MakeSeoTitle(this.form.get('title').value));
+    this.form.controls['slug'].setValue(
+      this.utilService.MakeSeoTitle(this.form.get('title').value)
+    );
   }
 
-  loadThumbnail(fileName: string){
-    this.storyService.getThumbnailImage(fileName)
-    .pipe(takeUntil(this.ngUnsubscribe))
-    .subscribe({
-      next: (response: string) => {
-        var fileExt = this.selectedEntity.thumbnailPicture?.split('.').pop();
-        this.thumbnailImage = this.sanitizer.bypassSecurityTrustResourceUrl(
-          `data:image/${fileExt};base64, ${response}`
-        );
-      },
-    });
+  loadThumbnail(fileName: string) {
+    this.storyService
+      .getThumbnailImage(fileName)
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe({
+        next: (response: string) => {
+          var fileExt = this.selectedEntity.thumbnailPicture?.split('.').pop();
+          this.thumbnailImage = this.sanitizer.bypassSecurityTrustResourceUrl(
+            `data:image/${fileExt};base64, ${response}`
+          );
+        },
+      });
   }
 
-  getNewSuggestionCode(){
-    this.storyService.getSuggestNewCode()
-    .pipe(takeUntil(this.ngUnsubscribe))
-    .subscribe({
-      next: (response: string)=>{
-        this.form.patchValue({
-          code: response
-        })
-      }
-    })
+  getNewSuggestionCode() {
+    this.storyService
+      .getSuggestNewCode()
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe({
+        next: (response: string) => {
+          this.form.patchValue({
+            code: response,
+          });
+        },
+      });
   }
 }

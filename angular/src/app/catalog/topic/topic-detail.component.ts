@@ -48,7 +48,7 @@ export class TopicDetailComponent implements OnInit, OnDestroy {
   initFormData() {
     var topics = this.topicService.getListAll();
     forkJoin({
-      topics
+      topics,
     })
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe({
@@ -95,36 +95,38 @@ export class TopicDetailComponent implements OnInit, OnDestroy {
   }
 
   saveChange() {
-    this.toggleBlockUI(true);
+    if (this.form.valid) {
+      this.toggleBlockUI(true);
 
-    if (this.utilService.isEmpty(this.config.data?.id)) {
-      this.topicService
-        .create(this.form.value)
-        .pipe(takeUntil(this.ngUnsubscribe))
-        .subscribe({
-          next: () => {
-            this.toggleBlockUI(false);
-            this.ref.close(this.form.value);
-          },
-          error: err => {
-            this.notificationService.showError(err.error.error.message);
-            this.toggleBlockUI(false);
-          },
-        });
-    } else {
-      this.topicService
-        .update(this.config.data?.id, this.form.value)
-        .pipe(takeUntil(this.ngUnsubscribe))
-        .subscribe({
-          next: () => {
-            this.toggleBlockUI(false);
-            this.ref.close(this.form.value);
-          },
-          error: err => {
-            this.notificationService.showError(err.error.error.message);
-            this.toggleBlockUI(false);
-          },
-        });
+      if (this.utilService.isEmpty(this.config.data?.id)) {
+        this.topicService
+          .create(this.form.value)
+          .pipe(takeUntil(this.ngUnsubscribe))
+          .subscribe({
+            next: () => {
+              this.toggleBlockUI(false);
+              this.ref.close(this.form.value);
+            },
+            error: err => {
+              this.notificationService.showError(err.error.error.message);
+              this.toggleBlockUI(false);
+            },
+          });
+      } else {
+        this.topicService
+          .update(this.config.data?.id, this.form.value)
+          .pipe(takeUntil(this.ngUnsubscribe))
+          .subscribe({
+            next: () => {
+              this.toggleBlockUI(false);
+              this.ref.close(this.form.value);
+            },
+            error: err => {
+              this.notificationService.showError(err.error.error.message);
+              this.toggleBlockUI(false);
+            },
+          });
+      }
     }
   }
 
@@ -143,8 +145,14 @@ export class TopicDetailComponent implements OnInit, OnDestroy {
         Validators.compose([Validators.required, Validators.maxLength(128)])
       ),
       description: new FormControl(this.selectedEntity.description || null),
-      keywordSEO: new FormControl(this.selectedEntity.keywordSEO || null, Validators.maxLength(512)),
-      descriptionSEO: new FormControl(this.selectedEntity.descriptionSEO || null, Validators.maxLength(1024)),
+      keywordSEO: new FormControl(
+        this.selectedEntity.keywordSEO || null,
+        Validators.maxLength(512)
+      ),
+      descriptionSEO: new FormControl(
+        this.selectedEntity.descriptionSEO || null,
+        Validators.maxLength(1024)
+      ),
       visibility: new FormControl(this.selectedEntity.visibility || false),
       parentId: new FormControl(this.selectedEntity.parentId || null),
       coverPictureName: new FormControl(this.selectedEntity.coverPicture || null),
@@ -181,7 +189,7 @@ export class TopicDetailComponent implements OnInit, OnDestroy {
     }
   }
 
-  onFileChange(event){
+  onFileChange(event) {
     const reader = new FileReader();
 
     if (event.target.files && event.target.files.length) {
@@ -202,28 +210,30 @@ export class TopicDetailComponent implements OnInit, OnDestroy {
     this.form.controls['slug'].setValue(this.utilService.MakeSeoTitle(this.form.get('name').value));
   }
 
-  loadThumbnail(fileName: string){
-    this.topicService.getThumbnailImage(fileName)
-    .pipe(takeUntil(this.ngUnsubscribe))
-    .subscribe({
-      next: (response: string) => {
-        var fileExt = this.selectedEntity.coverPicture?.split('.').pop();
-        this.thumbnailImage = this.sanitizer.bypassSecurityTrustResourceUrl(
-          `data:image/${fileExt};base64, ${response}`
-        );
-      },
-    });
+  loadThumbnail(fileName: string) {
+    this.topicService
+      .getThumbnailImage(fileName)
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe({
+        next: (response: string) => {
+          var fileExt = this.selectedEntity.coverPicture?.split('.').pop();
+          this.thumbnailImage = this.sanitizer.bypassSecurityTrustResourceUrl(
+            `data:image/${fileExt};base64, ${response}`
+          );
+        },
+      });
   }
 
-  getNewSuggestionCode(){
-    this.topicService.getSuggestNewCode()
-    .pipe(takeUntil(this.ngUnsubscribe))
-    .subscribe({
-      next: (response: string)=>{
-        this.form.patchValue({
-          code: response
-        })
-      }
-    })
+  getNewSuggestionCode() {
+    this.topicService
+      .getSuggestNewCode()
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe({
+        next: (response: string) => {
+          this.form.patchValue({
+            code: response,
+          });
+        },
+      });
   }
 }

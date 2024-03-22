@@ -7,7 +7,10 @@ import { NotificationService } from '../../shared/services/notification.service'
 import { DomSanitizer } from '@angular/platform-browser';
 import { MaterialsService, MaterialDto, MaterialInListDto } from '@proxy/catalog/materials';
 import { materialTypeOptions } from '@proxy/hcn/materials';
-import { MaterialCategoriesService, MaterialCategoryInListDto } from '@proxy/catalog/material-categories';
+import {
+  MaterialCategoriesService,
+  MaterialCategoryInListDto,
+} from '@proxy/catalog/material-categories';
 
 @Component({
   selector: 'app-material-detail',
@@ -56,7 +59,7 @@ export class MaterialDetailComponent implements OnInit, OnDestroy {
     var materialParents = this.materialService.getListAll();
     forkJoin({
       materialCategories,
-      materialParents
+      materialParents,
     })
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe({
@@ -111,36 +114,38 @@ export class MaterialDetailComponent implements OnInit, OnDestroy {
   }
 
   saveChange() {
-    this.toggleBlockUI(true);
+    if (this.form.valid) {
+      this.toggleBlockUI(true);
 
-    if (this.utilService.isEmpty(this.config.data?.id)) {
-      this.materialService
-        .create(this.form.value)
-        .pipe(takeUntil(this.ngUnsubscribe))
-        .subscribe({
-          next: () => {
-            this.toggleBlockUI(false);
-            this.ref.close(this.form.value);
-          },
-          error: err => {
-            this.notificationService.showError(err.error.error.message);
-            this.toggleBlockUI(false);
-          },
-        });
-    } else {
-      this.materialService
-        .update(this.config.data?.id, this.form.value)
-        .pipe(takeUntil(this.ngUnsubscribe))
-        .subscribe({
-          next: () => {
-            this.toggleBlockUI(false);
-            this.ref.close(this.form.value);
-          },
-          error: err => {
-            this.notificationService.showError(err.error.error.message);
-            this.toggleBlockUI(false);
-          },
-        });
+      if (this.utilService.isEmpty(this.config.data?.id)) {
+        this.materialService
+          .create(this.form.value)
+          .pipe(takeUntil(this.ngUnsubscribe))
+          .subscribe({
+            next: () => {
+              this.toggleBlockUI(false);
+              this.ref.close(this.form.value);
+            },
+            error: err => {
+              this.notificationService.showError(err.error.error.message);
+              this.toggleBlockUI(false);
+            },
+          });
+      } else {
+        this.materialService
+          .update(this.config.data?.id, this.form.value)
+          .pipe(takeUntil(this.ngUnsubscribe))
+          .subscribe({
+            next: () => {
+              this.toggleBlockUI(false);
+              this.ref.close(this.form.value);
+            },
+            error: err => {
+              this.notificationService.showError(err.error.error.message);
+              this.toggleBlockUI(false);
+            },
+          });
+      }
     }
   }
 
@@ -163,8 +168,14 @@ export class MaterialDetailComponent implements OnInit, OnDestroy {
       description: new FormControl(this.selectedEntity.description || null),
       pictures: new FormControl(this.selectedEntity.pictures || null, Validators.maxLength(512)),
       visibility: new FormControl(this.selectedEntity.visibility || false),
-      keywordSEO: new FormControl(this.selectedEntity.keywordSEO || null, Validators.maxLength(512)),
-      descriptionSEO: new FormControl(this.selectedEntity.descriptionSEO || null, Validators.maxLength(1024)),
+      keywordSEO: new FormControl(
+        this.selectedEntity.keywordSEO || null,
+        Validators.maxLength(512)
+      ),
+      descriptionSEO: new FormControl(
+        this.selectedEntity.descriptionSEO || null,
+        Validators.maxLength(1024)
+      ),
       parentId: new FormControl(this.selectedEntity.parentId || null),
       coverPictureName: new FormControl(this.selectedEntity.thumbnailPicture || null),
       coverPictureContent: new FormControl(null),
@@ -203,7 +214,7 @@ export class MaterialDetailComponent implements OnInit, OnDestroy {
     }
   }
 
-  onFileChange(event){
+  onFileChange(event) {
     const reader = new FileReader();
 
     if (event.target.files && event.target.files.length) {
@@ -224,29 +235,31 @@ export class MaterialDetailComponent implements OnInit, OnDestroy {
     this.form.controls['slug'].setValue(this.utilService.MakeSeoTitle(this.form.get('name').value));
   }
 
-  loadThumbnail(fileName: string){
-    this.materialService.getThumbnailImage(fileName)
-    .pipe(takeUntil(this.ngUnsubscribe))
-    .subscribe({
-      next: (response: string) => {
-        var fileExt = this.selectedEntity.thumbnailPicture?.split('.').pop();
-        this.thumbnailImage = this.sanitizer.bypassSecurityTrustResourceUrl(
-          `data:image/${fileExt};base64, ${response}`
-        );
-      },
-    });
+  loadThumbnail(fileName: string) {
+    this.materialService
+      .getThumbnailImage(fileName)
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe({
+        next: (response: string) => {
+          var fileExt = this.selectedEntity.thumbnailPicture?.split('.').pop();
+          this.thumbnailImage = this.sanitizer.bypassSecurityTrustResourceUrl(
+            `data:image/${fileExt};base64, ${response}`
+          );
+        },
+      });
   }
 
-  getNewSuggestionCode(){
-    this.materialService.getSuggestNewCode()
-    .pipe(takeUntil(this.ngUnsubscribe))
-    .subscribe({
-      next: (response: string)=>{
-        this.form.patchValue({
-          code: response
-        })
-      }
-    })
+  getNewSuggestionCode() {
+    this.materialService
+      .getSuggestNewCode()
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe({
+        next: (response: string) => {
+          this.form.patchValue({
+            code: response,
+          });
+        },
+      });
   }
 
   loadMaterialTypes() {

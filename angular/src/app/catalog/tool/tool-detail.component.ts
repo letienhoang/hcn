@@ -56,7 +56,7 @@ export class ToolDetailComponent implements OnInit, OnDestroy {
     var toolParents = this.toolService.getListAll();
     forkJoin({
       toolCategories,
-      toolParents
+      toolParents,
     })
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe({
@@ -111,36 +111,38 @@ export class ToolDetailComponent implements OnInit, OnDestroy {
   }
 
   saveChange() {
-    this.toggleBlockUI(true);
+    if (this.form.valid) {
+      this.toggleBlockUI(true);
 
-    if (this.utilService.isEmpty(this.config.data?.id)) {
-      this.toolService
-        .create(this.form.value)
-        .pipe(takeUntil(this.ngUnsubscribe))
-        .subscribe({
-          next: () => {
-            this.toggleBlockUI(false);
-            this.ref.close(this.form.value);
-          },
-          error: err => {
-            this.notificationService.showError(err.error.error.message);
-            this.toggleBlockUI(false);
-          },
-        });
-    } else {
-      this.toolService
-        .update(this.config.data?.id, this.form.value)
-        .pipe(takeUntil(this.ngUnsubscribe))
-        .subscribe({
-          next: () => {
-            this.toggleBlockUI(false);
-            this.ref.close(this.form.value);
-          },
-          error: err => {
-            this.notificationService.showError(err.error.error.message);
-            this.toggleBlockUI(false);
-          },
-        });
+      if (this.utilService.isEmpty(this.config.data?.id)) {
+        this.toolService
+          .create(this.form.value)
+          .pipe(takeUntil(this.ngUnsubscribe))
+          .subscribe({
+            next: () => {
+              this.toggleBlockUI(false);
+              this.ref.close(this.form.value);
+            },
+            error: err => {
+              this.notificationService.showError(err.error.error.message);
+              this.toggleBlockUI(false);
+            },
+          });
+      } else {
+        this.toolService
+          .update(this.config.data?.id, this.form.value)
+          .pipe(takeUntil(this.ngUnsubscribe))
+          .subscribe({
+            next: () => {
+              this.toggleBlockUI(false);
+              this.ref.close(this.form.value);
+            },
+            error: err => {
+              this.notificationService.showError(err.error.error.message);
+              this.toggleBlockUI(false);
+            },
+          });
+      }
     }
   }
 
@@ -163,8 +165,14 @@ export class ToolDetailComponent implements OnInit, OnDestroy {
       description: new FormControl(this.selectedEntity.description || null),
       pictures: new FormControl(this.selectedEntity.pictures || null, Validators.maxLength(512)),
       visibility: new FormControl(this.selectedEntity.visibility || false),
-      keywordSEO: new FormControl(this.selectedEntity.keywordSEO || null, Validators.maxLength(512)),
-      descriptionSEO: new FormControl(this.selectedEntity.descriptionSEO || null, Validators.maxLength(1024)),
+      keywordSEO: new FormControl(
+        this.selectedEntity.keywordSEO || null,
+        Validators.maxLength(512)
+      ),
+      descriptionSEO: new FormControl(
+        this.selectedEntity.descriptionSEO || null,
+        Validators.maxLength(1024)
+      ),
       parentId: new FormControl(this.selectedEntity.parentId || null),
       coverPictureName: new FormControl(this.selectedEntity.thumbnailPicture || null),
       coverPictureContent: new FormControl(null),
@@ -184,8 +192,8 @@ export class ToolDetailComponent implements OnInit, OnDestroy {
       { type: 'required', message: 'Bạn phải nhập mã' },
       { type: 'maxLength', message: 'Bạn không được nhập quá 128 kí tự' },
     ],
-    categoryId: [{ type: 'required', message: 'Bạn phải chọn danh mục nguyên liệu' }],
-    toolType: [{ type: 'required', message: 'Bạn phải chọn loại nguyên liệu' }],
+    categoryId: [{ type: 'required', message: 'Bạn phải chọn danh mục công cụ' }],
+    toolType: [{ type: 'required', message: 'Bạn phải chọn loại công cụ' }],
     pictures: [{ type: 'maxLength', message: 'Bạn không được nhập quá 1024 kí tự' }],
     keywordSEO: [{ type: 'maxLength', message: 'Bạn không được nhập quá 512 kí tự' }],
     descriptionSEO: [{ type: 'maxLength', message: 'Bạn không được nhập quá 1024 kí tự' }],
@@ -203,7 +211,7 @@ export class ToolDetailComponent implements OnInit, OnDestroy {
     }
   }
 
-  onFileChange(event){
+  onFileChange(event) {
     const reader = new FileReader();
 
     if (event.target.files && event.target.files.length) {
@@ -224,29 +232,31 @@ export class ToolDetailComponent implements OnInit, OnDestroy {
     this.form.controls['slug'].setValue(this.utilService.MakeSeoTitle(this.form.get('name').value));
   }
 
-  loadThumbnail(fileName: string){
-    this.toolService.getThumbnailImage(fileName)
-    .pipe(takeUntil(this.ngUnsubscribe))
-    .subscribe({
-      next: (response: string) => {
-        var fileExt = this.selectedEntity.thumbnailPicture?.split('.').pop();
-        this.thumbnailImage = this.sanitizer.bypassSecurityTrustResourceUrl(
-          `data:image/${fileExt};base64, ${response}`
-        );
-      },
-    });
+  loadThumbnail(fileName: string) {
+    this.toolService
+      .getThumbnailImage(fileName)
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe({
+        next: (response: string) => {
+          var fileExt = this.selectedEntity.thumbnailPicture?.split('.').pop();
+          this.thumbnailImage = this.sanitizer.bypassSecurityTrustResourceUrl(
+            `data:image/${fileExt};base64, ${response}`
+          );
+        },
+      });
   }
 
-  getNewSuggestionCode(){
-    this.toolService.getSuggestNewCode()
-    .pipe(takeUntil(this.ngUnsubscribe))
-    .subscribe({
-      next: (response: string)=>{
-        this.form.patchValue({
-          code: response
-        })
-      }
-    })
+  getNewSuggestionCode() {
+    this.toolService
+      .getSuggestNewCode()
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe({
+        next: (response: string) => {
+          this.form.patchValue({
+            code: response,
+          });
+        },
+      });
   }
 
   loadToolTypes() {
