@@ -13,7 +13,11 @@ namespace HCN.Admin.Catalog.Tags
         CreateUpdateTagDto>
     {
         Task<PagedResultDto<TagInListDto>> GetListFilterAsync(BaseListFilterDto input);
+
         Task<List<TagInListDto>> GetListAllAsync();
+
         Task DeleteMultipleAsync(IEnumerable<Guid> ids);
+
+        public Task<TagDto> UpdateVisibilityAsync(Guid tagId, bool visibility);
     }
 }

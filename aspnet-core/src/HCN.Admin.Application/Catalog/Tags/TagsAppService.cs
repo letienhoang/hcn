@@ -88,5 +88,15 @@ namespace HCN.Admin.Catalog.Tags
 
             return ObjectMapper.Map<Tag, TagDto>(tag);
         }
+
+        [Authorize(AdminPermissions.Tag.Update)]
+        public async Task<TagDto> UpdateVisibilityAsync(Guid tagId, bool visibility)
+        {
+            var tag = await Repository.GetAsync(tagId);
+            tag.Visibility = visibility;
+            await Repository.UpdateAsync(tag);
+
+            return ObjectMapper.Map<Tag, TagDto>(tag);
+        }
     }
 }

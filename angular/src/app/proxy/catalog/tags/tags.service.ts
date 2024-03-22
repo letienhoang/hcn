@@ -78,6 +78,15 @@ export class TagsService {
       body: input,
     },
     { apiName: this.apiName });
+  
+
+  updateVisibility = (tagId: string, visibility: boolean) =>
+    this.restService.request<any, TagDto>({
+      method: 'PUT',
+      url: `/api/app/tags/visibility/${tagId}`,
+      params: { visibility },
+    },
+    { apiName: this.apiName });
 
   constructor(private restService: RestService) {}
 }
