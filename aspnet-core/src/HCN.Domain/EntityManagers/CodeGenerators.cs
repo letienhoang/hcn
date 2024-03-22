@@ -89,4 +89,23 @@ public class CodeGenerators : ITransientDependency
         }
         return newCode;
     }
+
+    public async Task<string> FormulaGenerateAsync()
+    {
+        string newCode;
+        var identitySetting = await _identitySettingRepository.FindAsync(HCNConsts.FormulaIdentitySettingId);
+        if (identitySetting == null)
+        {
+            identitySetting = await _identitySettingRepository.InsertAsync(new IdentitySetting(HCNConsts.FormulaIdentitySettingId, "Công thức", HCNConsts.FormulaIdentitySettingPrefix, 1, 1));
+            newCode = identitySetting.Prefix + identitySetting.CurrentNumber;
+        }
+        else
+        {
+            identitySetting.CurrentNumber += identitySetting.StepNumber;
+            newCode = identitySetting.Prefix + identitySetting.CurrentNumber;
+
+            await _identitySettingRepository.UpdateAsync(identitySetting);
+        }
+        return newCode;
+    }
 }

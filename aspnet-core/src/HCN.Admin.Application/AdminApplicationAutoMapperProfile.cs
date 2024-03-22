@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using HCN.Admin.Catalog.FormulaCategories;
+using HCN.Admin.Catalog.Formulas;
 using HCN.Admin.Catalog.MaterialCategories;
 using HCN.Admin.Catalog.Materials;
 using HCN.Admin.Catalog.Stories;
@@ -63,10 +64,10 @@ public class AdminApplicationAutoMapperProfile : Profile
         CreateMap<Tool, ToolInListDto>();
         CreateMap<CreateUpdateToolDto, Tool>();
 
-        ////Formula
-        //CreateMap<Formula, FormulaDto>();
-        //CreateMap<Formula, FormulaInListDto>();
-        //CreateMap<CreateUpdateFormulaDto, Formula>();
+        //Formula
+        CreateMap<Formula, FormulaDto>();
+        CreateMap<Formula, FormulaInListDto>();
+        CreateMap<CreateUpdateFormulaDto, Formula>();
 
         //Role
         CreateMap<IdentityRole, RoleDto>().ForMember(x => x.Description,

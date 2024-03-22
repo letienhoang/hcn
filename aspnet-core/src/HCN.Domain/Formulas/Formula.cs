@@ -8,6 +8,18 @@ namespace HCN.Formulas
         public Formula()
         { }
 
+        public Formula(Guid id, string name, string slug, string code, Guid categoryId,
+            Level level, FormulaType formulaType, int executionTime, string thumbnailPicture,
+            string briefContent, string description, int liked, int viewCount, int sortOrder,
+            bool visibility, string videoUrl, string referenceSource, string keywordSEO, string descriptionSEO, Guid? parentId)
+        {
+            Id = id; Name = name; Slug = slug; Code = code; CategoryId = categoryId; Level = level;
+            FormulaType = formulaType; ExecutionTime = executionTime; ThumbnailPicture = thumbnailPicture;
+            BriefContent = briefContent; Description = description; Liked = liked; ViewCount = viewCount;
+            SortOrder = sortOrder; Visibility = visibility; VideoUrl = videoUrl; ReferenceSource = referenceSource;
+            KeywordSEO = keywordSEO; DescriptionSEO = descriptionSEO; ParentId = parentId;
+        }
+
         public string Name { get; set; }
         public string Slug { get; set; }
         public string Code { get; set; }
@@ -26,5 +38,6 @@ namespace HCN.Formulas
         public string ReferenceSource { get; set; }
         public string KeywordSEO { get; set; }
         public string DescriptionSEO { get; set; }
+        public Guid? ParentId { get; set; }
     }
 }

@@ -6,7 +6,6 @@ public static class HCNDomainErrorCodes
     //Formula
     public const string FormulaNameAlreadyExists = "HCN:FormulaNameAlreadyExists";
     public const string FormulaCodeAlreadyExists = "HCN:FormulaCodeAlreadyExists";
-    public const string FormulaSKUAlreadyExists = "HCN:FormulaSKUAlreadyExists";
     public const string FormulaIsNotExists = "HCN:FormulaIsNotExists";
 
     //Formula Category

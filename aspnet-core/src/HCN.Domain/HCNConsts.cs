@@ -26,4 +26,7 @@ public static class HCNConsts
 
     public const string ToolIdentitySettingId = "Tool";
     public const string ToolIdentitySettingPrefix = "TL";
+
+    public const string FormulaIdentitySettingId = "Formula";
+    public const string FormulaIdentitySettingPrefix = "F";
 }

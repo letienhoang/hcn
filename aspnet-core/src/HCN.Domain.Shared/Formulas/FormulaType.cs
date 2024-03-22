@@ -5,5 +5,6 @@
         Simple = 1,
         Complex = 2,
         Elaborate = 3,
+        Variant = 4,
     }
 }
