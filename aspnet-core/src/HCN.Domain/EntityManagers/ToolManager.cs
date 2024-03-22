@@ -20,11 +20,11 @@ namespace HCN.EntityManagers
             Guid categoryId, ToolType toolType, string description, 
             string pictures, bool visibility, string keywordSEO, string descriptionSEO, Guid? parentId)
         {
-            if (await _toolRepository.AnyAsync(x => x.Name == name))
+            if (await _toolRepository.AnyAsync(x => x.Name.ToUpper() == name.ToUpper()))
             {
                 throw new UserFriendlyException("Tên công cụ đã tồn tại", HCNDomainErrorCodes.ToolNameAlreadyExists);
             }
-            if (await _toolRepository.AnyAsync(x => x.Code == code))
+            if (await _toolRepository.AnyAsync(x => x.Code.ToUpper() == code.ToUpper()))
             {
                 throw new UserFriendlyException("Mã công cụ đã tồn tại", HCNDomainErrorCodes.ToolCodeAlreadyExists);
             }
@@ -35,12 +35,12 @@ namespace HCN.EntityManagers
 
         public async Task<Tool> GetUpdateAsync(Guid id, string name, string code)
         {
-            if (await _toolRepository.AnyAsync(x => x.Name == name && x.Id != id))
+            if (await _toolRepository.AnyAsync(x => x.Name.ToUpper() == name.ToUpper() && x.Id != id))
             {
                 throw new UserFriendlyException("Tên công cụ đã tồn tại", HCNDomainErrorCodes.ToolNameAlreadyExists);
             }
 
-            if (await _toolRepository.AnyAsync(x => x.Code == code && x.Id != id))
+            if (await _toolRepository.AnyAsync(x => x.Code.ToUpper() == code.ToUpper() && x.Id != id))
             {
                 throw new UserFriendlyException("Mã công cụ đã tồn tại", HCNDomainErrorCodes.ToolCodeAlreadyExists);
             }

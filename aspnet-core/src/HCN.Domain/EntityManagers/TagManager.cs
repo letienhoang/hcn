@@ -18,7 +18,7 @@ namespace HCN.EntityManagers
 
         public async Task<Tag> CreateAsync(string name, string slug, bool visibility)
         {
-            if (await _toolCategoryRepository.AnyAsync(x => x.Name == name))
+            if (await _toolCategoryRepository.AnyAsync(x => x.Name.ToUpper() == name.ToUpper()))
             {
                 throw new UserFriendlyException("Tên thẻ đã tồn tại", HCNDomainErrorCodes.TagNameAlreadyExists);
             }
@@ -28,7 +28,7 @@ namespace HCN.EntityManagers
 
         public async Task<Tag> GetUpdateAsync(Guid id, string name)
         {
-            if (await _toolCategoryRepository.AnyAsync(x => x.Name == name && x.Id != id))
+            if (await _toolCategoryRepository.AnyAsync(x => x.Name.ToUpper() == name.ToUpper() && x.Id != id))
             {
                 throw new UserFriendlyException("Tên thẻ đã tồn tại", HCNDomainErrorCodes.TagNameAlreadyExists);
             }

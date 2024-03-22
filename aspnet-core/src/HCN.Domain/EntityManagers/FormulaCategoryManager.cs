@@ -20,7 +20,7 @@ namespace HCN.EntityManagers
             string description, bool visibility,
             string keywordSEO, string descriptionSEO, Guid? parentId)
         {
-            if (await _formulaCategoryRepository.AnyAsync(x => x.Name == name))
+            if (await _formulaCategoryRepository.AnyAsync(x => x.Name.ToUpper() == name.ToUpper()))
             {
                 throw new UserFriendlyException("Tên danh mục đã tồn tại", HCNDomainErrorCodes.FormulaCategoryNameAlreadyExists);
             }
@@ -30,7 +30,7 @@ namespace HCN.EntityManagers
 
         public async Task<FormulaCategory> GetUpdateAsync(Guid id, string name)
         {
-            if (await _formulaCategoryRepository.AnyAsync(x => x.Name == name && x.Id != id))
+            if (await _formulaCategoryRepository.AnyAsync(x => x.Name.ToUpper() == name.ToUpper() && x.Id != id))
             {
                 throw new UserFriendlyException("Tên danh mục đã tồn tại", HCNDomainErrorCodes.FormulaCategoryNameAlreadyExists);
             }

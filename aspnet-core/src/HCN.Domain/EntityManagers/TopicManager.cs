@@ -20,11 +20,11 @@ namespace HCN.EntityManagers
             string code, string description, bool visibility,
             string keywordSEO, string descriptionSEO, Guid? parentId)
         {
-            if (await _topicRepository.AnyAsync(x => x.Name == name))
+            if (await _topicRepository.AnyAsync(x => x.Name.ToUpper() == name.ToUpper()))
             {
                 throw new UserFriendlyException("Tên chủ đề đã tồn tại", HCNDomainErrorCodes.TopicNameAlreadyExists);
             }
-            if (await _topicRepository.AnyAsync(x => x.Code == code))
+            if (await _topicRepository.AnyAsync(x => x.Code.ToUpper() == code.ToUpper()))
             {
                 throw new UserFriendlyException("Mã chủ đề đã tồn tại", HCNDomainErrorCodes.TopicCodeAlreadyExists);
             }
@@ -34,12 +34,12 @@ namespace HCN.EntityManagers
 
         public async Task<Topic> GetUpdateAsync(Guid id, string name, string code)
         {
-            if (await _topicRepository.AnyAsync(x => x.Name == name && x.Id != id))
+            if (await _topicRepository.AnyAsync(x => x.Name.ToUpper() == name.ToUpper() && x.Id != id))
             {
                 throw new UserFriendlyException("Tên chủ đề đã tồn tại", HCNDomainErrorCodes.TopicNameAlreadyExists);
             }
 
-            if (await _topicRepository.AnyAsync(x => x.Code == code && x.Id != id))
+            if (await _topicRepository.AnyAsync(x => x.Code.ToUpper() == code.ToUpper() && x.Id != id))
             {
                 throw new UserFriendlyException("Mã chủ đề đã tồn tại", HCNDomainErrorCodes.TopicCodeAlreadyExists);
             }

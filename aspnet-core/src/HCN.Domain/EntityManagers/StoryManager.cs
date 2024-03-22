@@ -20,11 +20,11 @@ namespace HCN.EntityManagers
             string pictures, int liked, int viewCount, int sortOrder, bool visibility,
             string referenceSource, string keywordSEO, string descriptionSEO, Guid? topicId)
         {
-            if (await _storyRepository.AnyAsync(x => x.Title == title))
+            if (await _storyRepository.AnyAsync(x => x.Title.ToUpper() == title.ToUpper()))
             {
                 throw new UserFriendlyException("Tiêu đề câu chuyện đã tồn tại", HCNDomainErrorCodes.StoryNameAlreadyExists);
             }
-            if (await _storyRepository.AnyAsync(x => x.Code == code))
+            if (await _storyRepository.AnyAsync(x => x.Code.ToUpper() == code.ToUpper()))
             {
                 throw new UserFriendlyException("Mã câu chuyện đã tồn tại", HCNDomainErrorCodes.StoryCodeAlreadyExists);
             }
@@ -36,12 +36,12 @@ namespace HCN.EntityManagers
 
         public async Task<Story> GetUpdateAsync(Guid id, string title, string code)
         {
-            if (await _storyRepository.AnyAsync(x => x.Title == title && x.Id != id))
+            if (await _storyRepository.AnyAsync(x => x.Title.ToUpper() == title.ToUpper() && x.Id != id))
             {
                 throw new UserFriendlyException("Tiêu đề câu chuyện đã tồn tại", HCNDomainErrorCodes.StoryNameAlreadyExists);
             }
 
-            if (await _storyRepository.AnyAsync(x => x.Code == code && x.Id != id))
+            if (await _storyRepository.AnyAsync(x => x.Code.ToUpper() == code.ToUpper() && x.Id != id))
             {
                 throw new UserFriendlyException("Mã câu chuyện đã tồn tại", HCNDomainErrorCodes.StoryCodeAlreadyExists);
             }

@@ -21,11 +21,11 @@ namespace HCN.EntityManagers
             int liked, int viewCount, int sortOrder, bool visibility, string videoUrl, string referenceSource, 
             string keywordSEO, string descriptionSEO, Guid? parentId)
         {
-            if (await _formulaRepository.AnyAsync(x => x.Name == name))
+            if (await _formulaRepository.AnyAsync(x => x.Name.ToUpper() == name.ToUpper()))
             {
                 throw new UserFriendlyException("Tên công thức đã tồn tại", HCNDomainErrorCodes.FormulaNameAlreadyExists);
             }
-            if (await _formulaRepository.AnyAsync(x => x.Code == code))
+            if (await _formulaRepository.AnyAsync(x => x.Code.ToUpper() == code.ToUpper()))
             {
                 throw new UserFriendlyException("Mã công thức đã tồn tại", HCNDomainErrorCodes.FormulaCodeAlreadyExists);
             }
@@ -37,12 +37,12 @@ namespace HCN.EntityManagers
 
         public async Task<Formula> GetUpdateAsync(Guid id, string name, string code)
         {
-            if (await _formulaRepository.AnyAsync(x => x.Name == name && x.Id != id))
+            if (await _formulaRepository.AnyAsync(x => x.Name.ToUpper() == name.ToUpper() && x.Id != id))
             {
                 throw new UserFriendlyException("Tên công thức đã tồn tại", HCNDomainErrorCodes.FormulaNameAlreadyExists);
             }
 
-            if (await _formulaRepository.AnyAsync(x => x.Code == code && x.Id != id))
+            if (await _formulaRepository.AnyAsync(x => x.Code.ToUpper() == code.ToUpper() && x.Id != id))
             {
                 throw new UserFriendlyException("Mã công thức đã tồn tại", HCNDomainErrorCodes.FormulaCodeAlreadyExists);
             }
