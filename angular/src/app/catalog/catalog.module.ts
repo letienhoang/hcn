@@ -44,6 +44,8 @@ import { FormulaComponent } from './formula/formula.component';
 import { FormulaDetailComponent } from './formula/formula-detail.component';
 import { FormulaTagComponent } from './formula/formula-tag.component';
 import {InputSwitchModule} from 'primeng/inputswitch';
+import { UnitComponent } from './unit/unit.component';
+import { UnitDetailComponent } from './unit/unit-detail.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +71,8 @@ import {InputSwitchModule} from 'primeng/inputswitch';
     FormulaComponent,
     FormulaDetailComponent,
     FormulaTagComponent,
+    UnitComponent,
+    UnitDetailComponent
   ],
   imports: [
     SharedModule,
@@ -108,7 +112,8 @@ import {InputSwitchModule} from 'primeng/inputswitch';
     ToolDetailComponent,
     ToolTagComponent,
     FormulaDetailComponent,
-    FormulaTagComponent
+    FormulaTagComponent,
+    UnitDetailComponent
   ],
 })
 export class CatalogModule {}

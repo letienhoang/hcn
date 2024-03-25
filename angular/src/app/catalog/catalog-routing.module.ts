@@ -10,6 +10,7 @@ import { TagComponent } from './tag/tag.component';
 import { MaterialComponent } from './material/material.component';
 import { ToolComponent } from './tool/tool.component';
 import { FormulaComponent } from './formula/formula.component';
+import { UnitComponent } from './unit/unit.component';
 
 const routes: Routes = [
   {
@@ -82,6 +83,14 @@ const routes: Routes = [
     canActivate: [PermissionGuard],
     data: {
       requiredPolicy: 'HCNAdminCatalog.Formula',
+    },
+  },
+  {
+    path: 'unit',
+    component: UnitComponent,
+    canActivate: [PermissionGuard],
+    data: {
+      requiredPolicy: 'HCNAdminCatalog.Unit',
     },
   },
 ];

@@ -7,4 +7,5 @@ import * as Tags from './tags';
 import * as ToolCategories from './tool-categories';
 import * as Tools from './tools';
 import * as Topics from './topics';
-export { FormulaCategories, Formulas, MaterialCategories, Materials, Stories, Tags, ToolCategories, Tools, Topics };
+import * as Units from './units';
+export { FormulaCategories, Formulas, MaterialCategories, Materials, Stories, Tags, ToolCategories, Tools, Topics, Units };

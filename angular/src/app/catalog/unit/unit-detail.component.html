@@ -1,18 +1,29 @@
 <form [formGroup]="form" skipValidation (ngSubmit)="saveChange()">
-    <p-panel #pnl header="Chi tiết thẻ">
+    <p-panel #pnl header="Chi tiết đơn vị">
         <!--Form grid-->
         <div class="formgrid grid">
 
             <div class="field col-12">
-                <label for="name" class="block">Tên thẻ <span class="required">*</span></label>
-                <input id="name" pInputText type="text" (keyup)="generateSlug()" class="w-full" formControlName="name"/>
+                <label for="name" class="block">Tên đơn vị <span class="required">*</span></label>
+                <input id="name" pInputText type="text" class="w-full" formControlName="name"/>
                 <app-validation-message [entityForm]="form" fieldName="name" [validationMessages]="validationMessages"></app-validation-message>
+            </div>
+
+            <div class="field col-12">
+                <label for="unitType" class="block">Loại đơn vị</label>
+                <p-dropdown 
+                    [options]="unitTypes" 
+                    formControlName="unitType" 
+                    placeholder="Chọn loại" 
+                    [showClear]="true"
+                    autoWidth="false" [style]="{'width':'100%'}"
+                ></p-dropdown>
             </div>
             
             <div class="field col-12">
-                <label for="slug" class="block">Slug <span class="required">*</span></label>
-                <input id="slug" pInputText type="text" class="w-full" formControlName="slug"/>
-                <app-validation-message [entityForm]="form" fieldName="slug" [validationMessages]="validationMessages"></app-validation-message>
+                <label for="briefContent" class="block">Mô tả ngắn</label>
+                <textarea id="briefContent" pInputTextarea class="w-full" formControlName="briefContent"></textarea>
+                <app-validation-message [entityForm]="form" fieldName="briefContent" [validationMessages]="validationMessages"></app-validation-message>
             </div>
             
             <div class="field-checkbox col-12 md:col-3">

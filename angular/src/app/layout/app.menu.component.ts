@@ -98,6 +98,17 @@ export class AppMenuComponent implements OnInit {
         ],
       },
       {
+        label: 'Đơn vị',
+        items: [
+          {
+            label: 'Đơn vị',
+            icon: 'pi pi-fw pi-clone',
+            routerLink: ['/catalog/unit'],
+            permission: 'HCNAdminCatalog.Unit',
+          },
+        ],
+      },
+      {
         label: 'Cài đặt',
         icon: 'pi pi-fw pi-briefcase',
         items: [
@@ -136,19 +147,19 @@ export class AppMenuComponent implements OnInit {
           },
         ],
       },
-      {
-        label: 'Get Started',
-        items: [
-          {
-            label: 'Documentation',
-            icon: 'pi pi-fw pi-question',
-            routerLink: ['/documentation'],
-          },
-          // {
-          //     label: 'View Source', icon: 'pi pi-fw pi-search', url: ['https://github.com/primefaces/sakai-ng'], target: '_blank'
-          // }
-        ],
-      },
+      // {
+      //   label: 'Get Started',
+      //   items: [
+      //     {
+      //       label: 'Documentation',
+      //       icon: 'pi pi-fw pi-question',
+      //       routerLink: ['/documentation'],
+      //     },
+      //     // {
+      //     //     label: 'View Source', icon: 'pi pi-fw pi-search', url: ['https://github.com/primefaces/sakai-ng'], target: '_blank'
+      //     // }
+      //   ],
+      // },
     ];
   }
 }
