@@ -37,6 +37,10 @@
     "Permission:HCNAdminCatalog.Tool": "Công cụ",
     "Permission:HCNAdminCatalog.Tool.Create": "Tạo mới công cụ",
     "Permission:HCNAdminCatalog.Tool.Update": "Cập nhật công cụ",
-    "Permission:HCNAdminCatalog.Tool.Delete": "Xóa công cụ"
+    "Permission:HCNAdminCatalog.Tool.Delete": "Xóa công cụ",
+    "Permission:HCNAdminCatalog.Unit": "Đơn vị",
+    "Permission:HCNAdminCatalog.Unit.Create": "Tạo mới đơn vị",
+    "Permission:HCNAdminCatalog.Unit.Update": "Cập nhật đơn vị",
+    "Permission:HCNAdminCatalog.Unit.Delete": "Xóa đơn vị"
   }
 }

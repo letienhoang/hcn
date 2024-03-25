@@ -37,6 +37,10 @@
     "Permission:HCNAdminCatalog.Tool": "Tool",
     "Permission:HCNAdminCatalog.Tool.Create": "Create Tool",
     "Permission:HCNAdminCatalog.Tool.Update": "Update Tool",
-    "Permission:HCNAdminCatalog.Tool.Delete": "Delete Tool"
+    "Permission:HCNAdminCatalog.Tool.Delete": "Delete Tool",
+    "Permission:HCNAdminCatalog.Unit": "Unit",
+    "Permission:HCNAdminCatalog.Unit.Create": "Create Unit",
+    "Permission:HCNAdminCatalog.Unit.Update": "Update Unit",
+    "Permission:HCNAdminCatalog.Unit.Delete": "Delete Unit"
   }
 }

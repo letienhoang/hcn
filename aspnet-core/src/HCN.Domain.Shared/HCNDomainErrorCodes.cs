@@ -44,5 +44,9 @@ public static class HCNDomainErrorCodes
     public const string TagNameAlreadyExists = "HCN:TagNameAlreadyExists";
     public const string TagIsNotExists = "HCN:TagIsNotExists";
 
+    //Unit
+    public const string UnitNameAlreadyExists = "HCN:UnitNameAlreadyExists";
+    public const string UnitIsNotExists = "HCN:UnitIsNotExists";
+
     public const string RoleNameAlreadyExists = "HCN:RoleNameAlreadyExists";
 }

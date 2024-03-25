@@ -7,6 +7,15 @@ namespace HCN.Units
     {
         public Unit()
         { }
+
+        public Unit(Guid id, string name, UnitType unitType, string briefContent, bool visibility) {
+            Id = id;
+            Name = name;
+            UnitType = unitType;
+            BriefContent = briefContent;
+            Visibility = visibility;
+        }
+
         public string Name { get; set; }
         public UnitType UnitType { get; set; }
         public string BriefContent { get; set; }

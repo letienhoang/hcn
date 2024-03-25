@@ -8,6 +8,7 @@ using HCN.Admin.Catalog.Tags;
 using HCN.Admin.Catalog.ToolCategories;
 using HCN.Admin.Catalog.Tools;
 using HCN.Admin.Catalog.Topics;
+using HCN.Admin.Catalog.Units;
 using HCN.Admin.System.Roles;
 using HCN.Admin.System.Users;
 using HCN.Formulas;
@@ -16,6 +17,7 @@ using HCN.Roles;
 using HCN.Stories;
 using HCN.Tags;
 using HCN.Tools;
+using HCN.Units;
 using Volo.Abp.Identity;
 
 namespace HCN.Admin;
@@ -68,6 +70,11 @@ public class AdminApplicationAutoMapperProfile : Profile
         CreateMap<Formula, FormulaDto>();
         CreateMap<Formula, FormulaInListDto>();
         CreateMap<CreateUpdateFormulaDto, Formula>();
+
+        //Unit
+        CreateMap<Unit, UnitDto>();
+        CreateMap<Unit, UnitInListDto>();
+        CreateMap<CreateUpdateUnitDto, Unit>();
 
         //Role
         CreateMap<IdentityRole, RoleDto>().ForMember(x => x.Description,
