@@ -1,0 +1,66 @@
+<p-panel header="Danh sách công thức">
+    <!--Filter (search panel)-->
+    <div class="grid">
+        <div class="col-4">
+            <button pButton type="button" (click)="showAddModal()" icon="pi pi-plus" iconPos="left" label="Thêm"></button>
+            <button pButton type="button" (click)="showEditModal()" class="ml-1 p-button-help" *ngIf="selectedItems.length === 1" icon="fa fa-edit" iconPos="left" label="Sửa"></button>
+            <button pButton type="button" (click)="deleteItems()" class="ml-1 p-button-danger" *ngIf="selectedItems.length > 0" icon="fa fa-trash" iconPos="left" label="Xóa"></button>
+        </div>
+        <div class="col-8">
+            <div class="formgroup-inline">
+                <div class="field">
+                    <label for="txt-keyword" class="p-sr-only">Từ khóa</label>
+                    <input id="txt-keyword" (keypress)="loadData()" [(ngModel)]="keyword" pInputText type="text" placeholder="Gõ từ khóa">
+                </div>
+                <div class="field">
+                    <p-dropdown [options]="categories" [(ngModel)]="categoryId" placeholder="Chọn danh mục"></p-dropdown>
+                </div>
+                <button type="button" pButton icon="pi pi-search" iconPos="left" label="Tìm" (click)="loadData()"></button>
+            </div>
+        </div>
+    </div>
+    <!--Table-->
+    <p-table #pnl [value]="items" [(selection)]="selectedItems" selectionMode="multiple">
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width: 10px;">
+                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                </th>
+                <th>Tên công cụ</th>
+                <th style="width: 10%;">Mã công cụ</th>
+                <th style="width: 10%;">Lượt thích</th>
+                <th style="width: 10%;">Lượt xem</th>
+                <th style="width: 10%;">Thứ tự</th>
+                <th>Hiện thị</th>
+                <th style="width: 10%;"></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-row>
+            <tr [pSelectableRow]="row">
+                <td style="width: 10px;"><span class="ui-column-title"></span>
+                    <p-tableCheckbox [value]="row"></p-tableCheckbox>
+                </td>
+                <td>{{ row.name }}</td>
+                <td>{{ row.code }}</td>
+                <td>{{ row.liked }}</td>
+                <td>{{ row.viewCount }}</td>
+                <td>{{ row.sortOrder }}</td>
+                <td>
+                    <p-inputSwitch [(ngModel)]="row.visibility" (onChange)="visibilityChange(row.id, $event)"></p-inputSwitch>
+                </td>
+                <td>
+                    <button pButton pRipple type="button" class="p-button-text" (click)="manageFormulaTag(row.id)" icon="pi pi-tags" label="Thẻ"></button>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="summary">
+            <div style="text-align: left">Tổng số bản ghi: {{ totalCount | number}}</div>
+        </ng-template>
+    </p-table>
+    <!--Paginator-->
+    <p-paginator [rows]="maxResultCount" [totalRecords]="totalCount" (onPageChange)="pageChanged($event)" [rowsPerPageOptions]="[10,20,30,50,100]"></p-paginator>
+    <!--BlockUI-->
+    <p-blockUI [blocked]="blockedPanel" [target]="pnl">
+        <p-progressSpinner [style]="{width: '50px', height: '50px'}" styleClass="custom-spinner" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".25s"></p-progressSpinner>
+    </p-blockUI>
+</p-panel>

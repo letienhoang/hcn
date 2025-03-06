@@ -1,0 +1,152 @@
+<form [formGroup]="form" skipValidation (ngSubmit)="saveChange()">
+    <p-panel #pnl header="Chi tiết công thức">
+        <!--Form grid-->
+        <div class="formgrid grid">
+
+            <div class="field col-12">
+                <label for="name" class="block">Tiêu đề công thức <span class="required">*</span></label>
+                <input id="name" pInputText type="text" (keyup)="generateSlug()" class="w-full" formControlName="name"/>
+                <app-validation-message [entityForm]="form" fieldName="name" [validationMessages]="validationMessages"></app-validation-message>
+            </div>
+            
+            <div class="field col-12">
+                <label for="slug" class="block">Slug <span class="required">*</span></label>
+                <input id="slug" pInputText type="text" class="w-full" formControlName="slug"/>
+                <app-validation-message [entityForm]="form" fieldName="slug" [validationMessages]="validationMessages"></app-validation-message>
+            </div>
+
+            <div class="field col-12">
+                <label for="code" class="block">Code <span class="required">*</span></label>
+                <input id="code" pInputText type="text" formControlName="code"/>
+                <app-validation-message [entityForm]="form" fieldName="code" [validationMessages]="validationMessages"></app-validation-message>
+            </div>
+
+            <div class="field col-12">
+                <label for="categoryId" class="block">Danh mục</label>
+                <p-dropdown 
+                    [options]="formulaCategories" 
+                    formControlName="categoryId" 
+                    placeholder="Chọn danh mục" 
+                    [showClear]="true"
+                    autoWidth="false" [style]="{'width':'100%'}"
+                ></p-dropdown>
+            </div>
+
+            <div class="field col-12">
+                <label for="formulaType" class="block">Loại công thức</label>
+                <p-dropdown 
+                    [options]="formulaTypes" 
+                    formControlName="formulaType" 
+                    placeholder="Chọn loại" 
+                    [showClear]="true"
+                    autoWidth="false" [style]="{'width':'100%'}"
+                ></p-dropdown>
+            </div>
+
+            <div class="field col-12">
+                <label for="level" class="block">Cấp độ thực hiện</label>
+                <p-dropdown 
+                    [options]="levels" 
+                    formControlName="level" 
+                    placeholder="Chọn cấp độ" 
+                    [showClear]="true"
+                    autoWidth="false" [style]="{'width':'100%'}"
+                ></p-dropdown>
+            </div>
+
+            <div class="field col-12">
+                <label for="parentId" class="block">Công thức</label>
+                <p-dropdown 
+                    [options]="formulaParents" 
+                    formControlName="parentId" 
+                    placeholder="Chọn nguyên liệu cha" 
+                    [showClear]="true"
+                    autoWidth="false" [style]="{'width':'100%'}"
+                ></p-dropdown>
+            </div>
+
+            <div class="field col-12">
+                <label for="executionTime" class="block">Thời gian thực hiện <span class="required">*</span></label>
+                <p-inputNumber formControlName="executionTime" suffix=" phút"></p-inputNumber>
+                <app-validation-message [entityForm]="form" fieldName="executionTime" [validationMessages]="validationMessages"></app-validation-message>
+            </div>
+
+            <div class="field col-12 md:col-6">
+                <label for="coverPicture" class="block">Hình ảnh</label>
+                <input id="coverPicture" type="file" (change)="onFileChange($event)" class="w-full">
+            </div>
+
+            <div class="field col-12 md:col-6">
+                <p-image [src]="thumbnailImage" [alt]="selectedEntity.name" width="250" [preview]="true"></p-image>
+            </div>
+
+            <div class="field col-12">
+                <label for="briefContent" class="block">Mô tả ngắn</label>
+                <textarea id="briefContent" pInputTextarea class="w-full" formControlName="briefContent"></textarea>
+                <app-validation-message [entityForm]="form" fieldName="briefContent" [validationMessages]="validationMessages"></app-validation-message>
+            </div>
+
+            <div class="field col-12">
+                <label for="description" class="block">Mô tả</label>
+                <p-editor formControlName="description" [style]="{'height':'320px'}"></p-editor>
+            </div>
+
+            <div class="field col-12 md:col-6">
+                <label for="liked" class="block">Lượt thích <span class="required">*</span></label>
+                <p-inputNumber formControlName="liked"></p-inputNumber>
+                <app-validation-message [entityForm]="form" fieldName="liked" [validationMessages]="validationMessages"></app-validation-message>
+            </div>
+
+            <div class="field col-12 md:col-6">
+                <label for="viewCount" class="block">Lượt xem <span class="required">*</span></label>
+                <p-inputNumber formControlName="viewCount"></p-inputNumber>
+                <app-validation-message [entityForm]="form" fieldName="viewCount" [validationMessages]="validationMessages"></app-validation-message>
+            </div>
+
+            <div class="field col-12 md:col-3">
+                <label for="sortOrder" class="block">Thứ tự <span class="required">*</span></label>
+                <p-inputNumber formControlName="sortOrder"></p-inputNumber>
+                <app-validation-message [entityForm]="form" fieldName="sortOrder" [validationMessages]="validationMessages"></app-validation-message>
+            </div>
+
+            <div class="field-checkbox col-12 md:col-3">
+                <p-checkbox formControlName="visibility" binary="true" id="visibility"></p-checkbox>
+                <label for="visibility">Hiển thị</label>
+            </div>
+
+            <div class="field col-12">
+                <label for="videoUrl" class="block">Đường dẫn video</label>
+                <input id="videoUrl" pInputText type="text" formControlName="videoUrl"/>
+                <app-validation-message [entityForm]="form" fieldName="videoUrl" [validationMessages]="validationMessages"></app-validation-message>
+            </div>
+
+            <div class="field col-12">
+                <label for="referenceSource" class="block">Nguồn thông tin</label>
+                <textarea id="referenceSource" pInputTextarea class="w-full" formControlName="referenceSource"></textarea>
+                <app-validation-message [entityForm]="form" fieldName="referenceSource" [validationMessages]="validationMessages"></app-validation-message>
+            </div>
+
+            <div class="field col-12">
+                <label for="keywordSEO" class="block">Từ khóa SEO</label>
+                <textarea id="keywordSEO" pInputTextarea class="w-full" formControlName="keywordSEO"></textarea>
+                <app-validation-message [entityForm]="form" fieldName="keywordSEO" [validationMessages]="validationMessages"></app-validation-message>
+            </div>
+
+            <div class="field col-12">
+                <label for="descriptionSEO" class="block">Mô tả SEO</label>
+                <textarea id="descriptionSEO" pInputTextarea class="w-full" formControlName="descriptionSEO"></textarea>
+                <app-validation-message [entityForm]="form" fieldName="descriptionSEO" [validationMessages]="validationMessages"></app-validation-message>
+            </div>
+            
+        </div>
+    
+        <ng-template pTemplate="footer">
+            <button type="submit" [disabled]="!form.valid || btnDisabled" pButton icon="pi pi-save" iconPos="left" label="Lưu lại"></button>
+        </ng-template>
+        
+        <!--BlockUI-->
+        <p-blockUI [blocked]="blockedPanel" [target]="pnl">
+            <p-progressSpinner [style]="{width: '50px', height: '50px'}" styleClass="custom-spinner" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s"></p-progressSpinner>
+        </p-blockUI>
+    </p-panel>
+</form>

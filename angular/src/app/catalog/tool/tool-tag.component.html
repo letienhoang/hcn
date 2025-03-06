@@ -1,0 +1,18 @@
+<form [formGroup]="form" skipValidation>
+    <div class="grid formgrid">
+
+        <div class="field col-6">
+            <label for="tagToolList" class="block">Tạo thẻ</label>
+            <p-chips id="tagToolList" class="w-full" formControlName="tagToolList"></p-chips>
+        </div>
+
+        <div class="field col-6">
+            <button pButton type="button" (click)="saveChange()" [disabled]="!form.valid || btnDisabled" label="Cập nhật"></button>
+        </div>
+    </div>
+</form>
+
+<!--BlockUI-->
+<p-blockUI [blocked]="blockedPanel">
+    <p-progressSpinner [style]="{width: '50px', height: '50px'}" styleClass="custom-spinner" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s"></p-progressSpinner>
+</p-blockUI>

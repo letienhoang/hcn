@@ -6,21 +6,22 @@ export const environment = {
   production: false,
   application: {
     baseUrl,
-    name: 'HCN',
+    name: 'HCN Admin',
     logoUrl: '',
   },
   oAuthConfig: {
-    issuer: 'https://localhost:44382/',
+    issuer: 'https://localhost:60000/',
     redirectUri: baseUrl,
-    clientId: 'HCN_App',
+    clientId: 'HCN_Admin',
+    dummyClientSecret: '1q2w3e*',
     responseType: 'code',
-    scope: 'offline_access HCN',
+    scope: 'offline_access HCN.Admin',
     requireHttps: true,
   },
   apis: {
     default: {
-      url: 'https://localhost:44361',
-      rootNamespace: 'HCN',
+      url: 'https://localhost:50001',
+      rootNamespace: 'HCN.Admin',
     },
   },
 } as Environment;

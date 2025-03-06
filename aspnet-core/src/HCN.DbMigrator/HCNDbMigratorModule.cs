@@ -1,4 +1,5 @@
-﻿using HCN.EntityFrameworkCore;
+﻿using HCN.Admin;
+using HCN.EntityFrameworkCore;
 using Volo.Abp.Autofac;
 using Volo.Abp.BackgroundJobs;
 using Volo.Abp.Modularity;
@@ -8,7 +9,7 @@ namespace HCN.DbMigrator;
 [DependsOn(
     typeof(AbpAutofacModule),
     typeof(HCNEntityFrameworkCoreModule),
-    typeof(HCNApplicationContractsModule)
+    typeof(AdminApplicationContractsModule)
     )]
 public class HCNDbMigratorModule : AbpModule
 {

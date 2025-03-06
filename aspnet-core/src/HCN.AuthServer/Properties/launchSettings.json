@@ -8,17 +8,10 @@
     }
   },
   "profiles": {
-    "IIS Express": {
-      "commandName": "IISExpress",
-      "launchBrowser": true,
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
-    },
     "HCN.AuthServer": {
       "commandName": "Project",
-      "launchBrowser": true,
-      "applicationUrl": "https://localhost:44382",
+      "launchBrowser": false,
+      "applicationUrl": "https://localhost:60000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
